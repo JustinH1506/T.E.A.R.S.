@@ -2238,7 +2238,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e89e434b020c1547bab3334084a25ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadingIcon: {fileID: 2098760893}
   loadingScreen: {fileID: 1593321241}
   mainMenuScreen: {fileID: 833812225}
   gameOverScreen: {fileID: 1161305376}
@@ -2247,6 +2246,12 @@ MonoBehaviour:
   pauseScreen: {fileID: 267682218}
   journalScreen: {fileID: 195700431}
   JournalText: {fileID: 219980525}
+  journalButtons:
+  - {fileID: 1093799106}
+  - {fileID: 2105784068}
+  - {fileID: 470024477}
+  - {fileID: 1486567033}
+  loadingIcon: {fileID: 2098760893}
   playerHealthUi: {fileID: 129491355}
   playerStaminaUi: {fileID: 1771467162}
   musicSource: {fileID: 0}
@@ -2786,7 +2791,7 @@ GameObject:
   - component: {fileID: 470024478}
   - component: {fileID: 470024477}
   m_Layer: 5
-  m_Name: Journal 01 (2)
+  m_Name: Journal 03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2851,11 +2856,23 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 470024478}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 395743150}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: ChangeJournal
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 184df65336c72994580a647b9eb82adb, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Journals, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &470024478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5398,7 +5415,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1093799107}
   m_OnClick:
     m_PersistentCalls:
@@ -6620,7 +6637,7 @@ GameObject:
   - component: {fileID: 1486567034}
   - component: {fileID: 1486567033}
   m_Layer: 5
-  m_Name: Journal 01 (3)
+  m_Name: Journal 04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6685,11 +6702,23 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1486567034}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 395743150}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: ChangeJournal
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 3ff60a72de85ce14582dc4b9274c519c, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Journals, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1486567034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8637,6 +8666,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentAttackingEnemies: 0
   gameStates: 0
+  journalStates: 00000000
   debugAsset: {fileID: 11400000, guid: f5af5659d231e2e449f1fe1e009146e3, type: 2}
 --- !u!4 &1894520269
 Transform:
@@ -9554,7 +9584,7 @@ GameObject:
   - component: {fileID: 2105784069}
   - component: {fileID: 2105784068}
   m_Layer: 5
-  m_Name: Journal 01 (1)
+  m_Name: Journal 02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9619,7 +9649,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2105784069}
   m_OnClick:
     m_PersistentCalls:

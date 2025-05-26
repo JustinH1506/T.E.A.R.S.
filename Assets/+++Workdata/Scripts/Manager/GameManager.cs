@@ -14,12 +14,14 @@ public class GameManager : MonoBehaviour
     }
     
     [Header("Game Variables")]
-    
     public static GameManager Instance;
 
     public int currentAttackingEnemies;
     
     public GameStates gameStates;
+
+    public bool[] journalStates;
+    
     [FormerlySerializedAs("_debug")]
     [Space]
     
@@ -87,5 +89,14 @@ public class GameManager : MonoBehaviour
         {
             gameStates = GameStates.InBattle;
         }
+    }
+
+    public void ActivateJournal(int journalIndex)
+    {
+        journalStates[journalIndex] = true;
+        
+        UIManager.Instance.journalButtons[journalIndex].interactable = true;
+        UIManager.Instance.OpenMenu(UIManager.Instance.journalScreen, CursorLockMode.None, 0f);
+        UIManager.Instance.journalButtons[journalIndex].onClick.Invoke();
     }
 }

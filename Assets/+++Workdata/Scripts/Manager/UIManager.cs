@@ -7,13 +7,17 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
 	public static UIManager Instance;
+	private GameObject player;
 	
-	public Image loadingIcon;
-
+	#region Constants
+	
 	public const string master = "Master";
 	public const string music = "Music";
 	public const string sfx = "SFX";
 	
+	#endregion
+	
+	#region CanvasGroups
 	[Header("Canvas Groups")]
 	public CanvasGroup loadingScreen;
 	public CanvasGroup mainMenuScreen;
@@ -22,29 +26,45 @@ public class UIManager : MonoBehaviour
 	public CanvasGroup inGameUi;
 	public CanvasGroup pauseScreen;
 	public CanvasGroup journalScreen;
-
+    #endregion
+	
+    #region Texts
 	[Header("Texts")] 
 	[SerializeField] private TextMeshProUGUI JournalText;
-	
+	#endregion
+
+	#region Buttons
+
 	[Header("Buttons")] 
 	
-	[Space] 
+	public Button[] journalButtons;
 	
-	[Header("Images")]
+	[Space]
 
+	#endregion
+
+	#region Images
+
+	[Header("Images")]
+	public Image loadingIcon;
 	public Image playerHealthUi;
 	public Image playerStaminaUi;
+	[Space] 
 	
-	[Space] [Header("Audio")] 
+	#endregion
+	
+	#region Audio
+	
+	[Header("Audio")] 
 	[SerializeField] private AudioSource musicSource;
 	[SerializeField] private AudioMixer mixer;
 	[SerializeField] private Slider masterSlider;
 	[SerializeField] private Slider musicSlider;
 	[SerializeField] private Slider sfxSlider;
-	[Space]
-
-	private GameObject player;
-
+	
+	#endregion
+	
+	#region Methods
 	private void Awake()
 	{
 		if (Instance == null)
@@ -135,7 +155,7 @@ public class UIManager : MonoBehaviour
 
 		if (player != null)
 		{
-			//player.GetComponent<PlayerActions>().DisablePlayerActions();
+			player.GetComponent<PlayerStateMachine>().DisablePlayerActions();
 		}
 
 		Cursor.lockState = lockMode;
@@ -151,7 +171,7 @@ public class UIManager : MonoBehaviour
 
 		if (player != null)
 		{
-			//player.GetComponent<PlayerActions>().EnablePlayerActions();
+			player.GetComponent<PlayerStateMachine>().EnablePlayerActions();
 		}
 
 		Cursor.lockState = lockMode;
@@ -187,4 +207,6 @@ public class UIManager : MonoBehaviour
 				break;
 		}
 	}
+	
+	#endregion
 }

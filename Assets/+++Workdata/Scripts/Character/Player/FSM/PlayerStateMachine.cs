@@ -14,7 +14,7 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
     
     private PlayerBaseState currentState;
     private PlayerStateFactory states;
-    public TargetLock targetLock;
+   
     
     public PlayerBaseState CurrentState { get => currentState;
 	    set => currentState = value;
@@ -31,6 +31,8 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
     #region Movement Variabels
     
     [Header("Movement Variables"), Tooltip("Max movement speed during walking.")]
+    
+    public bool disabled = false;
     
     [SerializeField] private float maxMoveSpeed = 0;
     [SerializeField] private float maxSprintMoveSpeed = 0;
@@ -126,10 +128,9 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
     #region Animator
 
     public Animator Anim => anim;
+    [Space]
 
     #endregion
-    
-    [Space]
     
     #endregion
     
@@ -139,6 +140,8 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
     private float inputX;
     private float inputZ;
     private bool isMoving;
+    
+    public TargetLock targetLock { get; private set; }
     
 	#endregion
 	
@@ -189,6 +192,9 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
     /// </summary>
     private void Update()
     {
+	    if (disabled)
+		    return;
+	    
 	    currentState.UpdateState();
 
 	    if (GameManager.Instance.gameStates == GameManager.GameStates.InGame && CurrentHealth < baseMaxHealth)
@@ -470,6 +476,16 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
     public void AttackMovement(float forwardMovement)
     {
 	    rb.AddForce(transform.forward * forwardMovement, ForceMode.VelocityChange);
+    }
+    
+    public void EnablePlayerActions()
+    {
+	    disabled = false;
+    }
+
+    public void DisablePlayerActions()
+    {
+		disabled = true;
     }
     
     #endregion
