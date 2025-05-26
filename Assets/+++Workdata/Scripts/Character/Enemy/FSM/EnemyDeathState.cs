@@ -6,6 +6,7 @@ public class EnemyDeathState : EnemyBaseState
     
 	public override void EnterState()
 	{
+		ctx.NavMeshAgent.isStopped = true;
 		ctx.Anim.Play(EnemyAnimationFactory.Death);
 	}
 

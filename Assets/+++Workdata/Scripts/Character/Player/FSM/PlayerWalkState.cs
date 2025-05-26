@@ -9,7 +9,7 @@ public class PlayerWalkState : PlayerBaseState
 	#endregion
 	
 	#region My Methods
-	public override void EnterState( )
+	public override void EnterState()
 	{
 		if (ctx.targetLock.isTargeting)
 		{

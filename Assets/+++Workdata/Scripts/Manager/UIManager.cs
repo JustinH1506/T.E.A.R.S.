@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -20,7 +21,11 @@ public class UIManager : MonoBehaviour
 	public CanvasGroup optionsScreen;
 	public CanvasGroup inGameUi;
 	public CanvasGroup pauseScreen;
+	public CanvasGroup journalScreen;
 
+	[Header("Texts")] 
+	[SerializeField] private TextMeshProUGUI JournalText;
+	
 	[Header("Buttons")] 
 	
 	[Space] 
@@ -65,13 +70,22 @@ public class UIManager : MonoBehaviour
 
 	private void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Escape) && pauseScreen.alpha <= 1)
+		if (Input.GetKeyDown(KeyCode.Escape) && pauseScreen.alpha < 1)
 		{
 			OpenMenu(pauseScreen, CursorLockMode.None, 0f);
 		}
 		else if(Input.GetKeyDown(KeyCode.Escape) && pauseScreen.alpha >= 1)
 		{
-			CloseMenu(pauseScreen, CursorLockMode.Locked, 0f);
+			CloseMenu(pauseScreen, CursorLockMode.Locked, 1f);
+		}
+
+		if (Input.GetKeyDown(KeyCode.Tab) && journalScreen.alpha < 1)
+		{
+			OpenMenu(journalScreen, CursorLockMode.None, 0f);
+		}
+		else if (Input.GetKeyDown(KeyCode.Tab) && journalScreen.alpha >= 1)
+		{
+			CloseMenu(journalScreen, CursorLockMode.Locked, 1f);
 		}
 	}
 
@@ -143,6 +157,11 @@ public class UIManager : MonoBehaviour
 		Cursor.lockState = lockMode;
 
 		Time.timeScale = timeScale;
+	}
+
+	public void ChangeJournal(Journals journals)
+	{
+		JournalText.text = journals.journalText;
 	}
 
 	public void SaveGame()

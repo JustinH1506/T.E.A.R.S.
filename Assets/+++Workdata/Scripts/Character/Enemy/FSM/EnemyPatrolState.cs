@@ -8,6 +8,8 @@ public class EnemyPatrolState : EnemyBaseState
 
     public override void EnterState()
     {
+        ctx.NavMeshAgent.isStopped = false;
+
         ctx.Anim.Play(EnemyAnimationFactory.Walk);
 
         ctx.NavMeshAgent.destination = ctx.CheckPoints[ctx.CurrentPoint].position;

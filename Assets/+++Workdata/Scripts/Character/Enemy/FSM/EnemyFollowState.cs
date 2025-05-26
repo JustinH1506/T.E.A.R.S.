@@ -8,8 +8,8 @@ public class EnemyFollowState: EnemyBaseState
 	
 	public override void EnterState()
 	{
-		ctx.Anim.CrossFade(EnemyAnimationFactory.Walk, 0.25f);
-		//GameManager.Instance.AddEnemies();
+		ctx.NavMeshAgent.isStopped = false;
+		ctx.Anim.CrossFade(EnemyAnimationFactory.Run, 0.1f);
 	}
 
 	public override void UpdateState()
@@ -36,7 +36,6 @@ public class EnemyFollowState: EnemyBaseState
 
 	public override void ExitState()
 	{
-		
 	}
 
 	public override void CheckSwitchStates()

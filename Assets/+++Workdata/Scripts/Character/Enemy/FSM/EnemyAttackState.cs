@@ -8,6 +8,7 @@ public class EnemyAttackState : EnemyBaseState
 	private float maxWaitCounter = 2f;
 	public override void EnterState()
 	{
+		ctx.NavMeshAgent.isStopped = true;
 		FaceTarget();
 		ctx.Anim.Play(EnemyAnimationFactory.Attack);
 		waitCounter = maxWaitCounter;

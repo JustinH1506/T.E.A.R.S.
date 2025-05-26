@@ -6,6 +6,7 @@ public class EnemyStunState : EnemyBaseState
     
 	public override void EnterState()
 	{
+		ctx.NavMeshAgent.isStopped = true;
 		ctx.Anim.Play(EnemyAnimationFactory.Hit);
 	}
 
@@ -26,6 +27,12 @@ public class EnemyStunState : EnemyBaseState
 
 	public override void CheckSwitchStates()
 	{
+		if (ctx.GotHit)
+		{
+			ctx.Anim.Play(EnemyAnimationFactory.Hit);
+			ctx.GotHit = false;
+		}
+		
 		if (ctx.Anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1)
 		{
 			return;

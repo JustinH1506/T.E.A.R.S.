@@ -48,12 +48,17 @@ public class TargetLock : MonoBehaviour
             NewInputTarget(currentTarget);
         }
 
+        if (isTargeting && currentTarget.GetComponent<EnemyStateMachine>().IsDead)
+        {
+            isTargeting = false;
+            currentTarget = null;
+        }
+
         // if (aimIcon) 
         //     aimIcon.gameObject.SetActive(isTargeting);
 
         cinemachineFreeLook.m_XAxis.m_InputAxisValue = mouseX;
         cinemachineFreeLook.m_YAxis.m_InputAxisValue = mouseY;
-        
     }
 
     public void AssignTarget(InputAction.CallbackContext context)

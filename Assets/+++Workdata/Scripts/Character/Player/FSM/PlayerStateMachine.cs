@@ -262,7 +262,7 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
 	    }
 	    else if(targetLock.currentTarget != null)
 	    {
-		    transform.LookAt(new Vector3(targetLock.currentTarget.position.x, 0, targetLock.currentTarget.position.z));
+		    transform.LookAt(new Vector3(targetLock.currentTarget.position.x, transform.position.y, targetLock.currentTarget.position.z));
 	    }
     }
     
@@ -274,17 +274,28 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
 	    
 	    if (cameraRelativeMovement != Vector3.zero && !targetLock.isTargeting)
 	    {
-		    dodgeDirection = new Vector3(cameraRelativeMovement.x * dodgePower * 2f, rb.linearVelocity.y, cameraRelativeMovement.z * dodgePower * 2f);
+		    dodgeDirection = new Vector3(cameraRelativeMovement.x * dodgePower * 1.25f, rb.linearVelocity.y, cameraRelativeMovement.z * dodgePower * 1.25f);
 	    }
 	    else if (cameraRelativeMovement != Vector3.zero && targetLock.isTargeting)
 	    {
-		    dodgeDirection = new Vector3(cameraRelativeMovement.x * dodgePower * 2f, rb.linearVelocity.y, cameraRelativeMovement.z * dodgePower * 2f);
+		    dodgeDirection = new Vector3(cameraRelativeMovement.x * dodgePower * 1.25f, rb.linearVelocity.y, cameraRelativeMovement.z * dodgePower * 1.25f);
 		    anim.SetFloat("X", inputX, 0.1f, Time.deltaTime);
 		    anim.SetFloat("Y", inputZ, 0.1f, Time.deltaTime);
 	    }
 	    else
 	    {
 		    dodgeDirection = transform.forward * (dodgePower * 2);
+	    }
+
+	    if (dodgeDirection.x > 5 && dodgeDirection.z > 5)
+	    {
+		    dodgeDirection.x = 10;
+		    dodgeDirection.z = 10;
+	    }
+	    else if(dodgeDirection.x < -5 && dodgeDirection.z < -5)
+	    {
+		    dodgeDirection.x = -10;
+		    dodgeDirection.z = -10;
 	    }
 	    
 	    rb.AddForce(dodgeDirection, ForceMode.VelocityChange);

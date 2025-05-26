@@ -313,7 +313,7 @@ MonoBehaviour:
   cinemachineFreeLook: {fileID: 0}
   aimIcon: {fileID: 0}
   enemyTag: Enemy
-  targetLockOffset: {x: 0, y: -0.2}
+  targetLockOffset: {x: 0, y: 0}
   minDistance: 2
   maxDistance: 20
   isTargeting: 0

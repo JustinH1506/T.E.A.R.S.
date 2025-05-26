@@ -31,6 +31,6 @@ public class EnemyStateFactory
    
    public EnemyBaseState Death()
    {
-      return new EnemyStunState(context, this);
+      return new EnemyDeathState(context, this);
    }
 }

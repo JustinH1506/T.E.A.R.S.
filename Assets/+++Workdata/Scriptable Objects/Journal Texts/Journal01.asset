@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e26e1fbc9efc7064990c0f0e637a71f8, type: 3}
-  m_Name: Debug
+  m_Script: {fileID: 11500000, guid: 83cd6b8211edbb34e830a40f09d7582f, type: 3}
+  m_Name: Journal01
   m_EditorClassIdentifier: 
-  startScene: {fileID: 0}
-  useEditorCode: 0
-  loadGame: 0
+  journalText: "Heeeee haaaaaa \n\nlooool"
+  textAudio: {fileID: 0}
