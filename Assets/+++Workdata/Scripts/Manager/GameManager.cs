@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour, IDataPersistence
 {
     public enum GameStates
     {
@@ -98,5 +98,15 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.journalButtons[journalIndex].interactable = true;
         UIManager.Instance.OpenMenu(UIManager.Instance.journalScreen, CursorLockMode.None, 0f);
         UIManager.Instance.journalButtons[journalIndex].onClick.Invoke();
+    }
+
+    public void LoadData(GameData gameData)
+    {
+        
+    }
+
+    public void SaveData(GameData gameData)
+    {
+        
     }
 }

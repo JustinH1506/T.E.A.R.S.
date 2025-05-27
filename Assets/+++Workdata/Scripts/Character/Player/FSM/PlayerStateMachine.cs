@@ -52,6 +52,7 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
     private float currentStamina = 0f;
     private float runCost = 5f;
     private float dodgePower = 8;
+    private float staminaRecoverTimer = 0f;
     
     [Space]
     
@@ -378,6 +379,13 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
     /// </summary>
     public void GetCurrentStamina()
     {
+	    staminaRecoverTimer = 2;
+	    
+	    while (staminaRecoverTimer > 0.05f)
+	    {
+		    staminaRecoverTimer -= Time.deltaTime;
+	    }
+	    
 	    if (currentStamina < 50f)
 	    {
 			Stamina += Time.deltaTime * staminaRecovery;
@@ -404,7 +412,7 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
     /// <summary>
     /// Amount of Stamina used when attacking. 
     /// </summary>
-    public void AttackStaminaUse()
+    public void StaminaUse()
     {
 	    Stamina -= runCost;
     }
