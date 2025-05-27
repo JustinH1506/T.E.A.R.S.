@@ -102,11 +102,11 @@ public class GameManager : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData gameData)
     {
-        
+        journalStates = gameData.activeJournals;
     }
 
     public void SaveData(GameData gameData)
     {
-        
+        gameData.activeJournals = journalStates;
     }
 }

@@ -155,9 +155,11 @@ public class EnemyStateMachine : CharacterBase, IDataPersistence
 		{
 			gameData.enemyPositionByGuid.Remove(uniqueGuid);
 		}
+		
 		data.position = transform.position;
 		data.currentPatrolPoint = CurrentPoint;
 		data.isDead = isDead;
+		
 		gameData.enemyPositionByGuid.Add(uniqueGuid, data);
 	}
 
@@ -169,7 +171,7 @@ public class EnemyStateMachine : CharacterBase, IDataPersistence
 			
 			if (data.isDead)
 			{
-				gameObject.SetActive(false);
+				currentState = states.Death();
 				return;
 			}
 			
