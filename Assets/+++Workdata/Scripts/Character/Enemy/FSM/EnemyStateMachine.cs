@@ -40,6 +40,7 @@ public class EnemyStateMachine : CharacterBase, IDataPersistence
 	[SerializeField] private float attackCooldown = 0;
 	
 	[SerializeField] private LayerMask layerCovers = 0;
+	public bool isElite = false;
 	
 	private int currentPoint = 0;
 	

@@ -13,7 +13,6 @@ public class EnemyAttackState : EnemyBaseState
 		ctx.Anim.Play(EnemyAnimationFactory.Attack);
 		waitCounter = maxWaitCounter;
 		ctx.AttackCooldown = ctx.MaxAttackCooldown;
-		//ctx.CanAttack = false;
 	}
 
 	public override void UpdateState()
