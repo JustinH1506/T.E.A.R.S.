@@ -59,7 +59,7 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0.5
   depthExtent:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 32
   denoisingMode:
     m_OverrideState: 0
