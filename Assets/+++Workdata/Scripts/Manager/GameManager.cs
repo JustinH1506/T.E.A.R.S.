@@ -16,11 +16,13 @@ public class GameManager : MonoBehaviour, IDataPersistence
     [Header("Game Variables")]
     public static GameManager Instance;
 
-    public int currentAttackingEnemies;
+    public int killedEnemies = 0;
     
     public GameStates gameStates;
 
     public bool[] journalStates;
+
+    public bool hasKey = false;
     
     [FormerlySerializedAs("_debug")]
     [Space]
@@ -71,23 +73,11 @@ public class GameManager : MonoBehaviour, IDataPersistence
 #endif
     }
 
-    public void AddEnemies()
+    public void CheckKey()
     {
-        currentAttackingEnemies++;
-        
-        if (currentAttackingEnemies == 0)
+        if (killedEnemies == 2)
         {
-            gameStates = GameStates.InGame;
-        }
-    }
-
-    public void RemoveEnemies()
-    {
-        currentAttackingEnemies--;
-
-        if (currentAttackingEnemies >= 1)
-        {
-            gameStates = GameStates.InBattle;
+            hasKey = true;
         }
     }
 

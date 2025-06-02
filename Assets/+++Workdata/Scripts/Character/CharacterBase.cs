@@ -48,6 +48,8 @@ public class CharacterBase : MonoBehaviour
 			else
 			{
 				IsDead = true;
+				GameManager.Instance.killedEnemies++;
+				GameManager.Instance.CheckKey();
 			}
 		}
 	}

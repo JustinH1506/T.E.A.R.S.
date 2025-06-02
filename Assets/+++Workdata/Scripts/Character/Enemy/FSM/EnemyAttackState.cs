@@ -6,6 +6,7 @@ public class EnemyAttackState : EnemyBaseState
 
 	private float waitCounter;
 	private float maxWaitCounter = 2f;
+	
 	public override void EnterState()
 	{
 		ctx.NavMeshAgent.isStopped = true;
