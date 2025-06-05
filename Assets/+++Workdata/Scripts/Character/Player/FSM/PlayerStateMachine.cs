@@ -337,6 +337,9 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
     /// <param name="context"></param>
     public void Attack(InputAction.CallbackContext context)
     {
+	    if (disabled)
+		    return;
+	    
 	    if (currentStamina > 0.05f)
 	    {
 		    isAttacking = true;
@@ -350,6 +353,9 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
     /// <param name="context"></param>
     public void Sprint(InputAction.CallbackContext context)
     {
+	    if (disabled)
+		    return;
+	    
 	    if (!isSprinting)
 	    {
 		    isSprinting = true;
@@ -368,6 +374,9 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
     /// <param name="context"></param>
     public void Dodge(InputAction.CallbackContext context)
     {
+	    if (disabled)
+		    return;
+	    
 	    if (context.performed)
 	    {
 			isDodging = true;

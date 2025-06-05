@@ -5,6 +5,9 @@ public class KeyItem : MonoBehaviour
 	public bool playerInReach = false;
 
 	[SerializeField] private Animator doorAnim;
+
+	[SerializeField] private GameObject inactiveEnemy;
+	[SerializeField] private GameObject activeEnemy;
 	
 	private void OnTriggerEnter(Collider other)
 	{
@@ -33,6 +36,8 @@ public class KeyItem : MonoBehaviour
 			doorAnim.Play("EntranceDoors");
 			UIManager.Instance.OpenMenu(UIManager.Instance.dialogueUi, CursorLockMode.None, 1f);
 			AudioManager.Instance.StartCoroutine(AudioManager.Instance.StartDialogue());
+			inactiveEnemy.SetActive(false);
+			activeEnemy.SetActive(true);
 		}
 	}
 }

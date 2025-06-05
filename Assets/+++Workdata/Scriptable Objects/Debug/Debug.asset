@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e26e1fbc9efc7064990c0f0e637a71f8, type: 3}
   m_Name: Debug
   m_EditorClassIdentifier: 
-  startScene: {fileID: 102900000, guid: 6c75c3c131592e1419620c062c74a97d, type: 3}
-  useEditorCode: 1
+  startScene: {fileID: 102900000, guid: 05be2c37c2d0534449eabf3c57d89f8c, type: 3}
+  useEditorCode: 0
   loadGame: 0

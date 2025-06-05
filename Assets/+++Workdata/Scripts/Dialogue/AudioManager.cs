@@ -1,7 +1,7 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Serialization;
 
 public class AudioManager : MonoBehaviour
 {
@@ -15,23 +15,15 @@ public class AudioManager : MonoBehaviour
         public AudioClip audioClip;
     }
 
-    public AudioSource audio;
+    [FormerlySerializedAs("audio")] public AudioSource source;
     [SerializeField] private DialogueData[] dialogueData;
-
     [SerializeField] private TextMeshProUGUI dialogueTextComponent;
-    public bool dialogueWasActive;
-    
-    [SerializeField] private float textSpeed;
-
-    public bool isPlaying;
-
-    private int dialogueDataIndex;
 
     private void Awake()
     {
         Instance = this;
         
-        audio = GetComponent<AudioSource>();
+        source = GetComponent<AudioSource>();
     }
 
     /// <summary>
@@ -40,8 +32,6 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         dialogueTextComponent.text = string.Empty;
-        //speakerTextComponent.text = string.Empty;
-        dialogueWasActive = true;
     }
     
     /// <summary>
@@ -49,15 +39,13 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     public IEnumerator StartDialogue()
     {
-        dialogueDataIndex = 0;
-        isPlaying = true;
         UIManager.Instance.OpenMenu(UIManager.Instance.dialogueUi, CursorLockMode.None, 1f);
         
         for (int i = 0; i < dialogueData.Length; i++)
         {
             dialogueTextComponent.text = dialogueData[i].line;
-            audio.clip = dialogueData[i].audioClip;
-            audio.Play();
+            source.clip = dialogueData[i].audioClip;
+            source.Play();
             
             yield return new WaitForSeconds(dialogueData[i].audioClip.length);
         }
@@ -65,14 +53,12 @@ public class AudioManager : MonoBehaviour
         AfterText();
     }
     
-    
     /// <summary>
     /// Depending if isPreTutorial is active either opens the level selector menu or sets the player action and in game ui active.
     /// </summary>
     private void AfterText()
     {
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStateMachine>().EnablePlayerActions();
-        isPlaying = false;
         UIManager.Instance.CloseMenu(UIManager.Instance.dialogueUi, CursorLockMode.Locked, 1f);
     }
 }

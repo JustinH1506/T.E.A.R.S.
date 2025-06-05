@@ -24,11 +24,13 @@ public class GameManager : MonoBehaviour, IDataPersistence
 
     public bool hasKey = false;
     
+
+#if  UNITY_EDITOR
     [FormerlySerializedAs("_debug")]
     [Space]
-    
     [Header("Debug variables.")]
     [SerializeField] public DebugAsset debugAsset;
+#endif
     
     private void Awake()
     {
@@ -71,6 +73,8 @@ public class GameManager : MonoBehaviour, IDataPersistence
             UIManager.Instance.OpenMenu(UIManager.Instance.mainMenuScreen, CursorLockMode.None, 1f);
         }
 #endif
+        
+        UIManager.Instance.OpenMenu(UIManager.Instance.mainMenuScreen, CursorLockMode.None, 1f);
     }
 
     public void CheckKey()

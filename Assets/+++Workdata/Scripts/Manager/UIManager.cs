@@ -27,6 +27,7 @@ public class UIManager : MonoBehaviour
 	public CanvasGroup dialogueUi;
 	public CanvasGroup pauseScreen;
 	public CanvasGroup journalScreen;
+	public CanvasGroup demoEndScreen;
     #endregion
 	
     #region Texts
@@ -94,12 +95,12 @@ public class UIManager : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Escape) && pauseScreen.alpha < 1)
 		{
 			OpenMenu(pauseScreen, CursorLockMode.None, 0f);
-			AudioManager.Instance.audio.Pause();
+			AudioManager.Instance.source.Pause();
 		}
 		else if(Input.GetKeyDown(KeyCode.Escape) && pauseScreen.alpha >= 1)
 		{
 			CloseMenu(pauseScreen, CursorLockMode.Locked, 1f);
-			AudioManager.Instance.audio.UnPause();
+			AudioManager.Instance.source.UnPause();
 		}
 
 		if (Input.GetKeyDown(KeyCode.Tab) && journalScreen.alpha < 1)
@@ -145,10 +146,22 @@ public class UIManager : MonoBehaviour
 		OpenMenu(mainMenuScreen, CursorLockMode.None, 1f);
 	}
 
+	public void OpenOptionsMenu(bool getsOpened)
+	{
+		if (getsOpened)
+		{
+			OpenMenu(optionsScreen, CursorLockMode.None, 0f);
+		}
+		else
+		{
+			CloseMenu(optionsScreen, CursorLockMode.None, 0f);
+		}
+	}
+
 	public void Resume()
 	{
 		CloseMenu(pauseScreen, CursorLockMode.Locked, 1f);
-		AudioManager.Instance.audio.UnPause();
+		AudioManager.Instance.source.UnPause();
 	}
 
 	public void OpenMenu(CanvasGroup canvasGroup, CursorLockMode lockMode, float timeScale)
