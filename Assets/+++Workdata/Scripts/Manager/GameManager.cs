@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public bool[] journalStates;
 
     public bool hasKey = false;
+    public bool hasExplosive = false;
     
 
 #if  UNITY_EDITOR
@@ -82,6 +83,10 @@ public class GameManager : MonoBehaviour, IDataPersistence
         if (killedEnemies == 2)
         {
             hasKey = true;
+        }
+        else if (killedEnemies == 5)
+        {
+            hasExplosive = true;
         }
     }
 

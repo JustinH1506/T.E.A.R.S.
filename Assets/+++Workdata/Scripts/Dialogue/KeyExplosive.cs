@@ -1,13 +1,12 @@
 using UnityEngine;
 
-public class KeyItem : MonoBehaviour
+public class KeyExplosive : MonoBehaviour
 {
 	public bool playerInReach = false;
 
 	[SerializeField] private Animator doorAnim;
-
-	[SerializeField] private GameObject inactiveEnemy;
-	[SerializeField] private GameObject activeEnemy;
+	
+	[SerializeField] private GameObject winZone;
 	
 	private void OnTriggerEnter(Collider other)
 	{
@@ -29,15 +28,12 @@ public class KeyItem : MonoBehaviour
 	
 	private void Update()
 	{
-		transform.LookAt(Camera.main.transform.position);
+		//transform.LookAt(Camera.main.transform.position);
 
 		if (playerInReach && Input.GetKeyDown(KeyCode.E))
 		{
-			doorAnim.Play("EntranceDoors");
-			UIManager.Instance.OpenMenu(UIManager.Instance.dialogueUi, CursorLockMode.None, 1f);
-			AudioManager.Instance.StartCoroutine(AudioManager.Instance.StartDialogue());
-			inactiveEnemy.SetActive(false);
-			activeEnemy.SetActive(true);
+			doorAnim.Play("DoorOpens");
+			winZone.SetActive(true);
 		}
 	}
 }
