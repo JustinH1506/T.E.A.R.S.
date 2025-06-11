@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class KeyNote : MonoBehaviour
 {
@@ -31,10 +32,10 @@ public class KeyNote : MonoBehaviour
 	{
 		//transform.LookAt(Camera.main.transform.position);
 
-		if (playerInReach && Input.GetKeyDown(KeyCode.E))
+		if (playerInReach && Keyboard.current.eKey.wasPressedThisFrame)
 		{
 			doorAnim.Play("CloseDoors");
-			UIManager.Instance.OpenMenu(UIManager.Instance.dialogueUi, CursorLockMode.None, 1f);
+			UIManager.Instance.OpenMenu(UIManager.Instance.dialogueUi, CursorLockMode.Locked, 1f);
 			AudioManager.Instance.StartCoroutine(AudioManager.Instance.StartDialogue());
 			inactiveEnemy.SetActive(false);
 			activeEnemy.SetActive(true);

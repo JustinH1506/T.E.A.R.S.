@@ -72,6 +72,12 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
     
     #endregion
     
+    #region Audio
+
+    private AudioSource soundSource;
+    
+    #endregion
+    
     #region Getters and Setters
 
     #region Movement
@@ -160,6 +166,7 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
 	    states = new PlayerStateFactory(this);
 	    anim  = GetComponent<Animator>();
 	    rb = GetComponent<Rigidbody>();
+	    soundSource = GetComponent<AudioSource>();
 	    currentState = states.Idle();
 	    currentState.EnterState();
 	    currentStamina = maxStamina;
@@ -503,6 +510,11 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
     public void DisablePlayerActions()
     {
 		disabled = true;
+    }
+
+    public void StepSounds()
+    {
+	    AudioManager.Instance.PlaySound(AudioManager.Instance.playerStepSounds, soundSource, true);
     }
     
     #endregion

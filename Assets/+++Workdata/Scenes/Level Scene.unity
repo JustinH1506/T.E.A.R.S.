@@ -93,7 +93,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 396693b940778614ba9d474dc3cb2809, type: 2}
+  m_LightingDataAsset: {fileID: 0}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 57b3c6091d702f84d98ff918c8bcf7bf, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -565,6 +565,7 @@ GameObject:
   - component: {fileID: 58674280}
   - component: {fileID: 58674279}
   - component: {fileID: 58674278}
+  - component: {fileID: 58674283}
   m_Layer: 0
   m_Name: Pult
   m_TagString: Untagged
@@ -581,7 +582,7 @@ Transform:
   m_GameObject: {fileID: 58674276}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 51.0907, y: 7.2595, z: 0.2847}
+  m_LocalPosition: {x: 51.0907, y: 7.2595, z: 0.07}
   m_LocalScale: {x: 1.6587, y: 1.6391034, z: 6.39345}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -697,6 +698,103 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58674276}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!82 &58674283
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58674276}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 948159277864703074, guid: 3f11e86f9d0dc074190abd4ef623b9fb, type: 2}
+  m_audioClip: {fileID: 8300000, guid: a013d75f8bcc70b4d9bd37ca26858dd0, type: 3}
+  m_Resource: {fileID: 8300000, guid: a013d75f8bcc70b4d9bd37ca26858dd0, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 5
+  MaxDistance: 50
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &59459399
 GameObject:
   m_ObjectHideFlags: 0
@@ -1287,9 +1385,9 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 1
+  m_HasValidSHForNormalization: 0
   m_SHForNormalization:
-    'sh[ 0]': 3.4028235e+38
+    'sh[ 0]': 0
     'sh[ 1]': 0
     'sh[ 2]': 0
     'sh[ 3]': 0
@@ -1298,7 +1396,7 @@ MonoBehaviour:
     'sh[ 6]': 0
     'sh[ 7]': 0
     'sh[ 8]': 0
-    'sh[ 9]': 3.4028235e+38
+    'sh[ 9]': 0
     'sh[10]': 0
     'sh[11]': 0
     'sh[12]': 0
@@ -1307,7 +1405,7 @@ MonoBehaviour:
     'sh[15]': 0
     'sh[16]': 0
     'sh[17]': 0
-    'sh[18]': 3.4028235e+38
+    'sh[18]': 0
     'sh[19]': 0
     'sh[20]': 0
     'sh[21]': 0
@@ -1589,7 +1687,7 @@ MonoBehaviour:
     realtimeMode: 1
     timeSlicing: 0
     lighting:
-      importance: 1
+      importance: 2
       multiplier: 1
       weight: 1
       lightLayer: 1
@@ -1598,8 +1696,8 @@ MonoBehaviour:
     influence:
       m_Shape: 0
       m_BoxSize: {x: 17.855865, y: 10, z: 21.4314}
-      m_BoxBlendDistancePositive: {x: 0.49, y: 0.49, z: 0.49}
-      m_BoxBlendDistanceNegative: {x: 0.49, y: 0.49, z: 0.49}
+      m_BoxBlendDistancePositive: {x: 0.5, y: 0.5, z: 0.5}
+      m_BoxBlendDistanceNegative: {x: 0.5, y: 0.5, z: 0.5}
       m_BoxBlendNormalDistancePositive: {x: 0, y: 0, z: 0}
       m_BoxBlendNormalDistanceNegative: {x: 0, y: 0, z: 0}
       m_BoxSideFadePositive: {x: 1, y: 1, z: 1}
@@ -1840,9 +1938,9 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 1
+  m_HasValidSHForNormalization: 0
   m_SHForNormalization:
-    'sh[ 0]': 3.4028235e+38
+    'sh[ 0]': 0
     'sh[ 1]': 0
     'sh[ 2]': 0
     'sh[ 3]': 0
@@ -1851,7 +1949,7 @@ MonoBehaviour:
     'sh[ 6]': 0
     'sh[ 7]': 0
     'sh[ 8]': 0
-    'sh[ 9]': 3.4028235e+38
+    'sh[ 9]': 0
     'sh[10]': 0
     'sh[11]': 0
     'sh[12]': 0
@@ -1860,7 +1958,7 @@ MonoBehaviour:
     'sh[15]': 0
     'sh[16]': 0
     'sh[17]': 0
-    'sh[18]': 3.4028235e+38
+    'sh[18]': 0
     'sh[19]': 0
     'sh[20]': 0
     'sh[21]': 0
@@ -2006,7 +2104,7 @@ ReflectionProbe:
   m_BoxProjection: 0
   m_RenderDynamicObjects: 0
   m_UseOcclusionCulling: 1
-  m_Importance: 1
+  m_Importance: 2
   m_CustomBakedTexture: {fileID: 0}
 --- !u!1 &113423303
 GameObject:
@@ -2315,9 +2413,9 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 1
+  m_HasValidSHForNormalization: 0
   m_SHForNormalization:
-    'sh[ 0]': 3.4028235e+38
+    'sh[ 0]': 0
     'sh[ 1]': 0
     'sh[ 2]': 0
     'sh[ 3]': 0
@@ -2326,7 +2424,7 @@ MonoBehaviour:
     'sh[ 6]': 0
     'sh[ 7]': 0
     'sh[ 8]': 0
-    'sh[ 9]': 3.4028235e+38
+    'sh[ 9]': 0
     'sh[10]': 0
     'sh[11]': 0
     'sh[12]': 0
@@ -2335,7 +2433,7 @@ MonoBehaviour:
     'sh[15]': 0
     'sh[16]': 0
     'sh[17]': 0
-    'sh[18]': 3.4028235e+38
+    'sh[18]': 0
     'sh[19]': 0
     'sh[20]': 0
     'sh[21]': 0
@@ -2952,9 +3050,9 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 1
+  m_HasValidSHForNormalization: 0
   m_SHForNormalization:
-    'sh[ 0]': 3.4028235e+38
+    'sh[ 0]': 0
     'sh[ 1]': 0
     'sh[ 2]': 0
     'sh[ 3]': 0
@@ -2963,7 +3061,7 @@ MonoBehaviour:
     'sh[ 6]': 0
     'sh[ 7]': 0
     'sh[ 8]': 0
-    'sh[ 9]': 3.4028235e+38
+    'sh[ 9]': 0
     'sh[10]': 0
     'sh[11]': 0
     'sh[12]': 0
@@ -2972,7 +3070,7 @@ MonoBehaviour:
     'sh[15]': 0
     'sh[16]': 0
     'sh[17]': 0
-    'sh[18]': 3.4028235e+38
+    'sh[18]': 0
     'sh[19]': 0
     'sh[20]': 0
     'sh[21]': 0
@@ -3841,9 +3939,9 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 1
+  m_HasValidSHForNormalization: 0
   m_SHForNormalization:
-    'sh[ 0]': 3.4028235e+38
+    'sh[ 0]': 0
     'sh[ 1]': 0
     'sh[ 2]': 0
     'sh[ 3]': 0
@@ -3852,7 +3950,7 @@ MonoBehaviour:
     'sh[ 6]': 0
     'sh[ 7]': 0
     'sh[ 8]': 0
-    'sh[ 9]': 3.4028235e+38
+    'sh[ 9]': 0
     'sh[10]': 0
     'sh[11]': 0
     'sh[12]': 0
@@ -3861,7 +3959,7 @@ MonoBehaviour:
     'sh[15]': 0
     'sh[16]': 0
     'sh[17]': 0
-    'sh[18]': 3.4028235e+38
+    'sh[18]': 0
     'sh[19]': 0
     'sh[20]': 0
     'sh[21]': 0
@@ -4658,9 +4756,9 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 1
+  m_HasValidSHForNormalization: 0
   m_SHForNormalization:
-    'sh[ 0]': 3.4028235e+38
+    'sh[ 0]': 0
     'sh[ 1]': 0
     'sh[ 2]': 0
     'sh[ 3]': 0
@@ -4669,7 +4767,7 @@ MonoBehaviour:
     'sh[ 6]': 0
     'sh[ 7]': 0
     'sh[ 8]': 0
-    'sh[ 9]': 3.4028235e+38
+    'sh[ 9]': 0
     'sh[10]': 0
     'sh[11]': 0
     'sh[12]': 0
@@ -4678,7 +4776,7 @@ MonoBehaviour:
     'sh[15]': 0
     'sh[16]': 0
     'sh[17]': 0
-    'sh[18]': 3.4028235e+38
+    'sh[18]': 0
     'sh[19]': 0
     'sh[20]': 0
     'sh[21]': 0
@@ -5251,9 +5349,9 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 1
+  m_HasValidSHForNormalization: 0
   m_SHForNormalization:
-    'sh[ 0]': 3.4028235e+38
+    'sh[ 0]': 0
     'sh[ 1]': 0
     'sh[ 2]': 0
     'sh[ 3]': 0
@@ -5262,7 +5360,7 @@ MonoBehaviour:
     'sh[ 6]': 0
     'sh[ 7]': 0
     'sh[ 8]': 0
-    'sh[ 9]': 3.4028235e+38
+    'sh[ 9]': 0
     'sh[10]': 0
     'sh[11]': 0
     'sh[12]': 0
@@ -5271,7 +5369,7 @@ MonoBehaviour:
     'sh[15]': 0
     'sh[16]': 0
     'sh[17]': 0
-    'sh[18]': 3.4028235e+38
+    'sh[18]': 0
     'sh[19]': 0
     'sh[20]': 0
     'sh[21]': 0
@@ -5819,6 +5917,11 @@ Transform:
   - {fileID: 1682096166}
   m_Father: {fileID: 581249473}
   m_LocalEulerAnglesHint: {x: -0.75149035, y: -2.8300648, z: 99.82452}
+--- !u!1 &321712196 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1302420175032801268, guid: e9c8c0d85b2c4ec4d9cf6478b5a58991, type: 3}
+  m_PrefabInstance: {fileID: 1450714947}
+  m_PrefabAsset: {fileID: 0}
 --- !u!20 &323053569 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 3584670486600649981, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
@@ -6259,9 +6362,9 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 1
+  m_HasValidSHForNormalization: 0
   m_SHForNormalization:
-    'sh[ 0]': 3.4028235e+38
+    'sh[ 0]': 0
     'sh[ 1]': 0
     'sh[ 2]': 0
     'sh[ 3]': 0
@@ -6270,7 +6373,7 @@ MonoBehaviour:
     'sh[ 6]': 0
     'sh[ 7]': 0
     'sh[ 8]': 0
-    'sh[ 9]': 3.4028235e+38
+    'sh[ 9]': 0
     'sh[10]': 0
     'sh[11]': 0
     'sh[12]': 0
@@ -6279,7 +6382,7 @@ MonoBehaviour:
     'sh[15]': 0
     'sh[16]': 0
     'sh[17]': 0
-    'sh[18]': 3.4028235e+38
+    'sh[18]': 0
     'sh[19]': 0
     'sh[20]': 0
     'sh[21]': 0
@@ -8295,9 +8398,9 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 1
+  m_HasValidSHForNormalization: 0
   m_SHForNormalization:
-    'sh[ 0]': 3.4028235e+38
+    'sh[ 0]': 0
     'sh[ 1]': 0
     'sh[ 2]': 0
     'sh[ 3]': 0
@@ -8306,7 +8409,7 @@ MonoBehaviour:
     'sh[ 6]': 0
     'sh[ 7]': 0
     'sh[ 8]': 0
-    'sh[ 9]': 3.4028235e+38
+    'sh[ 9]': 0
     'sh[10]': 0
     'sh[11]': 0
     'sh[12]': 0
@@ -8315,7 +8418,7 @@ MonoBehaviour:
     'sh[15]': 0
     'sh[16]': 0
     'sh[17]': 0
-    'sh[18]': 3.4028235e+38
+    'sh[18]': 0
     'sh[19]': 0
     'sh[20]': 0
     'sh[21]': 0
@@ -9010,9 +9113,9 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 1
+  m_HasValidSHForNormalization: 0
   m_SHForNormalization:
-    'sh[ 0]': 3.4028235e+38
+    'sh[ 0]': 0
     'sh[ 1]': 0
     'sh[ 2]': 0
     'sh[ 3]': 0
@@ -9021,7 +9124,7 @@ MonoBehaviour:
     'sh[ 6]': 0
     'sh[ 7]': 0
     'sh[ 8]': 0
-    'sh[ 9]': 3.4028235e+38
+    'sh[ 9]': 0
     'sh[10]': 0
     'sh[11]': 0
     'sh[12]': 0
@@ -9030,7 +9133,7 @@ MonoBehaviour:
     'sh[15]': 0
     'sh[16]': 0
     'sh[17]': 0
-    'sh[18]': 3.4028235e+38
+    'sh[18]': 0
     'sh[19]': 0
     'sh[20]': 0
     'sh[21]': 0
@@ -9552,7 +9655,7 @@ Transform:
   m_GameObject: {fileID: 620907040}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 80.95, y: 9.24, z: -21.92818}
+  m_LocalPosition: {x: 80.95, y: 9.24, z: -27.128216}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9589,7 +9692,7 @@ MonoBehaviour:
       rangeCompressionFactor: 1
     influence:
       m_Shape: 0
-      m_BoxSize: {x: 18, y: 6.6425133, z: 11.836472}
+      m_BoxSize: {x: 18, y: 6.6425133, z: 22.236542}
       m_BoxBlendDistancePositive: {x: 0.45, y: 0.45, z: 0.45}
       m_BoxBlendDistanceNegative: {x: 0.45, y: 0.45, z: 0.45}
       m_BoxBlendNormalDistancePositive: {x: 0.5, y: 0.5, z: 0.5}
@@ -9832,9 +9935,9 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 1
+  m_HasValidSHForNormalization: 0
   m_SHForNormalization:
-    'sh[ 0]': 3.4028235e+38
+    'sh[ 0]': 0
     'sh[ 1]': 0
     'sh[ 2]': 0
     'sh[ 3]': 0
@@ -9843,7 +9946,7 @@ MonoBehaviour:
     'sh[ 6]': 0
     'sh[ 7]': 0
     'sh[ 8]': 0
-    'sh[ 9]': 3.4028235e+38
+    'sh[ 9]': 0
     'sh[10]': 0
     'sh[11]': 0
     'sh[12]': 0
@@ -9852,7 +9955,7 @@ MonoBehaviour:
     'sh[15]': 0
     'sh[16]': 0
     'sh[17]': 0
-    'sh[18]': 3.4028235e+38
+    'sh[18]': 0
     'sh[19]': 0
     'sh[20]': 0
     'sh[21]': 0
@@ -9861,7 +9964,7 @@ MonoBehaviour:
     'sh[24]': 0
     'sh[25]': 0
     'sh[26]': 0
-  m_SHValidForCapturePosition: {x: 71.973785, y: 8.982746, z: 25.489758}
+  m_SHValidForCapturePosition: {x: -Infinity, y: -Infinity, z: -Infinity}
   m_SHValidForSourcePosition: {x: 71.973785, y: 8.982746, z: 25.489758}
   m_HDProbeVersion: 9
   m_ObsoleteInfiniteProjection: 1
@@ -9982,7 +10085,7 @@ ReflectionProbe:
   m_TimeSlicingMode: 0
   m_Resolution: 128
   m_UpdateFrequency: 0
-  m_BoxSize: {x: 18, y: 6.6425133, z: 11.836472}
+  m_BoxSize: {x: 18, y: 6.6425133, z: 22.236542}
   m_BoxOffset: {x: 0, y: 0, z: 0}
   m_NearClip: 0.3
   m_FarClip: 1000
@@ -10609,9 +10712,9 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 1
+  m_HasValidSHForNormalization: 0
   m_SHForNormalization:
-    'sh[ 0]': 3.4028235e+38
+    'sh[ 0]': 0
     'sh[ 1]': 0
     'sh[ 2]': 0
     'sh[ 3]': 0
@@ -10620,7 +10723,7 @@ MonoBehaviour:
     'sh[ 6]': 0
     'sh[ 7]': 0
     'sh[ 8]': 0
-    'sh[ 9]': 3.4028235e+38
+    'sh[ 9]': 0
     'sh[10]': 0
     'sh[11]': 0
     'sh[12]': 0
@@ -10629,7 +10732,7 @@ MonoBehaviour:
     'sh[15]': 0
     'sh[16]': 0
     'sh[17]': 0
-    'sh[18]': 3.4028235e+38
+    'sh[18]': 0
     'sh[19]': 0
     'sh[20]': 0
     'sh[21]': 0
@@ -12030,9 +12133,9 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 1
+  m_HasValidSHForNormalization: 0
   m_SHForNormalization:
-    'sh[ 0]': 3.4028235e+38
+    'sh[ 0]': 0
     'sh[ 1]': 0
     'sh[ 2]': 0
     'sh[ 3]': 0
@@ -12041,7 +12144,7 @@ MonoBehaviour:
     'sh[ 6]': 0
     'sh[ 7]': 0
     'sh[ 8]': 0
-    'sh[ 9]': 3.4028235e+38
+    'sh[ 9]': 0
     'sh[10]': 0
     'sh[11]': 0
     'sh[12]': 0
@@ -12050,7 +12153,7 @@ MonoBehaviour:
     'sh[15]': 0
     'sh[16]': 0
     'sh[17]': 0
-    'sh[18]': 3.4028235e+38
+    'sh[18]': 0
     'sh[19]': 0
     'sh[20]': 0
     'sh[21]': 0
@@ -12686,9 +12789,9 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 1
+  m_HasValidSHForNormalization: 0
   m_SHForNormalization:
-    'sh[ 0]': 3.4028235e+38
+    'sh[ 0]': 0
     'sh[ 1]': 0
     'sh[ 2]': 0
     'sh[ 3]': 0
@@ -12697,7 +12800,7 @@ MonoBehaviour:
     'sh[ 6]': 0
     'sh[ 7]': 0
     'sh[ 8]': 0
-    'sh[ 9]': 3.4028235e+38
+    'sh[ 9]': 0
     'sh[10]': 0
     'sh[11]': 0
     'sh[12]': 0
@@ -12706,7 +12809,7 @@ MonoBehaviour:
     'sh[15]': 0
     'sh[16]': 0
     'sh[17]': 0
-    'sh[18]': 3.4028235e+38
+    'sh[18]': 0
     'sh[19]': 0
     'sh[20]': 0
     'sh[21]': 0
@@ -12970,28 +13073,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4403220864377875062, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
+      propertyPath: m_BindingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4403220864377875062, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
       propertyPath: m_FollowOffset.y
-      value: 2.35
+      value: 2.621782
       objectReference: {fileID: 0}
     - target: {fileID: 4403220864377875062, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
       propertyPath: m_FollowOffset.z
-      value: -4
+      value: -3.873701
       objectReference: {fileID: 0}
     - target: {fileID: 4840234444275711706, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.7571597e-13
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4840234444275711706, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.00000011785488
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4840234444275711706, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.0000038128765
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4840234444275711706, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99129546
+      value: 0.9912954
       objectReference: {fileID: 0}
     - target: {fileID: 4840234444275711706, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
       propertyPath: m_LocalRotation.x
@@ -12999,11 +13106,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4840234444275711706, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000004134501
+      value: 7.1541423e-10
       objectReference: {fileID: 0}
     - target: {fileID: 4840234444275711706, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000064971015
+      value: 0.000000012415968
       objectReference: {fileID: 0}
     - target: {fileID: 5096431366298910489, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
       propertyPath: m_Follow
@@ -13013,6 +13120,10 @@ PrefabInstance:
       propertyPath: m_LookAt
       value: 
       objectReference: {fileID: 470751348}
+    - target: {fileID: 5096431366298910489, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
+      propertyPath: m_BindingMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5763231286518590426, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -13031,31 +13142,55 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5763231286518590426, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.11509342
+      value: 0.11509341
       objectReference: {fileID: 0}
     - target: {fileID: 5763231286518590426, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000004160025
+      value: 7.043528e-10
       objectReference: {fileID: 0}
     - target: {fileID: 5763231286518590426, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000010368527
+      value: 4.8421167e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6806945544984908639, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
+      propertyPath: m_BindingMode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6806945544984908639, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
       propertyPath: m_FollowOffset.y
-      value: 2.35
+      value: 2.621782
       objectReference: {fileID: 0}
     - target: {fileID: 6806945544984908639, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
       propertyPath: m_FollowOffset.z
-      value: -4
+      value: -3.873701
+      objectReference: {fileID: 0}
+    - target: {fileID: 7188442585447779731, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
+      propertyPath: antialiasing
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7188442585447779731, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
+      propertyPath: fullscreenPassthrough
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7188442585447779731, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
+      propertyPath: customRenderingSettings
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7188442585447779731, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
+      propertyPath: renderingPathCustomFrameSettingsOverrideMask.mask.data2
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7660617880083142525, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
+      propertyPath: m_BindingMode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7660617880083142525, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
       propertyPath: m_FollowOffset.y
-      value: 2.35
+      value: 2.621782
       objectReference: {fileID: 0}
     - target: {fileID: 7660617880083142525, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
       propertyPath: m_FollowOffset.z
-      value: -4
+      value: -3.873701
       objectReference: {fileID: 0}
     - target: {fileID: 7904632375864385667, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13087,15 +13222,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8717957830785151385, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.7571597e-13
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8717957830785151385, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.00000011785488
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8717957830785151385, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.0000038128765
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8717957830785151385, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13103,15 +13238,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8717957830785151385, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.121537454
+      value: 0.12153747
       objectReference: {fileID: 0}
     - target: {fileID: 8717957830785151385, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000041454033
+      value: -0.00000004137264
       objectReference: {fileID: 0}
     - target: {fileID: 8717957830785151385, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000005644047
+      value: 3.763217e-10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13215,8 +13350,8 @@ MonoBehaviour:
     influence:
       m_Shape: 0
       m_BoxSize: {x: 18, y: 6.6425133, z: 11.836472}
-      m_BoxBlendDistancePositive: {x: 0.49, y: 0.49, z: 0.49}
-      m_BoxBlendDistanceNegative: {x: 0.49, y: 0.49, z: 0.49}
+      m_BoxBlendDistancePositive: {x: 0.5, y: 0.5, z: 0.5}
+      m_BoxBlendDistanceNegative: {x: 0.5, y: 0.5, z: 0.5}
       m_BoxBlendNormalDistancePositive: {x: 0, y: 0, z: 0}
       m_BoxBlendNormalDistanceNegative: {x: 0, y: 0, z: 0}
       m_BoxSideFadePositive: {x: 1, y: 1, z: 1}
@@ -13457,9 +13592,9 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 1
+  m_HasValidSHForNormalization: 0
   m_SHForNormalization:
-    'sh[ 0]': 3.4028235e+38
+    'sh[ 0]': 0
     'sh[ 1]': 0
     'sh[ 2]': 0
     'sh[ 3]': 0
@@ -13468,7 +13603,7 @@ MonoBehaviour:
     'sh[ 6]': 0
     'sh[ 7]': 0
     'sh[ 8]': 0
-    'sh[ 9]': 3.4028235e+38
+    'sh[ 9]': 0
     'sh[10]': 0
     'sh[11]': 0
     'sh[12]': 0
@@ -13477,7 +13612,7 @@ MonoBehaviour:
     'sh[15]': 0
     'sh[16]': 0
     'sh[17]': 0
-    'sh[18]': 3.4028235e+38
+    'sh[18]': 0
     'sh[19]': 0
     'sh[20]': 0
     'sh[21]': 0
@@ -15201,9 +15336,9 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 1
+  m_HasValidSHForNormalization: 0
   m_SHForNormalization:
-    'sh[ 0]': 3.4028235e+38
+    'sh[ 0]': 0
     'sh[ 1]': 0
     'sh[ 2]': 0
     'sh[ 3]': 0
@@ -15212,7 +15347,7 @@ MonoBehaviour:
     'sh[ 6]': 0
     'sh[ 7]': 0
     'sh[ 8]': 0
-    'sh[ 9]': 3.4028235e+38
+    'sh[ 9]': 0
     'sh[10]': 0
     'sh[11]': 0
     'sh[12]': 0
@@ -15221,7 +15356,7 @@ MonoBehaviour:
     'sh[15]': 0
     'sh[16]': 0
     'sh[17]': 0
-    'sh[18]': 3.4028235e+38
+    'sh[18]': 0
     'sh[19]': 0
     'sh[20]': 0
     'sh[21]': 0
@@ -15854,9 +15989,9 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 1
+  m_HasValidSHForNormalization: 0
   m_SHForNormalization:
-    'sh[ 0]': 3.4028235e+38
+    'sh[ 0]': 0
     'sh[ 1]': 0
     'sh[ 2]': 0
     'sh[ 3]': 0
@@ -15865,7 +16000,7 @@ MonoBehaviour:
     'sh[ 6]': 0
     'sh[ 7]': 0
     'sh[ 8]': 0
-    'sh[ 9]': 3.4028235e+38
+    'sh[ 9]': 0
     'sh[10]': 0
     'sh[11]': 0
     'sh[12]': 0
@@ -15874,7 +16009,7 @@ MonoBehaviour:
     'sh[15]': 0
     'sh[16]': 0
     'sh[17]': 0
-    'sh[18]': 3.4028235e+38
+    'sh[18]': 0
     'sh[19]': 0
     'sh[20]': 0
     'sh[21]': 0
@@ -17102,9 +17237,9 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 1
+  m_HasValidSHForNormalization: 0
   m_SHForNormalization:
-    'sh[ 0]': 3.4028235e+38
+    'sh[ 0]': 0
     'sh[ 1]': 0
     'sh[ 2]': 0
     'sh[ 3]': 0
@@ -17113,7 +17248,7 @@ MonoBehaviour:
     'sh[ 6]': 0
     'sh[ 7]': 0
     'sh[ 8]': 0
-    'sh[ 9]': 3.4028235e+38
+    'sh[ 9]': 0
     'sh[10]': 0
     'sh[11]': 0
     'sh[12]': 0
@@ -17122,7 +17257,7 @@ MonoBehaviour:
     'sh[15]': 0
     'sh[16]': 0
     'sh[17]': 0
-    'sh[18]': 3.4028235e+38
+    'sh[18]': 0
     'sh[19]': 0
     'sh[20]': 0
     'sh[21]': 0
@@ -18311,9 +18446,9 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 1
+  m_HasValidSHForNormalization: 0
   m_SHForNormalization:
-    'sh[ 0]': 3.4028235e+38
+    'sh[ 0]': 0
     'sh[ 1]': 0
     'sh[ 2]': 0
     'sh[ 3]': 0
@@ -18322,7 +18457,7 @@ MonoBehaviour:
     'sh[ 6]': 0
     'sh[ 7]': 0
     'sh[ 8]': 0
-    'sh[ 9]': 3.4028235e+38
+    'sh[ 9]': 0
     'sh[10]': 0
     'sh[11]': 0
     'sh[12]': 0
@@ -18331,7 +18466,7 @@ MonoBehaviour:
     'sh[15]': 0
     'sh[16]': 0
     'sh[17]': 0
-    'sh[18]': 3.4028235e+38
+    'sh[18]': 0
     'sh[19]': 0
     'sh[20]': 0
     'sh[21]': 0
@@ -18932,9 +19067,9 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 1
+  m_HasValidSHForNormalization: 0
   m_SHForNormalization:
-    'sh[ 0]': 3.4028235e+38
+    'sh[ 0]': 0
     'sh[ 1]': 0
     'sh[ 2]': 0
     'sh[ 3]': 0
@@ -18943,7 +19078,7 @@ MonoBehaviour:
     'sh[ 6]': 0
     'sh[ 7]': 0
     'sh[ 8]': 0
-    'sh[ 9]': 3.4028235e+38
+    'sh[ 9]': 0
     'sh[10]': 0
     'sh[11]': 0
     'sh[12]': 0
@@ -18952,7 +19087,7 @@ MonoBehaviour:
     'sh[15]': 0
     'sh[16]': 0
     'sh[17]': 0
-    'sh[18]': 3.4028235e+38
+    'sh[18]': 0
     'sh[19]': 0
     'sh[20]': 0
     'sh[21]': 0
@@ -19550,6 +19685,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100775770}
     - target: {fileID: 4650196799895834155, guid: e9c8c0d85b2c4ec4d9cf6478b5a58991, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4650196799895834155, guid: e9c8c0d85b2c4ec4d9cf6478b5a58991, type: 3}
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 323053569}
@@ -19568,7 +19707,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1302420175032801268, guid: e9c8c0d85b2c4ec4d9cf6478b5a58991, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2100775776}
   m_SourcePrefab: {fileID: 100100000, guid: e9c8c0d85b2c4ec4d9cf6478b5a58991, type: 3}
 --- !u!1 &1455100235
 GameObject:
@@ -21359,9 +21501,9 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 1
+  m_HasValidSHForNormalization: 0
   m_SHForNormalization:
-    'sh[ 0]': 3.4028235e+38
+    'sh[ 0]': 0
     'sh[ 1]': 0
     'sh[ 2]': 0
     'sh[ 3]': 0
@@ -21370,7 +21512,7 @@ MonoBehaviour:
     'sh[ 6]': 0
     'sh[ 7]': 0
     'sh[ 8]': 0
-    'sh[ 9]': 3.4028235e+38
+    'sh[ 9]': 0
     'sh[10]': 0
     'sh[11]': 0
     'sh[12]': 0
@@ -21379,7 +21521,7 @@ MonoBehaviour:
     'sh[15]': 0
     'sh[16]': 0
     'sh[17]': 0
-    'sh[18]': 3.4028235e+38
+    'sh[18]': 0
     'sh[19]': 0
     'sh[20]': 0
     'sh[21]': 0
@@ -21934,9 +22076,9 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 1
+  m_HasValidSHForNormalization: 0
   m_SHForNormalization:
-    'sh[ 0]': 3.4028235e+38
+    'sh[ 0]': 0
     'sh[ 1]': 0
     'sh[ 2]': 0
     'sh[ 3]': 0
@@ -21945,7 +22087,7 @@ MonoBehaviour:
     'sh[ 6]': 0
     'sh[ 7]': 0
     'sh[ 8]': 0
-    'sh[ 9]': 3.4028235e+38
+    'sh[ 9]': 0
     'sh[10]': 0
     'sh[11]': 0
     'sh[12]': 0
@@ -21954,7 +22096,7 @@ MonoBehaviour:
     'sh[15]': 0
     'sh[16]': 0
     'sh[17]': 0
-    'sh[18]': 3.4028235e+38
+    'sh[18]': 0
     'sh[19]': 0
     'sh[20]': 0
     'sh[21]': 0
@@ -22394,9 +22536,9 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 1
+  m_HasValidSHForNormalization: 0
   m_SHForNormalization:
-    'sh[ 0]': 3.4028235e+38
+    'sh[ 0]': 0
     'sh[ 1]': 0
     'sh[ 2]': 0
     'sh[ 3]': 0
@@ -22405,7 +22547,7 @@ MonoBehaviour:
     'sh[ 6]': 0
     'sh[ 7]': 0
     'sh[ 8]': 0
-    'sh[ 9]': 3.4028235e+38
+    'sh[ 9]': 0
     'sh[10]': 0
     'sh[11]': 0
     'sh[12]': 0
@@ -22414,7 +22556,7 @@ MonoBehaviour:
     'sh[15]': 0
     'sh[16]': 0
     'sh[17]': 0
-    'sh[18]': 3.4028235e+38
+    'sh[18]': 0
     'sh[19]': 0
     'sh[20]': 0
     'sh[21]': 0
@@ -22949,9 +23091,9 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 1
+  m_HasValidSHForNormalization: 0
   m_SHForNormalization:
-    'sh[ 0]': 3.4028235e+38
+    'sh[ 0]': 0
     'sh[ 1]': 0
     'sh[ 2]': 0
     'sh[ 3]': 0
@@ -22960,7 +23102,7 @@ MonoBehaviour:
     'sh[ 6]': 0
     'sh[ 7]': 0
     'sh[ 8]': 0
-    'sh[ 9]': 3.4028235e+38
+    'sh[ 9]': 0
     'sh[10]': 0
     'sh[11]': 0
     'sh[12]': 0
@@ -22969,7 +23111,7 @@ MonoBehaviour:
     'sh[15]': 0
     'sh[16]': 0
     'sh[17]': 0
-    'sh[18]': 3.4028235e+38
+    'sh[18]': 0
     'sh[19]': 0
     'sh[20]': 0
     'sh[21]': 0
@@ -23597,9 +23739,9 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 1
+  m_HasValidSHForNormalization: 0
   m_SHForNormalization:
-    'sh[ 0]': 3.4028235e+38
+    'sh[ 0]': 0
     'sh[ 1]': 0
     'sh[ 2]': 0
     'sh[ 3]': 0
@@ -23608,7 +23750,7 @@ MonoBehaviour:
     'sh[ 6]': 0
     'sh[ 7]': 0
     'sh[ 8]': 0
-    'sh[ 9]': 3.4028235e+38
+    'sh[ 9]': 0
     'sh[10]': 0
     'sh[11]': 0
     'sh[12]': 0
@@ -23617,7 +23759,7 @@ MonoBehaviour:
     'sh[15]': 0
     'sh[16]': 0
     'sh[17]': 0
-    'sh[18]': 3.4028235e+38
+    'sh[18]': 0
     'sh[19]': 0
     'sh[20]': 0
     'sh[21]': 0
@@ -24072,9 +24214,9 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 1
+  m_HasValidSHForNormalization: 0
   m_SHForNormalization:
-    'sh[ 0]': 3.4028235e+38
+    'sh[ 0]': 0
     'sh[ 1]': 0
     'sh[ 2]': 0
     'sh[ 3]': 0
@@ -24083,7 +24225,7 @@ MonoBehaviour:
     'sh[ 6]': 0
     'sh[ 7]': 0
     'sh[ 8]': 0
-    'sh[ 9]': 3.4028235e+38
+    'sh[ 9]': 0
     'sh[10]': 0
     'sh[11]': 0
     'sh[12]': 0
@@ -24092,7 +24234,7 @@ MonoBehaviour:
     'sh[15]': 0
     'sh[16]': 0
     'sh[17]': 0
-    'sh[18]': 3.4028235e+38
+    'sh[18]': 0
     'sh[19]': 0
     'sh[20]': 0
     'sh[21]': 0
@@ -24851,9 +24993,9 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 1
+  m_HasValidSHForNormalization: 0
   m_SHForNormalization:
-    'sh[ 0]': 3.4028235e+38
+    'sh[ 0]': 0
     'sh[ 1]': 0
     'sh[ 2]': 0
     'sh[ 3]': 0
@@ -24862,7 +25004,7 @@ MonoBehaviour:
     'sh[ 6]': 0
     'sh[ 7]': 0
     'sh[ 8]': 0
-    'sh[ 9]': 3.4028235e+38
+    'sh[ 9]': 0
     'sh[10]': 0
     'sh[11]': 0
     'sh[12]': 0
@@ -24871,7 +25013,7 @@ MonoBehaviour:
     'sh[15]': 0
     'sh[16]': 0
     'sh[17]': 0
-    'sh[18]': 3.4028235e+38
+    'sh[18]': 0
     'sh[19]': 0
     'sh[20]': 0
     'sh[21]': 0
@@ -25659,9 +25801,9 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 1
+  m_HasValidSHForNormalization: 0
   m_SHForNormalization:
-    'sh[ 0]': 3.4028235e+38
+    'sh[ 0]': 0
     'sh[ 1]': 0
     'sh[ 2]': 0
     'sh[ 3]': 0
@@ -25670,7 +25812,7 @@ MonoBehaviour:
     'sh[ 6]': 0
     'sh[ 7]': 0
     'sh[ 8]': 0
-    'sh[ 9]': 3.4028235e+38
+    'sh[ 9]': 0
     'sh[10]': 0
     'sh[11]': 0
     'sh[12]': 0
@@ -25679,7 +25821,7 @@ MonoBehaviour:
     'sh[15]': 0
     'sh[16]': 0
     'sh[17]': 0
-    'sh[18]': 3.4028235e+38
+    'sh[18]': 0
     'sh[19]': 0
     'sh[20]': 0
     'sh[21]': 0
@@ -26246,9 +26388,9 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 1
+  m_HasValidSHForNormalization: 0
   m_SHForNormalization:
-    'sh[ 0]': 3.4028235e+38
+    'sh[ 0]': 0
     'sh[ 1]': 0
     'sh[ 2]': 0
     'sh[ 3]': 0
@@ -26257,7 +26399,7 @@ MonoBehaviour:
     'sh[ 6]': 0
     'sh[ 7]': 0
     'sh[ 8]': 0
-    'sh[ 9]': 3.4028235e+38
+    'sh[ 9]': 0
     'sh[10]': 0
     'sh[11]': 0
     'sh[12]': 0
@@ -26266,7 +26408,7 @@ MonoBehaviour:
     'sh[15]': 0
     'sh[16]': 0
     'sh[17]': 0
-    'sh[18]': 3.4028235e+38
+    'sh[18]': 0
     'sh[19]': 0
     'sh[20]': 0
     'sh[21]': 0
@@ -27394,9 +27536,9 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 1
+  m_HasValidSHForNormalization: 0
   m_SHForNormalization:
-    'sh[ 0]': 3.4028235e+38
+    'sh[ 0]': 0
     'sh[ 1]': 0
     'sh[ 2]': 0
     'sh[ 3]': 0
@@ -27405,7 +27547,7 @@ MonoBehaviour:
     'sh[ 6]': 0
     'sh[ 7]': 0
     'sh[ 8]': 0
-    'sh[ 9]': 3.4028235e+38
+    'sh[ 9]': 0
     'sh[10]': 0
     'sh[11]': 0
     'sh[12]': 0
@@ -27414,7 +27556,7 @@ MonoBehaviour:
     'sh[15]': 0
     'sh[16]': 0
     'sh[17]': 0
-    'sh[18]': 3.4028235e+38
+    'sh[18]': 0
     'sh[19]': 0
     'sh[20]': 0
     'sh[21]': 0
@@ -28560,9 +28702,9 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 1
+  m_HasValidSHForNormalization: 0
   m_SHForNormalization:
-    'sh[ 0]': 3.4028235e+38
+    'sh[ 0]': 0
     'sh[ 1]': 0
     'sh[ 2]': 0
     'sh[ 3]': 0
@@ -28571,7 +28713,7 @@ MonoBehaviour:
     'sh[ 6]': 0
     'sh[ 7]': 0
     'sh[ 8]': 0
-    'sh[ 9]': 3.4028235e+38
+    'sh[ 9]': 0
     'sh[10]': 0
     'sh[11]': 0
     'sh[12]': 0
@@ -28580,7 +28722,7 @@ MonoBehaviour:
     'sh[15]': 0
     'sh[16]': 0
     'sh[17]': 0
-    'sh[18]': 3.4028235e+38
+    'sh[18]': 0
     'sh[19]': 0
     'sh[20]': 0
     'sh[21]': 0
@@ -29035,9 +29177,9 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 1
+  m_HasValidSHForNormalization: 0
   m_SHForNormalization:
-    'sh[ 0]': 3.4028235e+38
+    'sh[ 0]': 0
     'sh[ 1]': 0
     'sh[ 2]': 0
     'sh[ 3]': 0
@@ -29046,7 +29188,7 @@ MonoBehaviour:
     'sh[ 6]': 0
     'sh[ 7]': 0
     'sh[ 8]': 0
-    'sh[ 9]': 3.4028235e+38
+    'sh[ 9]': 0
     'sh[10]': 0
     'sh[11]': 0
     'sh[12]': 0
@@ -29055,7 +29197,7 @@ MonoBehaviour:
     'sh[15]': 0
     'sh[16]': 0
     'sh[17]': 0
-    'sh[18]': 3.4028235e+38
+    'sh[18]': 0
     'sh[19]': 0
     'sh[20]': 0
     'sh[21]': 0
@@ -29757,12 +29899,109 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6468748891957464505, guid: e9c8c0d85b2c4ec4d9cf6478b5a58991, type: 3}
   m_PrefabInstance: {fileID: 1450714947}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 321712196}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff91dcd03c7f56e40afc6135133d4635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &2100775776
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 321712196}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2103258789
 GameObject:
   m_ObjectHideFlags: 0
@@ -30209,9 +30448,9 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 1
+  m_HasValidSHForNormalization: 0
   m_SHForNormalization:
-    'sh[ 0]': 3.4028235e+38
+    'sh[ 0]': 0
     'sh[ 1]': 0
     'sh[ 2]': 0
     'sh[ 3]': 0
@@ -30220,7 +30459,7 @@ MonoBehaviour:
     'sh[ 6]': 0
     'sh[ 7]': 0
     'sh[ 8]': 0
-    'sh[ 9]': 3.4028235e+38
+    'sh[ 9]': 0
     'sh[10]': 0
     'sh[11]': 0
     'sh[12]': 0
@@ -30229,7 +30468,7 @@ MonoBehaviour:
     'sh[15]': 0
     'sh[16]': 0
     'sh[17]': 0
-    'sh[18]': 3.4028235e+38
+    'sh[18]': 0
     'sh[19]': 0
     'sh[20]': 0
     'sh[21]': 0
@@ -35373,6 +35612,8 @@ GameObject:
   - component: {fileID: 4809693840750756377}
   - component: {fileID: 8762291773537432084}
   - component: {fileID: 5716435656132737015}
+  - component: {fileID: 8802142709270360475}
+  - component: {fileID: 8802142709270360474}
   m_Layer: 0
   m_Name: Orcmon_skin Variant
   m_TagString: Enemy
@@ -35380,6 +35621,200 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!82 &8802142709270360474
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8802142709270360473}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 948159277864703074, guid: 3f11e86f9d0dc074190abd4ef623b9fb, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &8802142709270360475
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8802142709270360473}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 948159277864703074, guid: 3f11e86f9d0dc074190abd4ef623b9fb, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &8943457348653868015
 GameObject:
   m_ObjectHideFlags: 0

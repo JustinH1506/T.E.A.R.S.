@@ -95,12 +95,12 @@ public class UIManager : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Escape) && pauseScreen.alpha < 1)
 		{
 			OpenMenu(pauseScreen, CursorLockMode.None, 0f);
-			AudioManager.Instance.source.Pause();
+			AudioManager.Instance.ChangeAllSources(true);
 		}
 		else if(Input.GetKeyDown(KeyCode.Escape) && pauseScreen.alpha >= 1)
 		{
 			CloseMenu(pauseScreen, CursorLockMode.Locked, 1f);
-			AudioManager.Instance.source.UnPause();
+			AudioManager.Instance.ChangeAllSources(false);
 		}
 
 		if (Input.GetKeyDown(KeyCode.Tab) && journalScreen.alpha < 1)
@@ -143,6 +143,7 @@ public class UIManager : MonoBehaviour
 		StartCoroutine(SceneLoader.Instance.UnloadScene(SceneLoader.Instance.currentScene, (int)SceneLoader.Instance.sceneStates, 1));
 		CloseMenu(pauseScreen, CursorLockMode.None, 1f);
 		CloseMenu(inGameUi, CursorLockMode.None, 1f);
+		CloseMenu(demoEndScreen, CursorLockMode.None, 1f);
 		OpenMenu(mainMenuScreen, CursorLockMode.None, 1f);
 	}
 
@@ -161,7 +162,7 @@ public class UIManager : MonoBehaviour
 	public void Resume()
 	{
 		CloseMenu(pauseScreen, CursorLockMode.Locked, 1f);
-		AudioManager.Instance.source.UnPause();
+		AudioManager.Instance.dialogueSource.UnPause();
 	}
 
 	public void OpenMenu(CanvasGroup canvasGroup, CursorLockMode lockMode, float timeScale)

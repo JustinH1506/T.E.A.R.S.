@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class KeyExplosive : MonoBehaviour
 {
@@ -30,7 +31,7 @@ public class KeyExplosive : MonoBehaviour
 	{
 		//transform.LookAt(Camera.main.transform.position);
 
-		if (playerInReach && Input.GetKeyDown(KeyCode.E))
+		if (playerInReach && Keyboard.current.eKey.wasPressedThisFrame)
 		{
 			doorAnim.Play("DoorOpens");
 			winZone.SetActive(true);

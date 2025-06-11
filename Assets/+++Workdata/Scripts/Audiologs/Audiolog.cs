@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Audiolog : MonoBehaviour
 {
@@ -33,7 +34,7 @@ public class Audiolog : MonoBehaviour
 	{
 		transform.LookAt(Camera.main.transform.position);
 
-		if (playerInReach && Input.GetKeyDown(KeyCode.E))
+		if (playerInReach && Keyboard.current.eKey.wasPressedThisFrame)
 		{
 			GameManager.Instance.ActivateJournal(journalIndex);
 		}

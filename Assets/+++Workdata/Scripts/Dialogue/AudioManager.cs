@@ -15,15 +15,30 @@ public class AudioManager : MonoBehaviour
         public AudioClip audioClip;
     }
 
-    [FormerlySerializedAs("audio")] public AudioSource source;
-    [SerializeField] private DialogueData[] dialogueData;
+    [Header("Dialogue Variables")]
+    public AudioSource dialogueSource;
+    [SerializeField] private DialogueData[] ringSubtitleData;
     [SerializeField] private TextMeshProUGUI dialogueTextComponent;
-
+    [Space]
+    
+    [Header("Music Clips")]
+    public AudioSource musicSource;
+    public AudioClip mainMenuMusic;
+    public AudioClip inBattleMusic;
+    public AudioClip inGameMusic;
+    public AudioClip gameOverMusic;
+    
+    [Header("Sound Effects Clips")]
+    public AudioSource soundSource;
+    public AudioClip playerStepSounds;
+    public AudioClip enemyStepSounds;
+    public AudioClip swordAttackSound;
+    public AudioClip swordHitSound;
+    public AudioClip enemyHitSound;
+    
     private void Awake()
     {
         Instance = this;
-        
-        source = GetComponent<AudioSource>();
     }
 
     /// <summary>
@@ -41,13 +56,13 @@ public class AudioManager : MonoBehaviour
     {
         UIManager.Instance.OpenMenu(UIManager.Instance.dialogueUi, CursorLockMode.None, 1f);
         
-        for (int i = 0; i < dialogueData.Length; i++)
+        for (int i = 0; i < ringSubtitleData.Length; i++)
         {
-            dialogueTextComponent.text = dialogueData[i].line;
-            source.clip = dialogueData[i].audioClip;
-            source.Play();
+            dialogueTextComponent.text = ringSubtitleData[i].line;
+            dialogueSource.clip = ringSubtitleData[i].audioClip;
+            dialogueSource.Play();
             
-            yield return new WaitForSeconds(dialogueData[i].audioClip.length);
+            yield return new WaitForSeconds(ringSubtitleData[i].audioClip.length);
         }
         
         AfterText();
@@ -60,5 +75,54 @@ public class AudioManager : MonoBehaviour
     {
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStateMachine>().EnablePlayerActions();
         UIManager.Instance.CloseMenu(UIManager.Instance.dialogueUi, CursorLockMode.Locked, 1f);
+    }
+
+    public void PlayMusic(AudioClip musicClip)
+    {
+        if (musicSource.isPlaying)
+        {
+            musicSource.Stop();
+        }
+        
+        musicSource.clip = musicClip;
+        
+        musicSource.Play();
+    }
+
+    public void PlaySound(AudioClip soundClip,AudioSource source , bool useRandomPitch)
+    {
+        if (source.isPlaying)
+        {
+            source.Stop();
+        }
+
+        if (useRandomPitch)
+        {
+            source.pitch = Random.Range(0.5f, 1.6f);
+        }
+        
+        source.clip = soundClip;
+        
+        source.Play();
+    }
+
+    public void ChangeAllSources(bool isPlaying)
+    {
+        AudioSource[] allAudioSources = FindObjectsOfType<AudioSource>();
+
+        if (isPlaying)
+        {
+            for (int i = 0; i < allAudioSources.Length; i++)
+            {
+                allAudioSources[i].Pause();
+            }
+        }
+        else
+        {
+            for (int i = 0; i < allAudioSources.Length; i++)
+            {
+                allAudioSources[i].UnPause();
+            }
+        }
     }
 }
