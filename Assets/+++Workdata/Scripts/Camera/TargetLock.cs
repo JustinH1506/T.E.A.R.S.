@@ -81,16 +81,17 @@ public class TargetLock : MonoBehaviour
     {
         if (!currentTarget) return;
 
-        Vector3 viewPos = mainCamera.WorldToViewportPoint(target.position);
+        Vector3 lockPosition = target.position;
+        lockPosition.y = target.position.y + targetLockOffset.y;
+        Vector3 viewPos = mainCamera.WorldToViewportPoint(lockPosition);
         
         // if(aimIcon)
         //     aimIcon.transform.position = mainCamera.WorldToScreenPoint(target.position);
 
         if ((target.position - transform.position).magnitude < minDistance) return;
-        mouseX = (viewPos.x - 0.5f + targetLockOffset.x) * 3f;              
-        mouseY = (viewPos.y - 0.5f + targetLockOffset.y) * 3f;              
+        mouseX = (viewPos.x - 0.5f ) * 3f;              
+        mouseY = (viewPos.y - 0.5f ) * 3f;              
     }
-
 
     private GameObject ClosestTarget()
     {

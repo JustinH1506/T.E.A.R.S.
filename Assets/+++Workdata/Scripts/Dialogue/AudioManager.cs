@@ -106,10 +106,12 @@ public class AudioManager : MonoBehaviour
         source.Play();
     }
 
-    public void ChangeAllSources(bool isPlaying)
+    public void ChangeAllSfxSources(bool isPlaying)
     {
         AudioSource[] allAudioSources = FindObjectsOfType<AudioSource>();
 
+        
+        
         if (isPlaying)
         {
             for (int i = 0; i < allAudioSources.Length; i++)

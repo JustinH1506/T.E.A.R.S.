@@ -95,12 +95,12 @@ public class UIManager : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Escape) && pauseScreen.alpha < 1)
 		{
 			OpenMenu(pauseScreen, CursorLockMode.None, 0f);
-			AudioManager.Instance.ChangeAllSources(true);
+			AudioManager.Instance.ChangeAllSfxSources(true);
 		}
 		else if(Input.GetKeyDown(KeyCode.Escape) && pauseScreen.alpha >= 1)
 		{
 			CloseMenu(pauseScreen, CursorLockMode.Locked, 1f);
-			AudioManager.Instance.ChangeAllSources(false);
+			AudioManager.Instance.ChangeAllSfxSources(false);
 		}
 
 		if (Input.GetKeyDown(KeyCode.Tab) && journalScreen.alpha < 1)
