@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Audio;
 using UnityEngine.Serialization;
 
 public class AudioManager : MonoBehaviour
@@ -35,6 +36,10 @@ public class AudioManager : MonoBehaviour
     public AudioClip swordAttackSound;
     public AudioClip swordHitSound;
     public AudioClip enemyHitSound;
+    
+    [Header("Audio Mixer Groups")]
+    public AudioMixerGroup musicMixerGroup;
+    public AudioMixerGroup soundMixerGroup;
     
     private void Awake()
     {
@@ -109,8 +114,58 @@ public class AudioManager : MonoBehaviour
     public void ChangeAllSfxSources(bool isPlaying)
     {
         AudioSource[] allAudioSources = FindObjectsOfType<AudioSource>();
-
         
+        if (isPlaying)
+        {
+            for (int i = 0; i < allAudioSources.Length; i++)
+            {
+                if (allAudioSources[i].outputAudioMixerGroup == soundMixerGroup)
+                {
+                    allAudioSources[i].Pause();
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < allAudioSources.Length; i++)
+            {
+                if (allAudioSources[i].outputAudioMixerGroup == soundMixerGroup)
+                {
+                    allAudioSources[i].UnPause();
+                }
+            }
+        }
+    }
+    
+    public void ChangeAllMusicSources(bool isPlaying)
+    {
+        AudioSource[] allAudioSources = FindObjectsOfType<AudioSource>();
+        
+        if (isPlaying)
+        {
+            for (int i = 0; i < allAudioSources.Length; i++)
+            {
+                if (allAudioSources[i].outputAudioMixerGroup == musicMixerGroup)
+                {
+                    allAudioSources[i].Pause();
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < allAudioSources.Length; i++)
+            {
+                if (allAudioSources[i].outputAudioMixerGroup == musicMixerGroup)
+                {
+                    allAudioSources[i].UnPause();
+                }
+            }
+        }
+    }
+    
+    public void ChangeAllSources(bool isPlaying)
+    {
+        AudioSource[] allAudioSources = FindObjectsOfType<AudioSource>();
         
         if (isPlaying)
         {
