@@ -31,7 +31,7 @@ public class AudioManager : MonoBehaviour
     
     [Header("Sound Effects Clips")]
     public AudioSource soundSource;
-    public AudioClip playerStepSounds;
+    public AudioClip[] playerStepSounds;
     public AudioClip enemyStepSounds;
     public AudioClip swordAttackSound;
     public AudioClip swordHitSound;
@@ -40,6 +40,9 @@ public class AudioManager : MonoBehaviour
     [Header("Audio Mixer Groups")]
     public AudioMixerGroup musicMixerGroup;
     public AudioMixerGroup soundMixerGroup;
+
+    [Header("Audio Listener")] 
+    public AudioListener mainMenuListener;
     
     private void Awake()
     {
@@ -52,6 +55,8 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         dialogueTextComponent.text = string.Empty;
+        
+        PlayMusic(mainMenuMusic);
     }
     
     /// <summary>
@@ -94,16 +99,11 @@ public class AudioManager : MonoBehaviour
         musicSource.Play();
     }
 
-    public void PlaySound(AudioClip soundClip,AudioSource source , bool useRandomPitch)
+    public void PlaySound(AudioClip soundClip,AudioSource source)
     {
         if (source.isPlaying)
         {
             source.Stop();
-        }
-
-        if (useRandomPitch)
-        {
-            source.pitch = Random.Range(0.5f, 1.6f);
         }
         
         source.clip = soundClip;
@@ -113,7 +113,7 @@ public class AudioManager : MonoBehaviour
 
     public void ChangeAllSfxSources(bool isPlaying)
     {
-        AudioSource[] allAudioSources = FindObjectsOfType<AudioSource>();
+        AudioSource[] allAudioSources = FindObjectsByType<AudioSource>(FindObjectsSortMode.None);
         
         if (isPlaying)
         {
@@ -139,7 +139,7 @@ public class AudioManager : MonoBehaviour
     
     public void ChangeAllMusicSources(bool isPlaying)
     {
-        AudioSource[] allAudioSources = FindObjectsOfType<AudioSource>();
+        AudioSource[] allAudioSources = FindObjectsByType<AudioSource>(FindObjectsSortMode.None);
         
         if (isPlaying)
         {
@@ -165,7 +165,7 @@ public class AudioManager : MonoBehaviour
     
     public void ChangeAllSources(bool isPlaying)
     {
-        AudioSource[] allAudioSources = FindObjectsOfType<AudioSource>();
+        AudioSource[] allAudioSources = FindObjectsByType<AudioSource>(FindObjectsSortMode.None);
         
         if (isPlaying)
         {

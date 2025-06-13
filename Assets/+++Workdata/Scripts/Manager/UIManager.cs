@@ -120,6 +120,8 @@ public class UIManager : MonoBehaviour
 		CloseMenu(mainMenuScreen, CursorLockMode.Locked, 1);
 		OpenMenu(inGameUi, CursorLockMode.Locked, 1f);
 		DataPersistenceManager.Instance.NewGame();
+		AudioManager.Instance.PlayMusic(AudioManager.Instance.inGameMusic);
+		AudioManager.Instance.mainMenuListener.enabled = false;
 	}
 
 	public void LoadGame()
@@ -145,6 +147,8 @@ public class UIManager : MonoBehaviour
 		CloseMenu(inGameUi, CursorLockMode.None, 1f);
 		CloseMenu(demoEndScreen, CursorLockMode.None, 1f);
 		OpenMenu(mainMenuScreen, CursorLockMode.None, 1f);
+		AudioManager.Instance.PlayMusic(AudioManager.Instance.mainMenuMusic);
+		AudioManager.Instance.mainMenuListener.enabled = true;
 	}
 
 	public void OpenOptionsMenu(bool getsOpened)
@@ -162,7 +166,7 @@ public class UIManager : MonoBehaviour
 	public void Resume()
 	{
 		CloseMenu(pauseScreen, CursorLockMode.Locked, 1f);
-		AudioManager.Instance.dialogueSource.UnPause();
+		AudioManager.Instance.ChangeAllSfxSources(false);
 	}
 
 	public void OpenMenu(CanvasGroup canvasGroup, CursorLockMode lockMode, float timeScale)

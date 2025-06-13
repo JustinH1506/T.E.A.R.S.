@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Playables;
 
 public class KeyNote : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class KeyNote : MonoBehaviour
 
 	[SerializeField] private GameObject inactiveEnemy;
 	[SerializeField] private GameObject activeEnemy;
+	
+	[SerializeField] private PlayableDirector ringCutscene;
 	
 	private void OnTriggerEnter(Collider other)
 	{
@@ -36,6 +39,7 @@ public class KeyNote : MonoBehaviour
 		{
 			doorAnim.Play("CloseDoors");
 			UIManager.Instance.OpenMenu(UIManager.Instance.dialogueUi, CursorLockMode.Locked, 1f);
+			ringCutscene.Play();
 			AudioManager.Instance.StartCoroutine(AudioManager.Instance.StartDialogue());
 			inactiveEnemy.SetActive(false);
 			activeEnemy.SetActive(true);

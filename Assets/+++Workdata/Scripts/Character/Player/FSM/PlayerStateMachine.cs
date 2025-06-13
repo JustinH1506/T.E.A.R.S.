@@ -2,6 +2,7 @@ using System;
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 public class PlayerStateMachine : CharacterBase, IDataPersistence
 {
@@ -514,7 +515,7 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
 
     public void StepSounds()
     {
-	    AudioManager.Instance.PlaySound(AudioManager.Instance.playerStepSounds, soundSource, true);
+	    AudioManager.Instance.PlaySound(AudioManager.Instance.playerStepSounds[Random.Range(0,4)], soundSource);
     }
     
     #endregion

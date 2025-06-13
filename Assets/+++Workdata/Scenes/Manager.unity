@@ -6408,6 +6408,7 @@ GameObject:
   - component: {fileID: 1222508362}
   - component: {fileID: 1222508364}
   - component: {fileID: 1222508363}
+  - component: {fileID: 1222508365}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -6435,18 +6436,24 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 8f2e74999a596e842bea4e40a5eb2561, type: 3}
   dialogueTextComponent: {fileID: 1752295769}
   musicSource: {fileID: 1222508364}
-  mainMenuMusic: {fileID: 0}
+  mainMenuMusic: {fileID: 8300000, guid: f7576dc6aa22ce6448c5635acc734a96, type: 3}
   inBattleMusic: {fileID: 0}
-  inGameMusic: {fileID: 0}
+  inGameMusic: {fileID: 8300000, guid: 1eceba9f546c247499285f8ac30d20bc, type: 3}
   gameOverMusic: {fileID: 0}
   soundSource: {fileID: 1222508363}
-  playerStepSounds: {fileID: 8300000, guid: a60f1180a0d8cf149807e6dcfb6c316a, type: 3}
+  playerStepSounds:
+  - {fileID: 8300000, guid: a60f1180a0d8cf149807e6dcfb6c316a, type: 3}
+  - {fileID: 8300000, guid: 61dccf5ac53d13c4b8b3719bce9759e3, type: 3}
+  - {fileID: 8300000, guid: 9d9244b4f6772594f94424ff34018d04, type: 3}
+  - {fileID: 8300000, guid: 7b0e90e238fa68a4ea833d7e756232f1, type: 3}
+  - {fileID: 8300000, guid: dd3739011fb3aff4e8f6d4214fb80fdf, type: 3}
   enemyStepSounds: {fileID: 0}
   swordAttackSound: {fileID: 0}
   swordHitSound: {fileID: 0}
   enemyHitSound: {fileID: 0}
   musicMixerGroup: {fileID: -7544012071673701034, guid: 3f11e86f9d0dc074190abd4ef623b9fb, type: 2}
   soundMixerGroup: {fileID: 948159277864703074, guid: 3f11e86f9d0dc074190abd4ef623b9fb, type: 2}
+  mainMenuListener: {fileID: 1222508365}
 --- !u!4 &1222508361
 Transform:
   m_ObjectHideFlags: 0
@@ -6753,6 +6760,14 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!81 &1222508365
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222508359}
+  m_Enabled: 1
 --- !u!1 &1229623818
 GameObject:
   m_ObjectHideFlags: 0
