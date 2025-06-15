@@ -48,9 +48,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4674632577193711368, guid: 59d090396fc24674090dc64c4e954a78, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -6239735818478426, guid: 59d090396fc24674090dc64c4e954a78, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 59d090396fc24674090dc64c4e954a78, type: 3}
       propertyPath: m_Name
       value: Oildrum_5_Stack
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 59d090396fc24674090dc64c4e954a78, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1214734556139122478, guid: 59d090396fc24674090dc64c4e954a78, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
