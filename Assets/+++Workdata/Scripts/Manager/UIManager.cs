@@ -6,8 +6,12 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+	#region Variables
+
 	public static UIManager Instance;
 	private GameObject player;
+
+	#endregion
 	
 	#region Constants
 	
@@ -26,7 +30,9 @@ public class UIManager : MonoBehaviour
 	public CanvasGroup inGameUi;
 	public CanvasGroup dialogueUi;
 	public CanvasGroup pauseScreen;
+	public CanvasGroup inventoryScreen;
 	public CanvasGroup journalScreen;
+	public CanvasGroup itemScreen;
 	public CanvasGroup demoEndScreen;
     #endregion
 	
@@ -40,6 +46,7 @@ public class UIManager : MonoBehaviour
 	[Header("Buttons")] 
 	
 	public Button[] journalButtons;
+	public Button[] itemButtons;
 	
 	[Space]
 
@@ -199,6 +206,12 @@ public class UIManager : MonoBehaviour
 		Cursor.lockState = lockMode;
 
 		Time.timeScale = timeScale;
+	}
+
+	public void StartText()
+	{
+		OpenMenu(dialogueUi, CursorLockMode.Locked, 1f);
+		
 	}
 
 	public void ChangeJournal(Journals journals)
