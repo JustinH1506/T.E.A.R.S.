@@ -19,6 +19,7 @@ public class AudioManager : MonoBehaviour
     [Header("Dialogue Variables")]
     public AudioSource dialogueSource;
     [SerializeField] private DialogueData[] ringSubtitleData;
+    [SerializeField] private DialogueData[] mainCharacterStartDialogue;
     [SerializeField] private TextMeshProUGUI dialogueTextComponent;
     [Space]
     

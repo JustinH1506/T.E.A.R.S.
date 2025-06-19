@@ -22,10 +22,10 @@ public class GameManager : MonoBehaviour, IDataPersistence
 
     public bool[] journalStates;
 
-    public bool hasKey = false;
-    public bool hasExplosive = false;
+    [FormerlySerializedAs("hasKey")] public bool hasControlRoomKey = false;
+    public bool defeated2ndWave = false;
+    [FormerlySerializedAs("hasExplosive")] public bool hasControlPanelKey = false;
     
-
 #if  UNITY_EDITOR
     [FormerlySerializedAs("_debug")]
     [Space]
@@ -82,11 +82,12 @@ public class GameManager : MonoBehaviour, IDataPersistence
     {
         if (killedEnemies == 2)
         {
-            hasKey = true;
+            StartCoroutine(UIManager.Instance.StartText("You got a key!"));
+            hasControlRoomKey = true;
         }
         else if (killedEnemies == 5)
         {
-            hasExplosive = true;
+            defeated2ndWave = true;
         }
     }
 

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Audiolog : MonoBehaviour
+public class LockerCode : MonoBehaviour
 {
 	[SerializeField] private GameObject indicator;
 
@@ -9,9 +9,11 @@ public class Audiolog : MonoBehaviour
 	
 	public bool playerInReach = false;
 	
+	[SerializeField] int journalIndex = 0;
+	
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.CompareTag("Player"))
+		if (other.CompareTag("Player") && GameManager.Instance.defeated2ndWave)
 		{
 			indicator.SetActive(true);
 			playerInReach = true;
@@ -20,7 +22,7 @@ public class Audiolog : MonoBehaviour
 
 	private void OnTriggerExit(Collider other)
 	{
-		if (other.CompareTag("Player"))
+		if (other.CompareTag("Player") && GameManager.Instance.defeated2ndWave)
 		{
 			indicator.SetActive(false);
 			playerInReach = false;
@@ -33,7 +35,7 @@ public class Audiolog : MonoBehaviour
 
 		if (playerInReach && Keyboard.current.eKey.wasPressedThisFrame)
 		{
-			
+			GameManager.Instance.ActivateJournal(journalIndex);
 		}
 	}
 }

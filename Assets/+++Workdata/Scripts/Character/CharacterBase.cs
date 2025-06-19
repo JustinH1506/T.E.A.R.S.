@@ -12,7 +12,7 @@ public class CharacterBase : MonoBehaviour
 	public int baseAttack;
 	[Space]
 	
-	protected bool isDead = false;
+	public bool isDead = false;
 	
 	public bool IsDead { get => isDead;
 		set => isDead = value;
@@ -47,6 +47,7 @@ public class CharacterBase : MonoBehaviour
 			}
 			else
 			{
+				baseCurrentHealth = 1;
 				IsDead = true;
 				GameManager.Instance.killedEnemies++;
 				GameManager.Instance.CheckKey();

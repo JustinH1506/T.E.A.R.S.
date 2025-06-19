@@ -1,5 +1,5 @@
-using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class LockedDoor : MonoBehaviour
 {
@@ -33,7 +33,7 @@ public class LockedDoor : MonoBehaviour
     }
     void Update()
     {
-        if (playerInReach && Input.GetKeyDown(KeyCode.E) && GameManager.Instance.hasKey)
+        if (playerInReach && Keyboard.current.eKey.wasPressedThisFrame && GameManager.Instance.hasControlRoomKey)
         {
             anim.Play("DoorOpens");
         }

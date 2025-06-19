@@ -7,7 +7,7 @@ public class PlayerSword : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.CompareTag("Enemy"))
+		if (other.CompareTag("Enemy") && !other.GetComponent<CharacterBase>().isDead)
 		{
 			other.GetComponent<CharacterBase>().TakeDamage(_playerActions.baseAttack);
 			other.GetComponent<EnemyStateMachine>().GotHit = true;

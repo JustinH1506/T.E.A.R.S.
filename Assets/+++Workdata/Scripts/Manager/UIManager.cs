@@ -1,4 +1,4 @@
-using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -29,8 +29,8 @@ public class UIManager : MonoBehaviour
 	public CanvasGroup optionsScreen;
 	public CanvasGroup inGameUi;
 	public CanvasGroup dialogueUi;
+	public CanvasGroup infoTextUi;
 	public CanvasGroup pauseScreen;
-	public CanvasGroup inventoryScreen;
 	public CanvasGroup journalScreen;
 	public CanvasGroup itemScreen;
 	public CanvasGroup demoEndScreen;
@@ -39,6 +39,7 @@ public class UIManager : MonoBehaviour
     #region Texts
 	[Header("Texts")] 
 	[SerializeField] private TextMeshProUGUI JournalText;
+	[SerializeField] private TextMeshProUGUI infoText;
 	#endregion
 
 	#region Buttons
@@ -208,10 +209,14 @@ public class UIManager : MonoBehaviour
 		Time.timeScale = timeScale;
 	}
 
-	public void StartText()
+	public IEnumerator StartText(string currentText)
 	{
-		OpenMenu(dialogueUi, CursorLockMode.Locked, 1f);
+		OpenMenu(infoTextUi, CursorLockMode.Locked, 1f);
+		infoText.text = currentText;
 		
+		yield return new WaitForSeconds(2f);
+		
+		CloseMenu(infoTextUi, CursorLockMode.Locked, 1f);
 	}
 
 	public void ChangeJournal(Journals journals)
