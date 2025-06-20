@@ -302,4 +302,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   indicator: {fileID: 2423979850654962642}
   playerInReach: 0
-  journalIndex: 3
+  journalId: 3

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,6 +7,7 @@ public class LockedDoor : MonoBehaviour
     [SerializeField] private GameObject indicator;
     
     public bool playerInReach = false;
+    private bool opened = false;
 
     private Animator anim;
 
@@ -16,18 +18,18 @@ public class LockedDoor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !opened)
         {
-            // indicator.SetActive(true);
+            indicator.SetActive(true);
             playerInReach = true;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !opened)
         {
-            // indicator.SetActive(false);
+            indicator.SetActive(false);
             playerInReach = false;
         }
     }
@@ -36,6 +38,7 @@ public class LockedDoor : MonoBehaviour
         if (playerInReach && Keyboard.current.eKey.wasPressedThisFrame && GameManager.Instance.hasControlRoomKey)
         {
             anim.Play("DoorOpens");
+            opened = true;
         }
     }
 }

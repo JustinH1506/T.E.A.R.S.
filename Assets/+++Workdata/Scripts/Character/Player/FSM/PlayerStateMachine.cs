@@ -405,7 +405,7 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
 	    
 	    if (currentStamina < 50f)
 	    {
-			Stamina += Time.deltaTime * staminaRecovery;
+			Stamina += Time.deltaTime * staminaRecovery * 1.5f;
 	    }
     }
 
@@ -431,7 +431,7 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
     /// </summary>
     public void StaminaUse()
     {
-	    Stamina -= runCost;
+	    Stamina -= 2;
     }
     
     /// <summary>

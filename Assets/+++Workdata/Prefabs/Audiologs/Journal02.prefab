@@ -124,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   indicator: {fileID: 7800837184982319438}
   playerInReach: 0
-  journalIndex: 1
+  journalId: 1
 --- !u!1 &7800837184982319438
 GameObject:
   m_ObjectHideFlags: 0

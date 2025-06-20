@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class KeyExplosive : MonoBehaviour
+public class ControlPanel : MonoBehaviour
 {
 	public bool playerInReach = false;
 

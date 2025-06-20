@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,10 +8,19 @@ public class LockerCode : MonoBehaviour
 
 	private Vector3 rotatePosition;
 	
-	public bool playerInReach = false;
+	private bool playerInReach = false;
+
+	[SerializeField] private GameObject controlRoomKey;
 	
-	[SerializeField] int journalIndex = 0;
-	
+	private Animator anim;
+	private SphereCollider triggerZone;
+
+	private void Awake()
+	{
+		anim = GetComponent<Animator>();
+		triggerZone = GetComponent<SphereCollider>();
+	}
+
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.CompareTag("Player") && GameManager.Instance.defeated2ndWave)
@@ -35,7 +45,9 @@ public class LockerCode : MonoBehaviour
 
 		if (playerInReach && Keyboard.current.eKey.wasPressedThisFrame)
 		{
-			GameManager.Instance.ActivateJournal(journalIndex);
+			anim.Play("LockerOpen");
+			controlRoomKey.SetActive(true);
+			triggerZone.enabled = false;
 		}
 	}
 }

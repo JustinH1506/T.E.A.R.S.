@@ -1,8 +1,8 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour, IDataPersistence
 {
@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
             StartCoroutine(UIManager.Instance.StartText("You got a key!"));
             hasControlRoomKey = true;
         }
-        else if (killedEnemies == 5)
+        else if (killedEnemies == 4)
         {
             defeated2ndWave = true;
         }

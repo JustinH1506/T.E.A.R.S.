@@ -1,15 +1,13 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Audiolog : MonoBehaviour
+public class ControlPanelKey : MonoBehaviour
 {
 	[SerializeField] private GameObject indicator;
-
-	private Vector3 rotatePosition;
 	
 	public bool playerInReach = false;
-
-	public int journalId;
+	
+	[SerializeField] private ControlPanel controlPanel;
 	
 	private void OnTriggerEnter(Collider other)
 	{
@@ -31,12 +29,12 @@ public class Audiolog : MonoBehaviour
 
 	private void Update()
 	{
-		//transform.LookAt(Camera.main.transform.position);
-
 		if (playerInReach && Keyboard.current.eKey.wasPressedThisFrame)
 		{
-			UIManager.Instance.OpenMenu(UIManager.Instance.journalScreen, CursorLockMode.None, 0f);
-			GameManager.Instance.ActivateJournal(journalId);
+			StartCoroutine(UIManager.Instance.StartText("You got a Control Panel Key!"));
+			GameManager.Instance.hasControlPanelKey = true;
+			controlPanel.enabled = true;
+			gameObject.SetActive(false);
 		}
 	}
 }
