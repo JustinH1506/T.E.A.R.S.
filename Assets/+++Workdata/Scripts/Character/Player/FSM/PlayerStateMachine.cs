@@ -38,6 +38,8 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
     [SerializeField] private float maxMoveSpeed = 0;
     [SerializeField] private float maxSprintMoveSpeed = 0;
     [SerializeField] private float rotationSpeed = 0f;
+    [SerializeField] private LayerMask slopeCheck;
+    private RaycastHit slopeHit;
     private float moveSpeed = 0;
     private bool isSprinting = false;
     private bool canTurn = true;
@@ -270,10 +272,11 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
 	    {
 		    return;
 	    }
-	    
+
+	    Vector3 playerRotation = new Vector3(cameraRelativeMovement.x, 0, cameraRelativeMovement.z);
 	    if (HandleCameraRelative() != Vector3.zero && !targetLock.isTargeting)
 	    {
-		    transform.forward = Vector3.Slerp(transform.forward, cameraRelativeMovement.normalized, Time.deltaTime * rotateSpeed);
+		    transform.forward = Vector3.Slerp(transform.forward, playerRotation.normalized, Time.deltaTime * rotateSpeed);
 	    }
 	    else if(targetLock.currentTarget != null)
 	    {
@@ -325,18 +328,39 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
 	    Vector3 cameraForward = Camera.main.transform.forward;
 	    Vector3 cameraRight = Camera.main.transform.right;
 
-	    cameraForward.y = 0;
-	    cameraRight.y = 0;
+	    //cameraForward.y = 0;
+	    //cameraRight.y = 0;
 	    cameraForward = cameraForward.normalized;
 	    cameraRight = cameraRight.normalized;
 		
 	    Vector3 forwardRelativeMovementVector = inputZ * cameraForward;
 	    Vector3 rightRelativeMovementVector = inputX * cameraRight;
-	    
 	    Vector3 cameraRelativeMovement = forwardRelativeMovementVector + rightRelativeMovementVector;
+	    
+	    if (SlopeCheck())
+	    {
+		    Vector3 slopeRelativeMovement = Vector3.ProjectOnPlane(cameraRelativeMovement, slopeHit.normal).normalized;
+		    cameraRelativeMovement = slopeRelativeMovement * cameraRelativeMovement.magnitude;
+	    }
+
 	    cameraRelativeMovement.Normalize();
 	    
 	    return cameraRelativeMovement;
+    }
+    
+    bool SlopeCheck()
+    {
+	    Physics.Raycast(transform.position, Vector3.down, out slopeHit, Mathf.Infinity, slopeCheck);
+	    
+	    if (slopeHit.collider != null)
+	    {
+		    float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
+		    if (angle != 0)
+		    {
+			    return true;
+		    }
+	    }
+	    return false;
     }
 
     /// <summary>

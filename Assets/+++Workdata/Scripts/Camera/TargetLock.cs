@@ -11,6 +11,7 @@ public class TargetLock : MonoBehaviour
     [Space]
     [SerializeField] private Camera mainCamera;           
     [SerializeField] private CinemachineFreeLook cinemachineFreeLook;
+    [SerializeField] private CineMachineManualFreeLook cineMachineManualFreeLook;
     [Space]
     [Header("UI")]
     [SerializeField] private Image aimIcon; 
@@ -67,6 +68,7 @@ public class TargetLock : MonoBehaviour
         {
             isTargeting = false;
             currentTarget = null;
+            cineMachineManualFreeLook.enabled = true;
             return;
         }
 
@@ -117,6 +119,7 @@ public class TargetLock : MonoBehaviour
                 }
             }
         }
+        cineMachineManualFreeLook.enabled = false;
         return closest;
     }
     

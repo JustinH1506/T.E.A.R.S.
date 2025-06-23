@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyPatrolState : EnemyBaseState
@@ -9,6 +10,8 @@ public class EnemyPatrolState : EnemyBaseState
     public override void EnterState()
     {
         ctx.NavMeshAgent.isStopped = false;
+        
+        ctx.NavMeshAgent.updatePosition = false;
 
         ctx.Anim.Play(EnemyAnimationFactory.Walk);
 
@@ -55,6 +58,11 @@ public class EnemyPatrolState : EnemyBaseState
         ctx.CurrentPoint = (ctx.CurrentPoint + 1) % ctx.CheckPoints.Length;
         
         ctx.NavMeshAgent.destination = ctx.CheckPoints[ctx.CurrentPoint].position;
+    }
+
+    private void OnAnimatorMove()
+    {
+        
     }
 }
 
