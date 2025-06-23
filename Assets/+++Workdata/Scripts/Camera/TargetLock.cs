@@ -68,7 +68,7 @@ public class TargetLock : MonoBehaviour
         {
             isTargeting = false;
             currentTarget = null;
-            cineMachineManualFreeLook.enabled = true;
+            cineMachineManualFreeLook.isTargeting = false;
             return;
         }
 
@@ -76,6 +76,7 @@ public class TargetLock : MonoBehaviour
         {
             currentTarget = ClosestTarget().transform;
             isTargeting = true;
+            cineMachineManualFreeLook.isTargeting = true;
         }
     }
 
@@ -119,7 +120,6 @@ public class TargetLock : MonoBehaviour
                 }
             }
         }
-        cineMachineManualFreeLook.enabled = false;
         return closest;
     }
     

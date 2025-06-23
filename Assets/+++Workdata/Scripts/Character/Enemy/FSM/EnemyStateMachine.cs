@@ -225,5 +225,13 @@ public class EnemyStateMachine : CharacterBase, IDataPersistence
 		return false;
 	}
 	
+	private void OnAnimatorMove()
+	{
+		Vector3 rootPosition = Anim.rootPosition;
+		rootPosition.y = NavMeshAgent.nextPosition.y;
+		transform.position = rootPosition;
+		NavMeshAgent.nextPosition = rootPosition;
+	}
+	
 	#endregion
 }

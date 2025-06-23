@@ -60,9 +60,6 @@ public class EnemyPatrolState : EnemyBaseState
         ctx.NavMeshAgent.destination = ctx.CheckPoints[ctx.CurrentPoint].position;
     }
 
-    private void OnAnimatorMove()
-    {
-        
-    }
+  
 }
 

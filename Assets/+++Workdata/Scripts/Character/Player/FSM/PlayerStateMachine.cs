@@ -340,7 +340,7 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
 	    if (SlopeCheck())
 	    {
 		    Vector3 slopeRelativeMovement = Vector3.ProjectOnPlane(cameraRelativeMovement, slopeHit.normal).normalized;
-		    cameraRelativeMovement = slopeRelativeMovement * cameraRelativeMovement.magnitude;
+		    cameraRelativeMovement = slopeRelativeMovement;
 	    }
 
 	    cameraRelativeMovement.Normalize();
