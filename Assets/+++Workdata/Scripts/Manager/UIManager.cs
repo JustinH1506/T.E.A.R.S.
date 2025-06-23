@@ -2,6 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -100,31 +101,35 @@ public class UIManager : MonoBehaviour
 
 	private void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Escape) && pauseScreen.alpha < 1)
+		if (GameManager.Instance.gameStates == GameManager.GameStates.MainMenu)
+			return;
+
+		if (Keyboard.current.escapeKey.wasPressedThisFrame && pauseScreen.alpha < 1)
 		{
 			OpenMenu(pauseScreen, CursorLockMode.None, 0f);
 			AudioManager.Instance.ChangeAllSfxSources(true);
 		}
-		else if(Input.GetKeyDown(KeyCode.Escape) && pauseScreen.alpha >= 1)
+		else if(Keyboard.current.escapeKey.wasPressedThisFrame && pauseScreen.alpha >= 1)
 		{
 			CloseMenu(pauseScreen, CursorLockMode.Locked, 1f);
 			AudioManager.Instance.ChangeAllSfxSources(false);
 		}
 
-		if (Input.GetKeyDown(KeyCode.Tab) && journalScreen.alpha < 1)
+		if (Keyboard.current.tabKey.wasPressedThisFrame && journalScreen.alpha < 1 && itemScreen.alpha < 1)
 		{
 			OpenMenu(journalScreen, CursorLockMode.None, 0f);
 		}
-		else if (Input.GetKeyDown(KeyCode.Tab) && journalScreen.alpha >= 1)
+		else if (Keyboard.current.tabKey.wasPressedThisFrame)
 		{
 			CloseMenu(journalScreen, CursorLockMode.Locked, 1f);
+			CloseMenu(itemScreen, CursorLockMode.Locked, 1f);
 		}
 	}
 
 	public void StartNewGame()
 	{
 		SceneLoader.Instance.sceneStates = SceneLoader.SceneStates.Level01;
-		StartCoroutine(SceneLoader.Instance.LoadScene((int)SceneLoader.Instance.sceneStates, 1, false));
+		StartCoroutine(SceneLoader.Instance.LoadScene((int)SceneLoader.Instance.sceneStates, 1, false, GameManager.GameStates.InGame));
 		CloseMenu(mainMenuScreen, CursorLockMode.Locked, 1);
 		OpenMenu(inGameUi, CursorLockMode.Locked, 1f);
 		DataPersistenceManager.Instance.NewGame();
@@ -135,7 +140,7 @@ public class UIManager : MonoBehaviour
 	public void LoadGame()
 	{
 		SceneLoader.Instance.sceneStates = SceneLoader.SceneStates.Level01;
-		StartCoroutine(SceneLoader.Instance.LoadScene((int)SceneLoader.Instance.sceneStates, 1, true));
+		StartCoroutine(SceneLoader.Instance.LoadScene((int)SceneLoader.Instance.sceneStates, 1, true, GameManager.GameStates.InGame));
 		CloseMenu(mainMenuScreen, CursorLockMode.Locked, 1);
 		OpenMenu(inGameUi, CursorLockMode.Locked, 1f);
 	}
@@ -228,11 +233,6 @@ public class UIManager : MonoBehaviour
 	{
 		DataPersistenceManager.Instance.SaveGame();
 	}
-
-	public void Quit()
-	{
-		Application.Quit();
-	}
 	
 	private void OnSliderChanged(Slider slider, string keyName)
 	{
@@ -246,6 +246,23 @@ public class UIManager : MonoBehaviour
 				mixer.SetFloat(keyName, Mathf.Log10(slider.value) * 20);
 				break;
 		}
+	}
+
+	public void ChangeCanvasGroup(CanvasGroup canvasGroup)
+	{
+		if (canvasGroup.alpha < 1)
+		{
+			canvasGroup.ShowCanvasGroup();
+		}
+		else
+		{
+			canvasGroup.HideCanvasGroup();
+		}
+	}
+	
+	public void Quit()
+	{
+		Application.Quit();
 	}
 	
 	#endregion

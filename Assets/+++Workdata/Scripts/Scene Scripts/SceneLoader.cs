@@ -47,11 +47,13 @@ public class SceneLoader : MonoBehaviour
 		currentScene = (int)sceneStates; 
 	}
 	
-	public IEnumerator LoadScene(int newScene, int timeScale, bool loadGame)
+	public IEnumerator LoadScene(int newScene, int timeScale, bool loadGame, GameManager.GameStates newGameState)
 	{
 		UIManager.Instance.OpenMenu(UIManager.Instance.loadingScreen, CursorLockMode.Locked, 1f);
 		
 		sceneStates = (SceneStates)newScene;
+		
+		GameManager.Instance.gameStates = newGameState;
 		
 		AsyncOperation loadLevel = SceneManager.LoadSceneAsync(newScene, LoadSceneMode.Additive);
 
