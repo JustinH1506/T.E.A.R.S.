@@ -135,6 +135,7 @@ public class UIManager : MonoBehaviour
 		DataPersistenceManager.Instance.NewGame();
 		AudioManager.Instance.PlayMusic(AudioManager.Instance.inGameMusic);
 		AudioManager.Instance.mainMenuListener.enabled = false;
+		StartCoroutine(AudioManager.Instance.StartDialogue(AudioManager.Instance.mainCharacterStartDialogue));
 	}
 
 	public void LoadGame()

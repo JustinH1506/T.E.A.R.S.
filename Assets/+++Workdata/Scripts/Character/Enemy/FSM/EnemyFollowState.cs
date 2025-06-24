@@ -36,6 +36,7 @@ public class EnemyFollowState: EnemyBaseState
 
 	public override void ExitState()
 	{
+		
 	}
 
 	public override void CheckSwitchStates()

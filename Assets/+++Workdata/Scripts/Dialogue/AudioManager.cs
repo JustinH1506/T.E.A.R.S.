@@ -18,8 +18,8 @@ public class AudioManager : MonoBehaviour
 
     [Header("Dialogue Variables")]
     public AudioSource dialogueSource;
-    [SerializeField] private DialogueData[] ringSubtitleData;
-    [SerializeField] private DialogueData[] mainCharacterStartDialogue;
+    public DialogueData[] ringSubtitleData;
+    public DialogueData[] mainCharacterStartDialogue;
     [SerializeField] private TextMeshProUGUI dialogueTextComponent;
     [Space]
     
@@ -63,17 +63,17 @@ public class AudioManager : MonoBehaviour
     /// <summary>
     /// Starts the dialogue and sets needed values.
     /// </summary>
-    public IEnumerator StartDialogue()
+    public IEnumerator StartDialogue(DialogueData[] dialogueData)
     {
-        UIManager.Instance.OpenMenu(UIManager.Instance.dialogueUi, CursorLockMode.None, 1f);
+        UIManager.Instance.OpenMenu(UIManager.Instance.dialogueUi, CursorLockMode.Locked, 1f);
         
-        for (int i = 0; i < ringSubtitleData.Length; i++)
+        for (int i = 0; i < dialogueData.Length; i++)
         {
-            dialogueTextComponent.text = ringSubtitleData[i].line;
-            dialogueSource.clip = ringSubtitleData[i].audioClip;
+            dialogueTextComponent.text = dialogueData[i].line;
+            dialogueSource.clip = dialogueData[i].audioClip;
             dialogueSource.Play();
             
-            yield return new WaitForSeconds(ringSubtitleData[i].audioClip.length);
+            yield return new WaitForSeconds(dialogueData[i].audioClip.length);
         }
         
         AfterText();
