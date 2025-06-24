@@ -50,7 +50,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4cda68f17c6b58d41948bb752b7099a2, type: 3}
       propertyPath: m_Name
-      value: Office_Key_Mesh
+      value: Office_Key
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4cda68f17c6b58d41948bb752b7099a2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -32,7 +32,6 @@ MonoBehaviour:
         serializedVersion: 2
         m_Bits: 4294967291
   m_SceneGUIDs:
-  - 6c75c3c131592e1419620c062c74a97d
   - 8124e5870f4fd4c779e7a5f994e84ad1
   - 05b3ec2567743e84c866faea1d6b3b46
   obsoleteScenesToNotBake: []
@@ -127,11 +126,11 @@ MonoBehaviour:
         hasOnlyBiggerBricks: 0
     - position: {x: 0, y: 0, z: -1}
       index: 5
-      probeCount: 200320
+      probeCount: 201216
       minSubdiv: 0
       indexChunkCount: 91
       shChunkCount: 25
-      bricksCount: 3130
+      bricksCount: 3144
       indirectionEntryInfo:
       - positionInBricks: {x: 0, y: 0, z: -27}
         minSubdiv: 0
@@ -141,11 +140,11 @@ MonoBehaviour:
         hasOnlyBiggerBricks: 0
     - position: {x: 0, y: 0, z: 0}
       index: 17
-      probeCount: 202624
+      probeCount: 202304
       minSubdiv: 0
       indexChunkCount: 91
       shChunkCount: 25
-      bricksCount: 3166
+      bricksCount: 3161
       indirectionEntryInfo:
       - positionInBricks: {x: 0, y: 0, z: 0}
         minSubdiv: 0
@@ -252,7 +251,7 @@ MonoBehaviour:
     m_Keys:
     - Default
     m_Values:
-    - sceneHash: 1711717343
+    - sceneHash: -424278441
       cellDataAsset:
         m_AssetGUID: 228110b5d55fdbc46b5eba80804c542b
         m_StreamableAssetPath: APVStreamingAssets\e39e07f25d9bafc47a5bcef9b1abbf16\228110b5d55fdbc46b5eba80804c542b.bytes
@@ -369,16 +368,16 @@ MonoBehaviour:
       - offset: 15248
         elementCount: 501
       - offset: 23264
-        elementCount: 3130
-      - offset: 73344
-        elementCount: 3166
-      - offset: 124000
-        elementCount: 9
+        elementCount: 3144
+      - offset: 73568
+        elementCount: 3161
       - offset: 124144
+        elementCount: 9
+      - offset: 124288
         elementCount: 5
-      - offset: 124224
+      - offset: 124368
         elementCount: 106
-      - offset: 125920
+      - offset: 126064
         elementCount: 97
     m_Asset: {fileID: 4900000, guid: 57e148e8525b56147a54a1caa89ba852, type: 3}
   cellSupportDataAsset:
@@ -466,15 +465,9 @@ MonoBehaviour:
   renderingLayerMasks: []
   m_SceneBakeData:
     m_Keys:
-    - 6c75c3c131592e1419620c062c74a97d
     - 8124e5870f4fd4c779e7a5f994e84ad1
     - 05b3ec2567743e84c866faea1d6b3b46
     m_Values:
-    - hasProbeVolume: 0
-      bakeScene: 1
-      bounds:
-        m_Center: {x: 40.5, y: 0, z: 0}
-        m_Extent: {x: 121.5, y: 81, z: 81}
     - hasProbeVolume: 0
       bakeScene: 1
       bounds:
