@@ -88,6 +88,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         else if (killedEnemies == 4)
         {
             defeated2ndWave = true;
+            StartCoroutine(AudioManager.Instance.StartDialogue(AudioManager.Instance.afterDefeatingSecondWave));
         }
     }
 

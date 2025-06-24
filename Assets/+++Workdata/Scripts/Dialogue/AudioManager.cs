@@ -18,8 +18,9 @@ public class AudioManager : MonoBehaviour
 
     [Header("Dialogue Variables")]
     public AudioSource dialogueSource;
-    public DialogueData[] ringSubtitleData;
     public DialogueData[] mainCharacterStartDialogue;
+    public DialogueData[] ringSubtitleData;
+    public DialogueData[] afterDefeatingSecondWave;
     [SerializeField] private TextMeshProUGUI dialogueTextComponent;
     [Space]
     
