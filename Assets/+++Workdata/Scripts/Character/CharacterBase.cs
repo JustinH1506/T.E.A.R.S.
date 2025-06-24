@@ -42,13 +42,14 @@ public class CharacterBase : MonoBehaviour
 			if (gameObject.CompareTag("Player"))
 			{
 				IsDead = true;
-				UIManager.Instance.OpenMenu(UIManager.Instance.gameOverScreen, CursorLockMode.None, 0f);
+				UIManager.Instance.OpenMenu(UIManager.Instance.gameOverScreen, CursorLockMode.None, 0f, true);
 				baseCurrentHealth = 1;
 			}
 			else
 			{
 				baseCurrentHealth = 1;
 				IsDead = true;
+				GetComponent<CapsuleCollider>().enabled = false;
 				GameManager.Instance.killedEnemies++;
 				GameManager.Instance.CheckKey();
 			}

@@ -66,16 +66,16 @@ public class GameManager : MonoBehaviour, IDataPersistence
                 
                 SceneManager.LoadScene(activeSceneName, LoadSceneMode.Additive);
                 
-                UIManager.Instance.OpenMenu(UIManager.Instance.inGameUi, CursorLockMode.Locked, 1f);
+                UIManager.Instance.OpenMenu(UIManager.Instance.inGameUi, CursorLockMode.Locked, 1f, false);
             }
         }
         else
         {
-            UIManager.Instance.OpenMenu(UIManager.Instance.mainMenuScreen, CursorLockMode.None, 1f);
+            UIManager.Instance.OpenMenu(UIManager.Instance.mainMenuScreen, CursorLockMode.None, 1f, true);
         }
 #endif
         
-        UIManager.Instance.OpenMenu(UIManager.Instance.mainMenuScreen, CursorLockMode.None, 1f);
+        UIManager.Instance.OpenMenu(UIManager.Instance.mainMenuScreen, CursorLockMode.None, 1f, true);
     }
 
     public void CheckKey()
@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         journalStates[journalIndex] = true;
         
         UIManager.Instance.journalButtons[journalIndex].interactable = true;
-        UIManager.Instance.OpenMenu(UIManager.Instance.journalScreen, CursorLockMode.None, 0f);
+        UIManager.Instance.OpenMenu(UIManager.Instance.journalScreen, CursorLockMode.None, 0f, true);
         UIManager.Instance.journalButtons[journalIndex].onClick.Invoke();
     }
 

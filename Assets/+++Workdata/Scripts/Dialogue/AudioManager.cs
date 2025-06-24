@@ -65,7 +65,7 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     public IEnumerator StartDialogue(DialogueData[] dialogueData)
     {
-        UIManager.Instance.OpenMenu(UIManager.Instance.dialogueUi, CursorLockMode.Locked, 1f);
+        UIManager.Instance.OpenMenu(UIManager.Instance.dialogueUi, CursorLockMode.Locked, 1f, true);
         
         for (int i = 0; i < dialogueData.Length; i++)
         {

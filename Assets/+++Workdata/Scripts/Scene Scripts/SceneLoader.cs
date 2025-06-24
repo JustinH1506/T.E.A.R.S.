@@ -49,7 +49,7 @@ public class SceneLoader : MonoBehaviour
 	
 	public IEnumerator LoadScene(int newScene, int timeScale, bool loadGame, GameManager.GameStates newGameState)
 	{
-		UIManager.Instance.OpenMenu(UIManager.Instance.loadingScreen, CursorLockMode.Locked, 1f);
+		UIManager.Instance.OpenMenu(UIManager.Instance.loadingScreen, CursorLockMode.Locked, 1f, true);
 		
 		sceneStates = (SceneStates)newScene;
 		
@@ -88,7 +88,7 @@ public class SceneLoader : MonoBehaviour
 	/// <returns></returns>
 	public IEnumerator LoadScene(int oldScene, int firstNewScene, int timeScale)
 	{
-		UIManager.Instance.OpenMenu(UIManager.Instance.loadingScreen, CursorLockMode.Locked, 1f);
+		UIManager.Instance.OpenMenu(UIManager.Instance.loadingScreen, CursorLockMode.Locked, 1f, true);
 		
 		var unloadedScene = SceneManager.GetSceneByBuildIndex(oldScene);
 		
@@ -120,7 +120,7 @@ public class SceneLoader : MonoBehaviour
 
 	public IEnumerator UnloadScene(int oldScene, int currentActiveScene, int timeScale)
 	{
-		UIManager.Instance.OpenMenu(UIManager.Instance.loadingScreen, CursorLockMode.Locked, 1f);
+		UIManager.Instance.OpenMenu(UIManager.Instance.loadingScreen, CursorLockMode.Locked, 1f, true);
 		
 		var unloadedScene = SceneManager.GetSceneByBuildIndex(oldScene);
 		

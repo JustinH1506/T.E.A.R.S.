@@ -6,7 +6,7 @@ public class WinArea : MonoBehaviour
 	{
 		if (other.CompareTag("Player"))
 		{
-			UIManager.Instance.OpenMenu(UIManager.Instance.demoEndScreen, CursorLockMode.None, 0f);
+			UIManager.Instance.OpenMenu(UIManager.Instance.demoEndScreen, CursorLockMode.None, 0f, true);
 		}
 	}
 }

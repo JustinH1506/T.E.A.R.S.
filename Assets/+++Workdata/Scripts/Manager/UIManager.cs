@@ -106,7 +106,7 @@ public class UIManager : MonoBehaviour
 
 		if (Keyboard.current.escapeKey.wasPressedThisFrame && pauseScreen.alpha < 1)
 		{
-			OpenMenu(pauseScreen, CursorLockMode.None, 0f);
+			OpenMenu(pauseScreen, CursorLockMode.None, 0f, true);
 			AudioManager.Instance.ChangeAllSfxSources(true);
 		}
 		else if(Keyboard.current.escapeKey.wasPressedThisFrame && pauseScreen.alpha >= 1)
@@ -117,7 +117,7 @@ public class UIManager : MonoBehaviour
 
 		if (Keyboard.current.tabKey.wasPressedThisFrame && journalScreen.alpha < 1 && itemScreen.alpha < 1)
 		{
-			OpenMenu(journalScreen, CursorLockMode.None, 0f);
+			OpenMenu(journalScreen, CursorLockMode.None, 0f, true);
 		}
 		else if (Keyboard.current.tabKey.wasPressedThisFrame)
 		{
@@ -131,7 +131,7 @@ public class UIManager : MonoBehaviour
 		SceneLoader.Instance.sceneStates = SceneLoader.SceneStates.Level01;
 		StartCoroutine(SceneLoader.Instance.LoadScene((int)SceneLoader.Instance.sceneStates, 1, false, GameManager.GameStates.InGame));
 		CloseMenu(mainMenuScreen, CursorLockMode.Locked, 1);
-		OpenMenu(inGameUi, CursorLockMode.Locked, 1f);
+		OpenMenu(inGameUi, CursorLockMode.Locked, 1f, false);
 		DataPersistenceManager.Instance.NewGame();
 		AudioManager.Instance.PlayMusic(AudioManager.Instance.inGameMusic);
 		AudioManager.Instance.mainMenuListener.enabled = false;
@@ -143,7 +143,7 @@ public class UIManager : MonoBehaviour
 		SceneLoader.Instance.sceneStates = SceneLoader.SceneStates.Level01;
 		StartCoroutine(SceneLoader.Instance.LoadScene((int)SceneLoader.Instance.sceneStates, 1, true, GameManager.GameStates.InGame));
 		CloseMenu(mainMenuScreen, CursorLockMode.Locked, 1);
-		OpenMenu(inGameUi, CursorLockMode.Locked, 1f);
+		OpenMenu(inGameUi, CursorLockMode.Locked, 1f, false);
 	}
 
 	public void ReloadGame()
@@ -160,7 +160,7 @@ public class UIManager : MonoBehaviour
 		CloseMenu(pauseScreen, CursorLockMode.None, 1f);
 		CloseMenu(inGameUi, CursorLockMode.None, 1f);
 		CloseMenu(demoEndScreen, CursorLockMode.None, 1f);
-		OpenMenu(mainMenuScreen, CursorLockMode.None, 1f);
+		OpenMenu(mainMenuScreen, CursorLockMode.None, 1f, true);
 		AudioManager.Instance.PlayMusic(AudioManager.Instance.mainMenuMusic);
 		AudioManager.Instance.mainMenuListener.enabled = true;
 	}
@@ -169,7 +169,7 @@ public class UIManager : MonoBehaviour
 	{
 		if (getsOpened)
 		{
-			OpenMenu(optionsScreen, CursorLockMode.None, 0f);
+			OpenMenu(optionsScreen, CursorLockMode.None, 0f, true);
 		}
 		else
 		{
@@ -183,13 +183,13 @@ public class UIManager : MonoBehaviour
 		AudioManager.Instance.ChangeAllSfxSources(false);
 	}
 
-	public void OpenMenu(CanvasGroup canvasGroup, CursorLockMode lockMode, float timeScale)
+	public void OpenMenu(CanvasGroup canvasGroup, CursorLockMode lockMode, float timeScale, bool playerDisabled)
 	{
 		canvasGroup.ShowCanvasGroup();
 
 		player = GameObject.FindGameObjectWithTag("Player");
 
-		if (player != null)
+		if (player != null && playerDisabled)
 		{
 			player.GetComponent<PlayerStateMachine>().DisablePlayerActions();
 		}
@@ -217,10 +217,17 @@ public class UIManager : MonoBehaviour
 
 	public IEnumerator StartText(string currentText)
 	{
-		OpenMenu(infoTextUi, CursorLockMode.Locked, 1f);
+		OpenMenu(infoTextUi, CursorLockMode.Locked, 1f, false);
 		infoText.text = currentText;
-		
-		yield return new WaitForSeconds(2f);
+
+		float waitTime = 2f;
+
+		while (waitTime > 0f)
+		{
+			waitTime -= Time.deltaTime;
+			
+			yield return null;
+		}
 		
 		CloseMenu(infoTextUi, CursorLockMode.Locked, 1f);
 	}
