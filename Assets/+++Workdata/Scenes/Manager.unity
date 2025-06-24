@@ -8723,16 +8723,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueSource: {fileID: 1222508362}
-  ringSubtitleData:
-  - line: fewgewgg
-    audioClip: {fileID: 8300000, guid: a013d75f8bcc70b4d9bd37ca26858dd0, type: 3}
-  - line: regergeger
-    audioClip: {fileID: 8300000, guid: 8f2e74999a596e842bea4e40a5eb2561, type: 3}
   mainCharacterStartDialogue:
   - line: Finally. I managed to get here.
     audioClip: {fileID: 8300000, guid: a013d75f8bcc70b4d9bd37ca26858dd0, type: 3}
   - line: This is where elenoire was last according to our plans. Maybe i will find
       something here.
+    audioClip: {fileID: 8300000, guid: 8f2e74999a596e842bea4e40a5eb2561, type: 3}
+  ringSubtitleData:
+  - line: fewgewgg
+    audioClip: {fileID: 8300000, guid: a013d75f8bcc70b4d9bd37ca26858dd0, type: 3}
+  - line: regergeger
+    audioClip: {fileID: 8300000, guid: 8f2e74999a596e842bea4e40a5eb2561, type: 3}
+  afterDefeatingSecondWave:
+  - line: Hmmm... None if them had the key for the control panel.
+    audioClip: {fileID: 8300000, guid: a013d75f8bcc70b4d9bd37ca26858dd0, type: 3}
+  - line: Maybe it could be inside one of the lockers under the control office?
     audioClip: {fileID: 8300000, guid: 8f2e74999a596e842bea4e40a5eb2561, type: 3}
   dialogueTextComponent: {fileID: 1752295769}
   musicSource: {fileID: 1222508364}
