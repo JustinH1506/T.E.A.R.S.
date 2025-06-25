@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
@@ -125,6 +126,7 @@ public class EnemyStateMachine : CharacterBase, IDataPersistence
 		states = new EnemyStateFactory(this);
 		currentState = states.Patrol();
 		currentState.EnterState();
+		
 	}
 
 	//Calls UpdateState.

@@ -15,7 +15,6 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
     
     private PlayerBaseState currentState;
     private PlayerStateFactory states;
-   
     
     public PlayerBaseState CurrentState { get => currentState;
 	    set => currentState = value;

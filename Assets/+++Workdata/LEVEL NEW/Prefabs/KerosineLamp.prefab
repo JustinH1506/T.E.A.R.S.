@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6506354866291475489}
   - component: {fileID: 3165696413208605928}
+  - component: {fileID: 5676590877104607792}
   - component: {fileID: 7831487568901366961}
   m_Layer: 0
   m_Name: Point Light
@@ -89,7 +90,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 3651
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 6.2097996e+22, y: 7.7140256e+31, z: 538860700, w: 3.9415303e+12}
+  m_BoundingSphereOverride: {x: 6e-45, y: 2.2e-44, z: 0, w: 4.635e-42}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -98,6 +99,19 @@ Light:
   m_LightUnit: 0
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &5676590877104607792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6747985930936656506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db6fe3f0852164846b3bd3efa991e27e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  updateInterval: 0.3
 --- !u!114 &7831487568901366961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +207,7 @@ MonoBehaviour:
   m_LightAngle: 1
   m_MaxDepthBias: 0.001
   m_ShadowResolution:
-    m_Override: 512
+    m_Override: 256
     m_UseOverride: 1
     m_Level: 2
   m_ShadowDimmer: 1
@@ -262,15 +276,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1eb9552e9dfbe0e45999e68b07beb930, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -69.7
+      value: -69.475
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1eb9552e9dfbe0e45999e68b07beb930, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.469245
+      value: -5.932
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1eb9552e9dfbe0e45999e68b07beb930, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 13.87
+      value: 14.669
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1eb9552e9dfbe0e45999e68b07beb930, type: 3}
       propertyPath: m_LocalRotation.w
