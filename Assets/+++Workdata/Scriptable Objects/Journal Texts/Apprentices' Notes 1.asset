@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83cd6b8211edbb34e830a40f09d7582f, type: 3}
+  m_Name: Apprentices' Notes 1
+  m_EditorClassIdentifier: 
+  journalText: "Apprentices' Notes 1\n\n\nCORE and TRIP-OIL - basic notes (don't
+    forget this stuff!)\r\n\r\n- CORE = central reactor of Hephastoria - it powers
+    almost everything!\r\n- supervisor Derrick said that if we lose the CORE, we
+    lose the city!\r\n- extracts TRIP-OIL from the depths of the mountain \n   (it
+    glows with a weird orange-golden color\u2026 I\u2019ve seen nothing like it before\u2026)\r\n-
+    cleans the extracted oil constantly and pumps it into the city \r\n- TRIP-OIL
+    has insane efficiency! (3 times more powerful than regular oil!)\r\n- needs constant
+    cooling and regulation - pressure spikes = BOOM!\r\n- only licensed engineers
+    may access the control unit\r\n\n"
+  textAudio: {fileID: 0}

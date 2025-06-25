@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83cd6b8211edbb34e830a40f09d7582f, type: 3}
+  m_Name: Letter from Supervisor
+  m_EditorClassIdentifier: 
+  journalText: "Dear Clara, \r\n\r\nI hope this letter finds you. It's been a while
+    since I last wrote to you. I\u2019m sorry.\r\n\r\nYou know that I have lived
+    in Hephastoria since the early days and I loved to help build this city under
+    the leadership of Josefine Cartwright. Such a wonderful woman. She was intelligent,
+    a visionary, and had a good heart. She turned the dreams of her genius husband
+    Francis into reality and honored his legacy. \r\n\r\nBut since her son Frederic
+    took over the City, society just keeps falling apart more and more each day.
+    This city once was such a great place. It didn\u2019t matter if you were poor
+    or rich. \r\n\r\nFrederic couldn\u2019t care less about us hardworking people.
+    Clara, the people are dying down in the slums, while the rich snobs up top gild
+    their asses.\r\n\r\nThings have to change. Me and some fellow workers from the
+    CORE decided to help THE UNSEEN, a group of rebels planning to overthrow Frederic
+    and his bloody regime. They want to take over the CORE and the T.E.A.R.S. during
+    Francis-memorial-day tomorrow evening.\r\n\r\nI will fight side by side with
+    them for a better Hephastoria and in case we don\u2019t see each other again,
+    I love you Clara! Take care of yourself and please don't come looking for me.\r\n\r\nLove,
+    Derrick  "
+  textAudio: {fileID: 0}
