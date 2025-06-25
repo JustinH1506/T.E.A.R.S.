@@ -38,8 +38,9 @@ public class EnemyStateMachine : CharacterBase, IDataPersistence
 	[SerializeField] private float maxAttackCooldown = 0;
 	[SerializeField] private float attackCooldown = 0;
 	
+	[SerializeField] private SphereCollider hitBox;
+	
 	[SerializeField] private LayerMask layerCovers = 0;
-	public bool isElite = false;
 	
 	private int currentPoint = 0;
 	
@@ -89,6 +90,8 @@ public class EnemyStateMachine : CharacterBase, IDataPersistence
 		set => canAttack = value;
 	}
 	
+	public SphereCollider HitBox => hitBox;
+	
 	
 	
 	#endregion
@@ -107,6 +110,9 @@ public class EnemyStateMachine : CharacterBase, IDataPersistence
 	
 	#region Methods
 	
+	/// <summary>
+	/// Gets all variables from the object. 
+	/// </summary>
 	protected override void Awake()
 	{
 		base.Awake();
@@ -121,17 +127,24 @@ public class EnemyStateMachine : CharacterBase, IDataPersistence
 		currentState.EnterState();
 	}
 
+	//Calls UpdateState.
 	private void Update()
 	{
 		//HandleAttackCooldown();
 		currentState.UpdateState();
 	}
 
+	/// <summary>
+	/// Calls FixedUpdateState.
+	/// </summary>
 	private void FixedUpdate()
 	{
 		currentState.FixedUpdateState();
 	}
 	
+	/// <summary>
+	/// Changes the uniqueGuid when the prefab gets set in the scene.
+	/// </summary>
 	private void OnValidate()
 	{
 		if (string.IsNullOrEmpty(gameObject.scene.name))
@@ -144,11 +157,19 @@ public class EnemyStateMachine : CharacterBase, IDataPersistence
 		}
 	}
 
+	/// <summary>
+	/// Calculates the distance between object and player object.
+	/// </summary>
+	/// <returns></returns>
 	public float DistanceBetweenPlayer()
 	{
 		return Vector3.Distance(transform.position, PlayerTransform.position);
 	}
 
+	/// <summary>
+	/// Saves data needed for the enemy.
+	/// </summary>
+	/// <param name="gameData"></param>
 	public void SaveData(GameData gameData)
 	{
 		if (gameData.enemyPositionByGuid.ContainsKey(uniqueGuid))
@@ -163,6 +184,10 @@ public class EnemyStateMachine : CharacterBase, IDataPersistence
 		gameData.enemyPositionByGuid.Add(uniqueGuid, data);
 	}
 
+	/// <summary>
+	/// Loads saved data needed for the enemy. 
+	/// </summary>
+	/// <param name="gameData"></param>
 	public void LoadData(GameData gameData)
 	{
 		if (gameData.enemyPositionByGuid.TryGetValue(uniqueGuid, out data))
@@ -183,6 +208,10 @@ public class EnemyStateMachine : CharacterBase, IDataPersistence
 		}
 	}
 	
+	/// <summary>
+	/// Looks for the Player in a certain degree in front of the player.
+	/// </summary>
+	/// <returns></returns>
 	public IEnumerator DetectPlayer()
 	{
 		while (true)
@@ -225,6 +254,9 @@ public class EnemyStateMachine : CharacterBase, IDataPersistence
 		return false;
 	}
 	
+	/// <summary>
+	/// Syncs the navmesh to the root motion animation. 
+	/// </summary>
 	private void OnAnimatorMove()
 	{
 		Vector3 rootPosition = Anim.rootPosition;

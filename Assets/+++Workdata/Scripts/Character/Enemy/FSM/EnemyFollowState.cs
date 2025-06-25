@@ -6,12 +6,18 @@ public class EnemyFollowState: EnemyBaseState
 	
 	#region Methods
 	
+	/// <summary>
+	/// ENters state starts animation and starts navMeshAgent.
+	/// </summary>
 	public override void EnterState()
 	{
 		ctx.NavMeshAgent.isStopped = false;
 		ctx.Anim.CrossFade(EnemyAnimationFactory.Run, 0.1f);
 	}
 
+	/// <summary>
+	/// Calls CheckSwitchState.
+	/// </summary>
 	public override void UpdateState()
 	{
 		CheckSwitchStates();
@@ -22,6 +28,9 @@ public class EnemyFollowState: EnemyBaseState
 		// }
 	}
 	
+	/// <summary>
+	/// Looks at the Distance between Player and object and changes destination if is ture.
+	/// </summary>
 	public override void FixedUpdateState()
 	{
 		if (ctx.DistanceBetweenPlayer() >= ctx.AttackDistance)
@@ -39,6 +48,9 @@ public class EnemyFollowState: EnemyBaseState
 		
 	}
 
+	/// <summary>
+	/// Checks if any state should be active. 
+	/// </summary>
 	public override void CheckSwitchStates()
 	{
 		if (ctx.DistanceBetweenPlayer() < ctx.AttackDistance && ctx.CanAttack && ctx.hasTarget)

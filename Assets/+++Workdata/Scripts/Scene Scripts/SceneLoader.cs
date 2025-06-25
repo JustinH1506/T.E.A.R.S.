@@ -47,6 +47,14 @@ public class SceneLoader : MonoBehaviour
 		currentScene = (int)sceneStates; 
 	}
 	
+	/// <summary>
+	/// Loads the new scene and starts load screen.
+	/// </summary>
+	/// <param name="newScene"></param>
+	/// <param name="timeScale"></param>
+	/// <param name="loadGame"></param>
+	/// <param name="newGameState"></param>
+	/// <returns></returns>
 	public IEnumerator LoadScene(int newScene, int timeScale, bool loadGame, GameManager.GameStates newGameState)
 	{
 		UIManager.Instance.OpenMenu(UIManager.Instance.loadingScreen, CursorLockMode.Locked, 1f, true);
@@ -80,7 +88,7 @@ public class SceneLoader : MonoBehaviour
 	}
 
 	/// <summary>
-	/// Loads the given scene and unloads the old scene. 
+	/// Loads the given scene, unloads the old scene and starts the loading screen. . 
 	/// </summary>
 	/// <param name="oldScene"></param>
 	/// <param name="firstNewScene"></param>
@@ -118,6 +126,13 @@ public class SceneLoader : MonoBehaviour
 		Time.timeScale = timeScale;
 	}
 
+	/// <summary>
+	/// Unloads the given scene. 
+	/// </summary>
+	/// <param name="oldScene"></param>
+	/// <param name="currentActiveScene"></param>
+	/// <param name="timeScale"></param>
+	/// <returns></returns>
 	public IEnumerator UnloadScene(int oldScene, int currentActiveScene, int timeScale)
 	{
 		UIManager.Instance.OpenMenu(UIManager.Instance.loadingScreen, CursorLockMode.Locked, 1f, true);

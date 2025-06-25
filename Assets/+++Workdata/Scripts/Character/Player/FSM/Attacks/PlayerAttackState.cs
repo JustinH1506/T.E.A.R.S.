@@ -1,16 +1,25 @@
 
 
+using UnityEngine;
+
 public class PlayerAttackState : PlayerBaseState
 {
 	public PlayerAttackState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) :base(currentContext, playerStateFactory){}
 	
+	/// <summary>
+	/// Enters the Attack state and plays the animation. 
+	/// </summary>
 	public override void EnterState()
 	{
 		ctx.CanTurn = false;
 		ctx.Anim.Play(PlayerAnimationFactory.AttackAnim01);
 		ctx.AttackMovement(12);
+		AudioManager.Instance.PlaySound(AudioManager.Instance.swordAttackSounds[Random.Range(0,2)], ctx.soundSource);
 	}
 
+	/// <summary>
+	/// Rotates depending on input and Calls CheckSwitchState. 
+	/// </summary>
 	public override void UpdateState()
 	{
 		ctx.HandleRotation(ctx.HandleCameraRelative(), 500f);
@@ -22,12 +31,18 @@ public class PlayerAttackState : PlayerBaseState
 		
 	}
 
+	/// <summary>
+	/// Exits the State and resets some varaibles. 
+	/// </summary>
 	public override void ExitState()
 	{
 		ctx.CanTurn = true;
 		ctx.AttackAmount = 0;
 	}
 
+	/// <summary>
+	/// Checks if any state should be active. 
+	/// </summary>
 	public override void CheckSwitchStates()
 	{
 		if (ctx.Anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.9f)
@@ -51,6 +66,9 @@ public class PlayerAttackState : PlayerBaseState
 		}
 	}
 	
+	/// <summary>
+	/// Changes Attack animation depending on AttackAmount. 
+	/// </summary>
 	public override void ChangeAttackAnimation()
 	{
 		if (ctx.AttackAmount > 1)

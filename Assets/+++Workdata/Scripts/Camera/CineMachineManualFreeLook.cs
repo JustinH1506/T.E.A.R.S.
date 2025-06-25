@@ -17,11 +17,17 @@ public class CineMachineManualFreeLook : MonoBehaviour
     private float xAxisValue;
     private float yAxisValue;
 
+    /// <summary>
+    /// Gets the free look camera.
+    /// </summary>
     private void Awake()
     {
         freeLook = GetComponent<CinemachineFreeLook>();
     }
 
+    /// <summary>
+    /// Overwrites how camera works to prevent when moving the mouse fast.  
+    /// </summary>
     private void Update()
     {
         if (isTargeting)

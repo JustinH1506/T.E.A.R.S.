@@ -77,7 +77,7 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
     
     #region Audio
 
-    private AudioSource soundSource;
+    public AudioSource soundSource;
     
     #endregion
     
@@ -284,6 +284,9 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
 	    }
     }
     
+    /// <summary>
+    /// Starting the dodge animation and moving the Player in a direction depending on input. 
+    /// </summary>
     public void HandleDodge()
     {
 	    Vector3 cameraRelativeMovement =  HandleCameraRelative();
@@ -348,6 +351,10 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
 	    return cameraRelativeMovement;
     }
     
+    /// <summary>
+    /// Checks if the ground is a slope or not.
+    /// </summary>
+    /// <returns></returns>
     bool SlopeCheck()
     {
 	    Physics.Raycast(transform.position, Vector3.down, out slopeHit, Mathf.Infinity, slopeCheck);
@@ -497,6 +504,9 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
 	    canTurn = !canTurn;
     }
     
+    /// <summary>
+    /// Changes the dodge state to be attackable again.
+    /// </summary>
     public void ChangeDodgeState()
     {
 	    IsDodging = !IsDodging;
@@ -517,26 +527,42 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
 	    }
     }
     
+    /// <summary>
+    /// Checks if the next attack should be used or not. 
+    /// </summary>
     public void CheckRecoveryPoint()
     {
 	    currentState.ChangeAttackAnimation();
     }
     
+    /// <summary>
+    /// Moves the Player forward on animation key. 
+    /// </summary>
+    /// <param name="forwardMovement"></param>
     public void AttackMovement(float forwardMovement)
     {
 	    rb.AddForce(transform.forward * forwardMovement, ForceMode.VelocityChange);
     }
     
+    /// <summary>
+    /// Enables all Player actions. 
+    /// </summary>
     public void EnablePlayerActions()
     {
 	    disabled = false;
     }
 
+    /// <summary>
+    /// Disables all Player actions. 
+    /// </summary>
     public void DisablePlayerActions()
     {
 		disabled = true;
     }
 
+    /// <summary>
+    /// Calls the step sound randomly between 0 and 4.
+    /// </summary>
     public void StepSounds()
     {
 	    AudioManager.Instance.PlaySound(AudioManager.Instance.playerStepSounds[Random.Range(0,4)], soundSource);

@@ -4,6 +4,9 @@ public class PlayerDodgeState : PlayerBaseState
 {
 	public PlayerDodgeState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) :base(currentContext, playerStateFactory){}
 	
+	/// <summary>
+	/// Enters the state and Plays aniamtion. 
+	/// </summary>
 	public override void EnterState()
 	{
 		if (ctx.targetLock.isTargeting)
@@ -17,6 +20,9 @@ public class PlayerDodgeState : PlayerBaseState
 		ctx.HandleDodge();
 	}
 
+	/// <summary>
+	/// Calls CheckSwitchState.
+	/// </summary>
 	public override void UpdateState()
 	{
 		CheckSwitchStates();
@@ -27,11 +33,17 @@ public class PlayerDodgeState : PlayerBaseState
 		
 	}
 
+	/// <summary>
+	/// Sets the is dodgin to false.
+	/// </summary>
 	public override void ExitState()
 	{
 		ctx.IsDodging = false;
 	}
 
+	/// <summary>
+	/// Checks if any state should be active. 
+	/// </summary>
 	public override void CheckSwitchStates()
 	{
 		if (ctx.Anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)

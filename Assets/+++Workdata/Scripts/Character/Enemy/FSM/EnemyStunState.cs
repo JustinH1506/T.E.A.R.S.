@@ -4,12 +4,18 @@ public class EnemyStunState : EnemyBaseState
 {
 	public EnemyStunState(EnemyStateMachine currentContext, EnemyStateFactory enemyStateFactory) :base  (currentContext, enemyStateFactory){}
     
+	/// <summary>
+	/// ENters the state.
+	/// </summary>
 	public override void EnterState()
 	{
-		ctx.NavMeshAgent.isStopped = true;
 		ctx.Anim.Play(EnemyAnimationFactory.Hit);
+		ctx.NavMeshAgent.isStopped = true;
 	}
-
+	
+	/// <summary>
+	/// Calls CheckSwitchState
+	/// </summary>
 	public override void UpdateState()
 	{
 		CheckSwitchStates();
@@ -20,11 +26,17 @@ public class EnemyStunState : EnemyBaseState
 		
 	}
 
+	/// <summary>
+	/// Exits State. 
+	/// </summary>
 	public override void ExitState()
 	{
 		ctx.GotHit = false;
 	}
 
+	/// <summary>
+	/// Checks if any state should be active. 
+	/// </summary>
 	public override void CheckSwitchStates()
 	{
 		if (ctx.GotHit)

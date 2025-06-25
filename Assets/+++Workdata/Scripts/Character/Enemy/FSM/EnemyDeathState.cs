@@ -9,16 +9,23 @@ public class EnemyDeathState : EnemyBaseState
     #endregion
 	
     #region Methods
+    /// <summary>
+    /// Enters the death State. 
+    /// </summary>
 	public override void EnterState()
 	{
 		ctx.NavMeshAgent.isStopped = true;
 		ctx.Anim.Play(EnemyAnimationFactory.Death);
 	}
 
+    /// <summary>
+    /// disables the ctx script and animator after animation played. 
+    /// </summary>
 	public override void UpdateState()
 	{
-		if (ctx.Anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1)
+		if (ctx.Anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
 		{
+			ctx.NavMeshAgent.enabled = false; 
 			ctx.Anim.enabled = false;
 			ctx.enabled = false;
 		}

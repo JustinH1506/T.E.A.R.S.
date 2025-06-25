@@ -7,6 +7,9 @@ public class EnemyAttackState : EnemyBaseState
 	private float waitCounter;
 	private float maxWaitCounter = 2f;
 	
+	/// <summary>
+	/// Enters the Attack State. 
+	/// </summary>
 	public override void EnterState()
 	{
 		ctx.NavMeshAgent.isStopped = true;
@@ -16,6 +19,9 @@ public class EnemyAttackState : EnemyBaseState
 		ctx.AttackCooldown = ctx.MaxAttackCooldown;
 	}
 
+	/// <summary>
+	/// Calls CheckSwitchUpdate.
+	/// </summary>
 	public override void UpdateState()
 	{
 		CheckSwitchStates();
@@ -26,12 +32,18 @@ public class EnemyAttackState : EnemyBaseState
 		
 	}
 
+	/// <summary>
+	/// Exits State and resets waitCounter and stops the navmeshagent. 
+	/// </summary>
 	public override void ExitState()
 	{
 		waitCounter = maxWaitCounter;
 		ctx.NavMeshAgent.isStopped = false;
 	}
 
+	/// <summary>
+	/// Checks if any state should be active. 
+	/// </summary>
 	public override void CheckSwitchStates()
 	{
 		if (ctx.GotHit)
@@ -54,6 +66,9 @@ public class EnemyAttackState : EnemyBaseState
 		}
 	}
 	
+	/// <summary>
+	/// Turns the object to face the Player.
+	/// </summary>
 	void FaceTarget()
 	{
 		var turnTowardNavSteeringTarget = ctx.PlayerTransform.position;

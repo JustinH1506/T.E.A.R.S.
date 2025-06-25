@@ -1,3 +1,4 @@
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Playables;
@@ -14,32 +15,47 @@ public class ElenoirRing : MonoBehaviour
 	
 	[SerializeField] private PlayableDirector ringCutscene;
 	
+	[SerializeField] private CinemachineVirtualCamera cam;
+	
+	[SerializeField] private GameObject indicator;
+	
+	/// <summary>
+	/// Activates indicator and makes the Player seem in reach. 
+	/// </summary>
+	/// <param name="other"></param>
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.CompareTag("Player"))
 		{
-			//indicator.SetActive(true);
+			indicator.SetActive(true);
 			playerInReach = true;
 		}
 	}
 
+	/// <summary>
+	///  Deactivates indicator and makes the Player seem in reach. 
+	/// </summary>
+	/// <param name="other"></param>
 	private void OnTriggerExit(Collider other)
 	{
 		if (other.CompareTag("Player"))
 		{
-			//indicator.SetActive(false);
+			indicator.SetActive(false);
 			playerInReach = false;
 		}
 	}
 	
+	/// <summary>
+	///  When pressing e start a text and activating the next parts to work. 
+	/// </summary>
 	private void Update()
 	{
 		//transform.LookAt(Camera.main.transform.position);
 
 		if (playerInReach && Keyboard.current.eKey.wasPressedThisFrame)
 		{
+			AudioManager.Instance.StartCoroutine(AudioManager.Instance.StartDialogue(AudioManager.Instance.ringSubtitleData, cam));
 			doorAnim.Play("CloseDoors");
-			AudioManager.Instance.StartCoroutine(AudioManager.Instance.StartDialogue(AudioManager.Instance.ringSubtitleData));
 			inactiveEnemy.SetActive(false);
 			activeEnemy.SetActive(true);
 		}

@@ -139,19 +139,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4cd71aae21afee34b8171f004063c940, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.70960116
+      value: 0.7032086
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4cd71aae21afee34b8171f004063c940, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4cd71aae21afee34b8171f004063c940, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.7046036
+      value: -0.7109836
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4cd71aae21afee34b8171f004063c940, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4cd71aae21afee34b8171f004063c940, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -159,7 +159,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4cd71aae21afee34b8171f004063c940, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -89.595
+      value: -90.63
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4cd71aae21afee34b8171f004063c940, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -1057,6 +1057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyActions: {fileID: 8843504550907975112}
+  soundSource: {fileID: 6604493526299039808}
 --- !u!1 &6026554633701791784 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4cd71aae21afee34b8171f004063c940, type: 3}
@@ -1090,10 +1091,10 @@ MonoBehaviour:
   angleViewField: 60
   maxAttackCooldown: 5
   attackCooldown: 5
+  hitBox: {fileID: 0}
   layerCovers:
     serializedVersion: 2
     m_Bits: 1
-  isElite: 0
 --- !u!95 &2442690643869929300
 Animator:
   serializedVersion: 7
@@ -1135,8 +1136,8 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.33435178
-  m_Height: 2.2962992
+  m_Radius: 0.35
+  m_Height: 2.3
   m_Direction: 1
   m_Center: {x: 0.0057799816, y: 1.1200284, z: -0.0673579}
 --- !u!54 &558094203374920500

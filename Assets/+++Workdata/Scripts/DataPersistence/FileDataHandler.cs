@@ -7,12 +7,21 @@ public class FileDataHandler
 	private string dataDirPath = "";
 	private string dataFileName = "";
 	
+	/// <summary>
+	/// Sets folder paths. 
+	/// </summary>
+	/// <param name="dataDirPath"></param>
+	/// <param name="dataFileName"></param>
 	public FileDataHandler(string dataDirPath, string dataFileName)
 	{
 		this.dataDirPath = dataDirPath;
 		this.dataFileName = dataFileName;
 	}
 
+	/// <summary>
+	/// Loads the data from a Json file.
+	/// </summary>
+	/// <returns></returns>
 	public GameData Load()
 	{
 		string fullPath = Path.Combine(dataDirPath, dataFileName);
@@ -42,6 +51,10 @@ public class FileDataHandler
 		return loadedData;
 	}
 
+	/// <summary>
+	/// Converts the data into a json file.
+	/// </summary>
+	/// <param name="data"></param>
 	public void Save(GameData data)
 	{
 		string fullPath = Path.Combine(dataDirPath, dataFileName);

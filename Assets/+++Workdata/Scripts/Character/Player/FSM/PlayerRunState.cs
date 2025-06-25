@@ -4,6 +4,9 @@ public class PlayerRunState : PlayerBaseState
 {
 	public PlayerRunState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) :base(currentContext, playerStateFactory){}
 	
+	/// <summary>
+	/// Starts animation depending on if we are locked or not. 
+	/// </summary>
 	public override void EnterState( )
 	{
 		if (ctx.targetLock.isTargeting)
@@ -21,6 +24,9 @@ public class PlayerRunState : PlayerBaseState
 		
 	}
 	
+	/// <summary>
+	/// Looks for the movement, uses stamina when in this state, and checks to switch states. 
+	/// </summary>
 	public override void FixedUpdateState()
 	{
 		ctx.HandleMovement();
@@ -28,11 +34,17 @@ public class PlayerRunState : PlayerBaseState
 		CheckSwitchStates();
 	}
 	
+	/// <summary>
+	/// Exits the state. 
+	/// </summary>
 	public override void ExitState()
 	{
 		
 	}
 
+	/// <summary>
+	/// Checks if any state should be active. 
+	/// </summary>
 	public override void CheckSwitchStates()
 	{
 		if (ctx.IsAttacking)
@@ -63,10 +75,16 @@ public class PlayerRunState : PlayerBaseState
 		}
 	}
 	
+	/// <summary>
+	/// Changes attack animation.
+	/// </summary>
 	public override void ChangeAttackAnimation()
 	{
 		
 	}
 	
+	/// <summary>
+	/// Setted substates. 
+	/// </summary>
 	public override void InitializeSubStates(){}
 }

@@ -76,6 +76,10 @@ public class UIManager : MonoBehaviour
 	#endregion
 	
 	#region Methods
+	
+	/// <summary>
+	/// Makes this object to an instance, Adds OnSliderChanged method to the slider for music
+	/// </summary>
 	private void Awake()
 	{
 		if (Instance == null)
@@ -92,6 +96,9 @@ public class UIManager : MonoBehaviour
 		sfxSlider.onValueChanged.AddListener(delegate { OnSliderChanged(sfxSlider, sfx);});
 	}
 
+	/// <summary>
+	/// Sets the mixers floats to master, music and sfx. 
+	/// </summary>
 	private void Start()
 	{
 		mixer.SetFloat(master, Mathf.Log10(masterSlider.value) * 20);
@@ -99,6 +106,9 @@ public class UIManager : MonoBehaviour
 		mixer.SetFloat(sfx, Mathf.Log10(sfxSlider.value) * 20);
 	}
 
+	/// <summary>
+	/// Activates the Pause menu when e or the Journal/item menu when tab was pressed. 
+	/// </summary>
 	private void Update()
 	{
 		if (GameManager.Instance.gameStates == GameManager.GameStates.MainMenu)
@@ -126,6 +136,9 @@ public class UIManager : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Starts a new game. 
+	/// </summary>
 	public void StartNewGame()
 	{
 		SceneLoader.Instance.sceneStates = SceneLoader.SceneStates.Level01;
@@ -135,9 +148,12 @@ public class UIManager : MonoBehaviour
 		DataPersistenceManager.Instance.NewGame();
 		AudioManager.Instance.PlayMusic(AudioManager.Instance.inGameMusic);
 		AudioManager.Instance.mainMenuListener.enabled = false;
-		StartCoroutine(AudioManager.Instance.StartDialogue(AudioManager.Instance.mainCharacterStartDialogue));
+		StartCoroutine(AudioManager.Instance.StartDialogue(AudioManager.Instance.mainCharacterStartDialogue, null));
 	}
 
+	/// <summary>
+	/// Loads the game data and starts from this point onward.
+	/// </summary>
 	public void LoadGame()
 	{
 		SceneLoader.Instance.sceneStates = SceneLoader.SceneStates.Level01;
@@ -146,6 +162,9 @@ public class UIManager : MonoBehaviour
 		OpenMenu(inGameUi, CursorLockMode.Locked, 1f, false);
 	}
 
+	/// <summary>
+	/// Reloads the game. 
+	/// </summary>
 	public void ReloadGame()
 	{
 		CloseMenu(gameOverScreen, CursorLockMode.Locked, 1f);
@@ -153,6 +172,9 @@ public class UIManager : MonoBehaviour
 		StartCoroutine(SceneLoader.Instance.LoadScene((int)SceneLoader.Instance.sceneStates, (int)SceneLoader.Instance.sceneStates, 1)); 
 	}
 
+	/// <summary>
+	/// Gets back to the main menu screen. 
+	/// </summary>
 	public void BackToMainMenu()
 	{
 		SceneLoader.Instance.sceneStates = SceneLoader.SceneStates.Manager;
@@ -165,6 +187,10 @@ public class UIManager : MonoBehaviour
 		AudioManager.Instance.mainMenuListener.enabled = true;
 	}
 
+	/// <summary>
+	/// Opens th options menu. 
+	/// </summary>
+	/// <param name="getsOpened"></param>
 	public void OpenOptionsMenu(bool getsOpened)
 	{
 		if (getsOpened)
@@ -177,12 +203,22 @@ public class UIManager : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Resumes the game and closes the Pause menu. 
+	/// </summary>
 	public void Resume()
 	{
 		CloseMenu(pauseScreen, CursorLockMode.Locked, 1f);
 		AudioManager.Instance.ChangeAllSfxSources(false);
 	}
 
+	/// <summary>
+	/// Opens a Ui screen menu depending on the given variables.
+	/// </summary>
+	/// <param name="canvasGroup"></param>
+	/// <param name="lockMode"></param>
+	/// <param name="timeScale"></param>
+	/// <param name="playerDisabled"></param>
 	public void OpenMenu(CanvasGroup canvasGroup, CursorLockMode lockMode, float timeScale, bool playerDisabled)
 	{
 		canvasGroup.ShowCanvasGroup();
@@ -199,6 +235,12 @@ public class UIManager : MonoBehaviour
 		Time.timeScale = timeScale;
 	}
 
+	/// <summary>
+	/// Closes a ui screen depending on the given variables.
+	/// </summary>
+	/// <param name="canvasGroup"></param>
+	/// <param name="lockMode"></param>
+	/// <param name="timeScale"></param>
 	public void CloseMenu(CanvasGroup canvasGroup, CursorLockMode lockMode, float timeScale)
 	{
 		canvasGroup.HideCanvasGroup();
@@ -215,6 +257,11 @@ public class UIManager : MonoBehaviour
 		Time.timeScale = timeScale;
 	}
 
+	/// <summary>
+	/// Starts the text with given variables. 
+	/// </summary>
+	/// <param name="currentText"></param>
+	/// <returns></returns>
 	public IEnumerator StartText(string currentText)
 	{
 		OpenMenu(infoTextUi, CursorLockMode.Locked, 1f, false);
@@ -232,16 +279,28 @@ public class UIManager : MonoBehaviour
 		CloseMenu(infoTextUi, CursorLockMode.Locked, 1f);
 	}
 
+	/// <summary>
+	/// Changes the journals text. 
+	/// </summary>
+	/// <param name="journals"></param>
 	public void ChangeJournal(Journals journals)
 	{
 		JournalText.text = journals.journalText;
 	}
 
+	/// <summary>
+	/// Calls the save game method. 
+	/// </summary>
 	public void SaveGame()
 	{
 		DataPersistenceManager.Instance.SaveGame();
 	}
 	
+	/// <summary>
+	/// Sets the mixer value depending on the slider used.
+	/// </summary>
+	/// <param name="slider"></param>
+	/// <param name="keyName"></param>
 	private void OnSliderChanged(Slider slider, string keyName)
 	{
 		PlayerPrefs.SetFloat(keyName, slider.value);
@@ -256,6 +315,10 @@ public class UIManager : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Shows or hides the canvas group depending if it has alpha to 1 or 0.
+	/// </summary>
+	/// <param name="canvasGroup"></param>
 	public void ChangeCanvasGroup(CanvasGroup canvasGroup)
 	{
 		if (canvasGroup.alpha < 1)
@@ -268,6 +331,10 @@ public class UIManager : MonoBehaviour
 		}
 	}
 	
+	
+	/// <summary>
+	/// Quits the game. 
+	/// </summary>
 	public void Quit()
 	{
 		Application.Quit();

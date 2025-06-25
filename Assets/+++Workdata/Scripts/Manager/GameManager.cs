@@ -2,7 +2,6 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
-using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour, IDataPersistence
 {
@@ -26,6 +25,9 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public bool defeated2ndWave = false;
     [FormerlySerializedAs("hasExplosive")] public bool hasControlPanelKey = false;
     
+    /// <summary>
+    /// This is for editor only and makes building impossible without the preprocessor.
+    /// </summary>
 #if  UNITY_EDITOR
     [FormerlySerializedAs("_debug")]
     [Space]
@@ -33,6 +35,9 @@ public class GameManager : MonoBehaviour, IDataPersistence
     [SerializeField] public DebugAsset debugAsset;
 #endif
     
+    /// <summary>
+    /// Makes this script to an instance.
+    /// </summary>
     private void Awake()
     {
         if (Instance == null)
@@ -45,6 +50,9 @@ public class GameManager : MonoBehaviour, IDataPersistence
         }
     }
 
+    /// <summary>
+    /// Either opens the main menu or the InGame Menu depending on which debug settings are active. 
+    /// </summary>
     private void Start()
     {
 #if UNITY_EDITOR
@@ -78,20 +86,27 @@ public class GameManager : MonoBehaviour, IDataPersistence
         UIManager.Instance.OpenMenu(UIManager.Instance.mainMenuScreen, CursorLockMode.None, 1f, true);
     }
 
+    /// <summary>
+    /// Checks how many enemies where defeated and makes either the key true or starts the dialogue. 
+    /// </summary>
     public void CheckKey()
     {
         if (killedEnemies == 2)
         {
-            StartCoroutine(UIManager.Instance.StartText("You got a key!"));
+            StartCoroutine(UIManager.Instance.StartText("You got an office key!"));
             hasControlRoomKey = true;
         }
         else if (killedEnemies == 4)
         {
             defeated2ndWave = true;
-            StartCoroutine(AudioManager.Instance.StartDialogue(AudioManager.Instance.afterDefeatingSecondWave));
+            StartCoroutine(AudioManager.Instance.StartDialogue(AudioManager.Instance.afterDefeatingSecondWave, null));
         }
     }
 
+    /// <summary>
+    /// Activates the journal ui depending on which journal was found. 
+    /// </summary>
+    /// <param name="journalIndex"></param>
     public void ActivateJournal(int journalIndex)
     {
         journalStates[journalIndex] = true;
@@ -101,11 +116,19 @@ public class GameManager : MonoBehaviour, IDataPersistence
         UIManager.Instance.journalButtons[journalIndex].onClick.Invoke();
     }
 
+    /// <summary>
+    /// Loads data needed for this script. 
+    /// </summary>
+    /// <param name="gameData"></param>
     public void LoadData(GameData gameData)
     {
         journalStates = gameData.activeJournals;
     }
 
+    /// <summary>
+    /// Saves data from this script. 
+    /// </summary>
+    /// <param name="gameData"></param>
     public void SaveData(GameData gameData)
     {
         gameData.activeJournals = journalStates;

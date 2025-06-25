@@ -10,17 +10,26 @@ public class PlayerIdleState : PlayerBaseState
 	
 	#region My Methods
 	
+	/// <summary>
+	/// Starts the idle animation. 
+	/// </summary>
 	public override void EnterState()
 	{
 		ctx.Anim.CrossFade(PlayerAnimationFactory.IdleAnim, 0.1f);
 	}
 
+	/// <summary>
+	/// Calls the Handle Rotation method. 
+	/// </summary>
 	public override void UpdateState()
 	{
 		ctx.HandleRotation(ctx.HandleCameraRelative(), ctx.RotationSpeed);
 		CheckSwitchStates();
 	}
 	
+	/// <summary>
+	/// Calls teh GetCurrentStamina method. 
+	/// </summary>
 	public override void FixedUpdateState()
 	{
 		ctx.GetCurrentStamina();
@@ -28,6 +37,9 @@ public class PlayerIdleState : PlayerBaseState
 	
 	public override void ExitState(){}
 
+	/// <summary>
+	/// Checks if any state should be active.
+	/// </summary>
 	public override void CheckSwitchStates()
 	{
 		if (ctx.IsAttacking)

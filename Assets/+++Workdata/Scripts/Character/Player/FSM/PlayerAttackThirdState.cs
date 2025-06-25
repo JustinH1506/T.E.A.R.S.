@@ -9,6 +9,7 @@ public class PlayerAttackThirdState : PlayerBaseState
 		ctx.CanTurn = false;
 		ctx.Anim.Play(PlayerAnimationFactory.AttackAnim03);
 		ctx.AttackMovement(12);
+		AudioManager.Instance.PlaySound(AudioManager.Instance.swordAttackSounds[Random.Range(0,2)], ctx.soundSource);
 	}
 
 	public override void UpdateState()

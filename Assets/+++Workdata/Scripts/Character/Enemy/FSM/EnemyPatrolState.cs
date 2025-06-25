@@ -7,6 +7,9 @@ public class EnemyPatrolState : EnemyBaseState
     
     public EnemyPatrolState(EnemyStateMachine currentContext, EnemyStateFactory enemyStateFactory) :base  (currentContext, enemyStateFactory){}
 
+    /// <summary>
+    /// Enters the state and changes states to walk again in case its necessary. 
+    /// </summary>
     public override void EnterState()
     {
         ctx.NavMeshAgent.isStopped = false;
@@ -20,11 +23,17 @@ public class EnemyPatrolState : EnemyBaseState
         ctx.StartCoroutine(ctx.DetectPlayer());
     }
 
+    /// <summary>
+    /// Calls UpdateState. 
+    /// </summary>
     public override void UpdateState()
     {
         CheckSwitchStates();
     }
     
+    /// <summary>
+    /// Calls NextPoint if distance to the current point is smaller than 0.5f.
+    /// </summary>
     public override void FixedUpdateState()
     {
         if (ctx.NavMeshAgent.remainingDistance <= 0.5f)
@@ -38,6 +47,9 @@ public class EnemyPatrolState : EnemyBaseState
         
     }
 
+    /// <summary>
+    /// Checks if any state should be active. 
+    /// </summary>
     public override void CheckSwitchStates()
     {
         if (ctx.DistanceBetweenPlayer() < ctx.FollowDistance && ctx.hasTarget)
@@ -50,6 +62,9 @@ public class EnemyPatrolState : EnemyBaseState
         }
     }
 
+    /// <summary>
+    /// Sets teh new point the object should walk to. 
+    /// </summary>
     private void NextPoint()
     {
         if (ctx.CheckPoints.Length == 0)

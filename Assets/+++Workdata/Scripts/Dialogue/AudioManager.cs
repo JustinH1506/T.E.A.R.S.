@@ -1,4 +1,5 @@
 using System.Collections;
+using Cinemachine;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Audio;
@@ -21,6 +22,7 @@ public class AudioManager : MonoBehaviour
     public DialogueData[] mainCharacterStartDialogue;
     public DialogueData[] ringSubtitleData;
     public DialogueData[] afterDefeatingSecondWave;
+    public DialogueData[] activatingControlPanel;
     [SerializeField] private TextMeshProUGUI dialogueTextComponent;
     [Space]
     
@@ -34,10 +36,10 @@ public class AudioManager : MonoBehaviour
     [Header("Sound Effects Clips")]
     public AudioSource soundSource;
     public AudioClip[] playerStepSounds;
-    public AudioClip enemyStepSounds;
-    public AudioClip swordAttackSound;
-    public AudioClip swordHitSound;
+    public AudioClip[] enemyStepSounds;
+    public AudioClip[] swordAttackSounds;
     public AudioClip enemyHitSound;
+    public AudioClip playerHitSound;
     
     [Header("Audio Mixer Groups")]
     public AudioMixerGroup musicMixerGroup;
@@ -64,7 +66,7 @@ public class AudioManager : MonoBehaviour
     /// <summary>
     /// Starts the dialogue and sets needed values.
     /// </summary>
-    public IEnumerator StartDialogue(DialogueData[] dialogueData)
+    public IEnumerator StartDialogue(DialogueData[] dialogueData, CinemachineVirtualCamera vcam)
     {
         UIManager.Instance.OpenMenu(UIManager.Instance.dialogueUi, CursorLockMode.Locked, 1f, true);
         
@@ -73,8 +75,18 @@ public class AudioManager : MonoBehaviour
             dialogueTextComponent.text = dialogueData[i].line;
             dialogueSource.clip = dialogueData[i].audioClip;
             dialogueSource.Play();
+
+            if (vcam != null)
+            {
+                vcam.Priority = 11;
+            }
             
             yield return new WaitForSeconds(dialogueData[i].audioClip.length);
+        }
+        
+        if (vcam != null)
+        {
+            vcam.Priority = 9;
         }
         
         AfterText();
@@ -89,6 +101,10 @@ public class AudioManager : MonoBehaviour
         UIManager.Instance.CloseMenu(UIManager.Instance.dialogueUi, CursorLockMode.Locked, 1f);
     }
 
+    /// <summary>
+    /// Plays the given audio clip.
+    /// </summary>
+    /// <param name="musicClip"></param>
     public void PlayMusic(AudioClip musicClip)
     {
         if (musicSource.isPlaying)
@@ -101,6 +117,11 @@ public class AudioManager : MonoBehaviour
         musicSource.Play();
     }
 
+    /// <summary>
+    /// Plays the given audio clip in given audio source.
+    /// </summary>
+    /// <param name="soundClip"></param>
+    /// <param name="source"></param>
     public void PlaySound(AudioClip soundClip,AudioSource source)
     {
         if (source.isPlaying)
@@ -113,6 +134,10 @@ public class AudioManager : MonoBehaviour
         source.Play();
     }
 
+    /// <summary>
+    /// Changes all Audio Sources that are SFX.
+    /// </summary>
+    /// <param name="isPlaying"></param>
     public void ChangeAllSfxSources(bool isPlaying)
     {
         AudioSource[] allAudioSources = FindObjectsByType<AudioSource>(FindObjectsSortMode.None);
@@ -139,6 +164,10 @@ public class AudioManager : MonoBehaviour
         }
     }
     
+    /// <summary>
+    /// Changes all Audio Sources that are Music.
+    /// </summary>
+    /// <param name="isPlaying"></param>
     public void ChangeAllMusicSources(bool isPlaying)
     {
         AudioSource[] allAudioSources = FindObjectsByType<AudioSource>(FindObjectsSortMode.None);
@@ -165,6 +194,10 @@ public class AudioManager : MonoBehaviour
         }
     }
     
+    /// <summary>
+    /// Changes all Audio Sources.
+    /// </summary>
+    /// <param name="isPlaying"></param>
     public void ChangeAllSources(bool isPlaying)
     {
         AudioSource[] allAudioSources = FindObjectsByType<AudioSource>(FindObjectsSortMode.None);

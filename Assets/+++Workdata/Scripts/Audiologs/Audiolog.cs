@@ -11,6 +11,10 @@ public class Audiolog : MonoBehaviour
 
 	public int journalId;
 	
+	/// <summary>
+	/// Activates indicator and makes the Player seem in reach. 
+	/// </summary>
+	/// <param name="other"></param>
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.CompareTag("Player"))
@@ -20,6 +24,10 @@ public class Audiolog : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Deactivates indicator and makes the Player seem in reach. 
+	/// </summary>
+	/// <param name="other"></param>
 	private void OnTriggerExit(Collider other)
 	{
 		if (other.CompareTag("Player"))
@@ -29,6 +37,9 @@ public class Audiolog : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Activates the Journal ui and the journal that was pressed.
+	/// </summary>
 	private void Update()
 	{
 		//transform.LookAt(Camera.main.transform.position);

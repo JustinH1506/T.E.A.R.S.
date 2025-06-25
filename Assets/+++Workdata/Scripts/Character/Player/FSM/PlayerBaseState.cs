@@ -23,6 +23,10 @@ public abstract class PlayerBaseState
     public abstract void CheckSwitchStates();
     public abstract void InitializeSubStates();
 
+    /// <summary>
+    /// Exits the state, enters a new state and set the new state. 
+    /// </summary>
+    /// <param name="newState"></param>
     protected void SwitchStates(PlayerBaseState newState)
     {
         ExitState();

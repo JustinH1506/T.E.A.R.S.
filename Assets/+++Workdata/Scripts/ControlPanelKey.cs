@@ -9,6 +9,10 @@ public class ControlPanelKey : MonoBehaviour
 	
 	[SerializeField] private ControlPanel controlPanel;
 	
+	/// <summary>
+	/// Activates indicator and makes the Player seem in reach. 
+	/// </summary>
+	/// <param name="other"></param>
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.CompareTag("Player"))
@@ -18,6 +22,10 @@ public class ControlPanelKey : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Deactivates indicator and makes the Player seem in reach. 
+	/// </summary>
+	/// <param name="other"></param>
 	private void OnTriggerExit(Collider other)
 	{
 		if (other.CompareTag("Player"))
@@ -27,6 +35,9 @@ public class ControlPanelKey : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// When pressing e start a text and activating the next parts to work. 
+	/// </summary>
 	private void Update()
 	{
 		if (playerInReach && Keyboard.current.eKey.wasPressedThisFrame)
@@ -34,7 +45,7 @@ public class ControlPanelKey : MonoBehaviour
 			StartCoroutine(UIManager.Instance.StartText("You got a Control Panel Key!"));
 			GameManager.Instance.hasControlPanelKey = true;
 			controlPanel.enabled = true;
-			gameObject.SetActive(false);
+			gameObject.GetComponent<MeshRenderer>().enabled = false;
 		}
 	}
 }

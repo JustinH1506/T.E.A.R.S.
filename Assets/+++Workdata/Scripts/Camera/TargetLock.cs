@@ -30,6 +30,9 @@ public class TargetLock : MonoBehaviour
     private float mouseX;
     private float mouseY;
 
+    /// <summary>
+    /// Initiate values.
+    /// </summary>
     void Start()
     {
         maxAngle = 60; 
@@ -37,6 +40,9 @@ public class TargetLock : MonoBehaviour
         cinemachineFreeLook.m_YAxis.m_InputAxisName = "";
     }
 
+    /// <summary>
+    /// Sets values depending on bool isTargeting. 
+    /// </summary>
     void Update()
     {
         if (!isTargeting)
@@ -62,6 +68,10 @@ public class TargetLock : MonoBehaviour
         cinemachineFreeLook.m_YAxis.m_InputAxisValue = mouseY;
     }
 
+    /// <summary>
+    /// When pressing the middle mouse button we look for the closest target or remove the lock on. 
+    /// </summary>
+    /// <param name="context"></param>
     public void AssignTarget(InputAction.CallbackContext context)
     {
         if (isTargeting)
@@ -80,6 +90,10 @@ public class TargetLock : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Sets the target and lock on to the enemy. 
+    /// </summary>
+    /// <param name="target"></param>
     private void NewInputTarget(Transform target)
     {
         if (!currentTarget) return;
@@ -96,6 +110,10 @@ public class TargetLock : MonoBehaviour
         mouseY = (viewPos.y - 0.5f ) * 3f;              
     }
 
+    /// <summary>
+    /// Finds the closest enemy.
+    /// </summary>
+    /// <returns></returns>
     private GameObject ClosestTarget()
     {
         GameObject[] enemies;
@@ -121,11 +139,5 @@ public class TargetLock : MonoBehaviour
             }
         }
         return closest;
-    }
-    
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, maxDistance);
     }
 }
