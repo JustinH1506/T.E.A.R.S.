@@ -33,8 +33,8 @@ public class CineMachineManualFreeLook : MonoBehaviour
         if (isTargeting)
             return;
         
-        float mouseX = Input.GetAxis("Mouse X") * horizontalAimingSpeed * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * verticalAimingSpeed * Time.deltaTime;
+        float mouseX = Input.GetAxis("Mouse X") * horizontalAimingSpeed;
+        float mouseY = Input.GetAxis("Mouse Y") * verticalAimingSpeed;
 
         // Correction for Y
         mouseY /= 360f;
