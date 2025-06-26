@@ -502,7 +502,7 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
     }
 
     /// <summary>
-    /// changes canTurn bool to the opposite of what it curretnly is. 
+    /// changes canTurn bool to the opposite of what it currently is. 
     /// </summary>
     public void ChangeTurnState()
     {
@@ -540,6 +540,9 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
 	    currentState.ChangeAttackAnimation();
     }
 
+    /// <summary>
+    /// Check if we pressed dodge to cancel the attack. 
+    /// </summary>
     public void CheckDodge()
     {
 	    if (dodgeCounter > 0)

@@ -8965,7 +8965,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: debbe7f68d2eef442a8d7c2681723e41, type: 3}
   - {fileID: 8300000, guid: 23fc9db4621d199499f33563bab2fc14, type: 3}
   - {fileID: 8300000, guid: 86fd0d07d8d054f4eb4afae5885bf617, type: 3}
-  enemyStepSounds: []
+  enemyStepSounds:
+  - {fileID: 8300000, guid: 0b13568187709ef4682d3e8886e56a67, type: 3}
+  - {fileID: 8300000, guid: a9cadc58ba6dade4a8d07fa72fe28f91, type: 3}
+  - {fileID: 8300000, guid: f6d7c9b50fcc57048ab1114f06ea8af5, type: 3}
+  - {fileID: 8300000, guid: bb41a23c10290e54686bd912fe38227b, type: 3}
+  - {fileID: 8300000, guid: f9051d908024921489256df4ac60637b, type: 3}
   swordAttackSounds:
   - {fileID: 8300000, guid: 2bd375bde98f10342a9febf2f71a66cd, type: 3}
   - {fileID: 8300000, guid: 10af3621a9aff3c4684a7d045ac737cb, type: 3}

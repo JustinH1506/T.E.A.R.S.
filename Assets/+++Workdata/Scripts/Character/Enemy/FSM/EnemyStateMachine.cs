@@ -1,8 +1,8 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class EnemyStateMachine : CharacterBase, IDataPersistence
 {
@@ -43,6 +43,8 @@ public class EnemyStateMachine : CharacterBase, IDataPersistence
 	[SerializeField] private SphereCollider hitBox;
 	
 	[SerializeField] private LayerMask layerCovers = 0;
+	
+	private AudioSource soundSource;
 
 	public Rigidbody[] rbs;
 	
@@ -119,8 +121,9 @@ public class EnemyStateMachine : CharacterBase, IDataPersistence
 	{
 		base.Awake();
 		
-		navMeshAgent = GetComponent<NavMeshAgent>();
 		playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+		navMeshAgent = GetComponent<NavMeshAgent>();
+		soundSource = GetComponent<AudioSource>();
 		anim = GetComponent<Animator>();
 		
 		states = new EnemyStateFactory(this);
@@ -260,6 +263,14 @@ public class EnemyStateMachine : CharacterBase, IDataPersistence
 		}
 
 		return false;
+	}
+	
+	/// <summary>
+	/// Calls the step sound randomly between 0 and 4.
+	/// </summary>
+	public void StepSounds()
+	{
+		AudioManager.Instance.PlaySound(AudioManager.Instance.enemyStepSounds[Random.Range(0,4)], soundSource);
 	}
 	
 	/// <summary>
