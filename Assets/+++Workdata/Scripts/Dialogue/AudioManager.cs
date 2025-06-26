@@ -1,9 +1,7 @@
 using System.Collections;
-using Cinemachine;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Audio;
-using UnityEngine.Serialization;
 
 public class AudioManager : MonoBehaviour
 {
@@ -22,9 +20,13 @@ public class AudioManager : MonoBehaviour
     [Header("Dialogue Variables")]
     public AudioSource dialogueSource;
     public DialogueData[] mainCharacterStartDialogue;
+    public DialogueData[] lockedLockerDialogue;
+    public DialogueData[] lockedDoor;
     public DialogueData[] ringSubtitleData;
+    public DialogueData[] controlPanelWithoutKey;
     public DialogueData[] afterDefeatingSecondWave;
     public DialogueData[] activatingControlPanel;
+    
     [SerializeField] private TextMeshProUGUI dialogueTextComponent;
     [Space]
     
@@ -52,6 +54,10 @@ public class AudioManager : MonoBehaviour
 
     [Header("Ui Sounds")] 
     public AudioClip uiPressSound;
+
+    [Header("Specific Variables")] 
+    public bool makeControlPanelActive;
+    public bool controlPanelActive;
     
     private void Awake()
     {
@@ -71,27 +77,22 @@ public class AudioManager : MonoBehaviour
     /// <summary>
     /// Starts the dialogue and sets needed values.
     /// </summary>
-    public IEnumerator StartDialogue(DialogueData[] dialogueData, CinemachineVirtualCamera vcam)
+    public IEnumerator StartDialogue(DialogueData[] dialogueData)
     {
-        UIManager.Instance.OpenMenu(UIManager.Instance.dialogueUi, CursorLockMode.Locked, 1f, true);
+        UIManager.Instance.OpenMenu(UIManager.Instance.dialogueUi, CursorLockMode.Locked, 1f, false);
         
         for (int i = 0; i < dialogueData.Length; i++)
         {
             dialogueTextComponent.text = dialogueData[i].line;
             dialogueSource.clip = dialogueData[i].audioClip;
             dialogueSource.Play();
-
-            if (vcam != null)
-            {
-                vcam.Priority = 11;
-            }
             
             yield return new WaitForSeconds(dialogueData[i].audioClip.length);
         }
-        
-        if (vcam != null)
+
+        if (makeControlPanelActive)
         {
-            vcam.Priority = 9;
+            controlPanelActive = true;
         }
         
         AfterText();

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class LockerCode : MonoBehaviour
+public class LockedLocker : MonoBehaviour
 {
 	[SerializeField] private GameObject itemBlinkLight;
 
@@ -12,6 +12,7 @@ public class LockerCode : MonoBehaviour
 	private bool playerInReach = false;
 	
 	private Animator anim;
+	
 	private SphereCollider sphereCollider;
 
 	private void Awake()
@@ -40,17 +41,23 @@ public class LockerCode : MonoBehaviour
 
 	private void Update()
 	{
-		transform.LookAt(Camera.main.transform.position);
-
-		if (playerInReach && Keyboard.current.eKey.wasPressedThisFrame)
+		
+		if (playerInReach && Keyboard.current.eKey.wasPressedThisFrame && GameManager.Instance.defeated2ndWave)
 		{
-			anim.Play("LockerOpen");
-			sphereCollider.enabled = false;
 			playerInReach = false;
-			itemBlinkLight.SetActive(false);
-			UIManager.Instance.CloseMenu(UIManager.Instance.indicatorScreen, CursorLockMode.Locked, 1f);
-			controlRoomKey.SetActive(true);
 			sphereCollider.enabled = false;
+			sphereCollider.enabled = false;
+			
+			itemBlinkLight.SetActive(false);
+			controlRoomKey.SetActive(true);
+			
+			anim.Play("LockerOpen");
+			
+			UIManager.Instance.CloseMenu(UIManager.Instance.indicatorScreen, CursorLockMode.Locked, 1f);
+		}
+		else if (playerInReach && Keyboard.current.eKey.wasPressedThisFrame && !GameManager.Instance.defeated2ndWave)
+		{
+			StartCoroutine(AudioManager.Instance.StartDialogue(AudioManager.Instance.lockedLockerDialogue));
 		}
 	}
 }

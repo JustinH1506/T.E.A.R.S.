@@ -1,4 +1,3 @@
-using Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Playables;
@@ -13,8 +12,6 @@ public class ElenoirRing : MonoBehaviour
 	[SerializeField] private GameObject activeEnemy;
 	
 	[SerializeField] private PlayableDirector ringCutscene;
-	
-	[SerializeField] private CinemachineVirtualCamera cam;
     
     [SerializeField] private GameObject itemBlinkLight;
     
@@ -65,16 +62,32 @@ public class ElenoirRing : MonoBehaviour
 
 		if (playerInReach && Keyboard.current.eKey.wasPressedThisFrame)
 		{
-			sphereCollider.enabled = false;
-			itemBlinkLight.SetActive(false);
 			playerInReach = false;
-			controlPanel.enabled = true;
-			UIManager.Instance.CloseMenu(UIManager.Instance.indicatorScreen, CursorLockMode.Locked, 1f);
-			AudioManager.Instance.StartCoroutine(AudioManager.Instance.StartDialogue(AudioManager.Instance.ringSubtitleData, cam));
-			GameManager.Instance.ActivateItem(1);
-			doorAnim.Play("CloseDoors");
-			inactiveEnemy.SetActive(false);
+			sphereCollider.enabled = false;
+			
 			activeEnemy.SetActive(true);
+			inactiveEnemy.SetActive(false);
+
+			AudioManager.Instance.makeControlPanelActive = true;
+			
+			UIManager.Instance.CloseMenu(UIManager.Instance.indicatorScreen, CursorLockMode.Locked, 1f);
+			
+			doorAnim.Play("CloseDoors");
+			
+			GameManager.Instance.ActivateItem(1);
+			
+			AudioManager.Instance.StartCoroutine(AudioManager.Instance.StartDialogue(AudioManager.Instance.ringSubtitleData));
+		}
+
+		if (AudioManager.Instance.controlPanelActive)
+		{
+			enabled = false;
+			
+			controlPanel.enabled = true;
+			controlPanel.isActive = true;
+			
+			itemBlinkLight.SetActive(false);
+			controlPanel.itemBlinkLight.SetActive(true);
 		}
 	}
 }

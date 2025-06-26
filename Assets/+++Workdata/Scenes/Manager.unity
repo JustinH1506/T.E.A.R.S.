@@ -8900,12 +8900,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 185db21c8f7e09a4a9ddb543ce354ca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueSource: {fileID: 1222508362}
+  dialogueSource: {fileID: 1222508363}
   mainCharacterStartDialogue:
   - line: The Core... back where it all began!
     audioClip: {fileID: 8300000, guid: d1b635f9eb2e36f43adb73dea11d2f77, type: 3}
   - line: 'If there is any hope of finding Elenor starting here makes the most sense. '
     audioClip: {fileID: 8300000, guid: 27ca1dc05b8d5564ba33bee64039d8e3, type: 3}
+  lockedLockerDialogue:
+  - line: I need a code...
+    audioClip: {fileID: 8300000, guid: 55a1abbc79be5db41a56698416a1d526, type: 3}
+  lockedDoor:
+  - line: "It\xB4s locked..."
+    audioClip: {fileID: 8300000, guid: c1a2336535ec1784ca7544843daed214, type: 3}
   ringSubtitleData:
   - line: 'Look who''s here. I''m glad that you received my message, Jonathan. '
     audioClip: {fileID: 8300000, guid: 5f196bfa32b951d48bff3dc724cd47f6, type: 3}
@@ -8925,13 +8931,27 @@ MonoBehaviour:
   - line: Now, surrender to my little friends.
     audioClip: {fileID: 8300000, guid: 5a0d779fc09503b4ba6bafd131a901aa, type: 3}
   - line: "Alfred\u2026 you\u2019ll regret this\u2026"
-    audioClip: {fileID: 8300000, guid: 97bf873e381f8124a8a8e4d33f0a5aba, type: 3}
+    audioClip: {fileID: 8300000, guid: 86e7913124346a14ab4d3b091419cf2a, type: 3}
+  - line: He activated the core and closed the entrance doors. Damn it.
+    audioClip: {fileID: 8300000, guid: a29c728471477f2429f998d0bf1b6e49, type: 3}
+  - line: "It seems some of the T.E.A.R.S. that were lying around weren\u2019t as
+      dead as I thought they were."
+    audioClip: {fileID: 8300000, guid: 2e98ddfa5eeb1384f89057f10c0ec3b4, type: 3}
+  - line: "I need to deactivate the CORE again\u2026 There should be a key somewhere
+      nearby."
+    audioClip: {fileID: 8300000, guid: f5193cce088e14442bae1eba028bdcb3, type: 3}
+  controlPanelWithoutKey:
+  - line: I need a key...
+    audioClip: {fileID: 8300000, guid: 59c688cc8ee1e184585b9de9335f9236, type: 3}
   afterDefeatingSecondWave:
-  - line: Hmmm... None if them had the key for the control panel.
-    audioClip: {fileID: 8300000, guid: a013d75f8bcc70b4d9bd37ca26858dd0, type: 3}
-  - line: Maybe it could be inside one of the lockers under the control office?
-    audioClip: {fileID: 8300000, guid: 8f2e74999a596e842bea4e40a5eb2561, type: 3}
-  activatingControlPanel: []
+  - line: He dropped a memory module.
+    audioClip: {fileID: 8300000, guid: 1bbe050c47f8b1347bccdbc8c873c42a, type: 3}
+  - line: "Seems like it contains the code for a specific locker. I should try those
+      below the office. \r\n"
+    audioClip: {fileID: 8300000, guid: eb9b71000e792014ba7debc60f7298c9, type: 3}
+  activatingControlPanel:
+  - line: 'The CORE is deactivated. I should be able to leave now. '
+    audioClip: {fileID: 8300000, guid: 30f4170481b3c9a4aa8c790f54d5c6a7, type: 3}
   dialogueTextComponent: {fileID: 1752295769}
   musicSource: {fileID: 1222508364}
   mainMenuMusic: {fileID: 8300000, guid: f7576dc6aa22ce6448c5635acc734a96, type: 3}
@@ -8956,6 +8976,8 @@ MonoBehaviour:
   soundMixerGroup: {fileID: 948159277864703074, guid: 3f11e86f9d0dc074190abd4ef623b9fb, type: 2}
   mainMenuListener: {fileID: 1222508365}
   uiPressSound: {fileID: 8300000, guid: 98fc8d6d626c60c4b92ac52e16ed929d, type: 3}
+  makeControlPanelActive: 0
+  controlPanelActive: 0
 --- !u!4 &1222508361
 Transform:
   m_ObjectHideFlags: 0
@@ -8984,7 +9006,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -9081,7 +9103,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0

@@ -23,9 +23,9 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public bool[] journalStates;
     public bool[] itemStates;
 
-    [FormerlySerializedAs("hasKey")] public bool hasControlRoomKey = false;
+    public bool hasControlRoomKey = false;
     public bool defeated2ndWave = false;
-    [FormerlySerializedAs("hasExplosive")] public bool hasControlPanelKey = false;
+    public bool hasControlPanelKey = false;
     
     /// <summary>
     /// This is for editor only and makes building impossible without the preprocessor.
@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         {
             defeated2ndWave = true;
             ActivateItem(2);
-            StartCoroutine(AudioManager.Instance.StartDialogue(AudioManager.Instance.afterDefeatingSecondWave, null));
+            StartCoroutine(AudioManager.Instance.StartDialogue(AudioManager.Instance.afterDefeatingSecondWave));
         }
     }
 

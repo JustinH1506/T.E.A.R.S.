@@ -61,5 +61,9 @@ public class DeskDoor : MonoBehaviour
             anim.Play("DoorOpens");
             opened = true;
         }
+        else if(playerInReach && Keyboard.current.eKey.wasPressedThisFrame && !GameManager.Instance.hasControlRoomKey)
+        {
+            AudioManager.Instance.StartCoroutine(AudioManager.Instance.StartDialogue(AudioManager.Instance.lockedDoor));
+        }
     }
 }

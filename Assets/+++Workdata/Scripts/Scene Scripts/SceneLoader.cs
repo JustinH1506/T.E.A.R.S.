@@ -83,7 +83,7 @@ public class SceneLoader : MonoBehaviour
 
 		if (isNewGame)
 		{
-			StartCoroutine(AudioManager.Instance.StartDialogue(AudioManager.Instance.mainCharacterStartDialogue, null));
+			StartCoroutine(AudioManager.Instance.StartDialogue(AudioManager.Instance.mainCharacterStartDialogue));
 		}
 		
 		AudioManager.Instance.PlayMusic(AudioManager.Instance.inGameMusic);
