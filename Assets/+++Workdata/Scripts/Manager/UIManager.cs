@@ -146,9 +146,7 @@ public class UIManager : MonoBehaviour
 		CloseMenu(mainMenuScreen, CursorLockMode.Locked, 1);
 		OpenMenu(inGameUi, CursorLockMode.Locked, 1f, false);
 		DataPersistenceManager.Instance.NewGame();
-		AudioManager.Instance.PlayMusic(AudioManager.Instance.inGameMusic);
-		AudioManager.Instance.mainMenuListener.enabled = false;
-		StartCoroutine(AudioManager.Instance.StartDialogue(AudioManager.Instance.mainCharacterStartDialogue, null));
+		AudioManager.Instance.mainMenuListener.enabled = false; 
 	}
 
 	/// <summary>
@@ -330,7 +328,11 @@ public class UIManager : MonoBehaviour
 			canvasGroup.HideCanvasGroup();
 		}
 	}
-	
+
+	public void PlayButtonSound()
+	{
+		AudioManager.Instance.PlaySound(AudioManager.Instance.uiPressSound, AudioManager.Instance.soundSource);
+	}
 	
 	/// <summary>
 	/// Quits the game. 

@@ -2,8 +2,14 @@ using UnityEngine;
 
 public class EnemyStunState : EnemyBaseState
 {
+	#region Variables
+
 	public EnemyStunState(EnemyStateMachine currentContext, EnemyStateFactory enemyStateFactory) :base  (currentContext, enemyStateFactory){}
+
+	#endregion
     
+	#region Methods
+	
 	/// <summary>
 	/// ENters the state.
 	/// </summary>
@@ -63,4 +69,5 @@ public class EnemyStunState : EnemyBaseState
 			SwitchStates(factory.Patrol());
 		}
 	}
+	#endregion
 }

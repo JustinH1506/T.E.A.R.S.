@@ -8,7 +8,7 @@ public class CineMachineManualFreeLook : MonoBehaviour
     public float horizontalAimingSpeed = 20f;
     public float verticalAimingSpeed = 20f;
 
-    public bool isTargeting;
+    public bool isTargeting = true;
 
     [Tooltip("This depends on your Free Look rigs setup, use to correct Y sensitivity,"
              + " about 1.5 - 2 results in good Y-X square responsiveness")]

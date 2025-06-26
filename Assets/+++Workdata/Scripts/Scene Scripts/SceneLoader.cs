@@ -80,6 +80,10 @@ public class SceneLoader : MonoBehaviour
 		currentScene = newScene;
 
 		Time.timeScale = timeScale;
+		
+		StartCoroutine(AudioManager.Instance.StartDialogue(AudioManager.Instance.mainCharacterStartDialogue, null));
+		
+		AudioManager.Instance.PlayMusic(AudioManager.Instance.inGameMusic);
 
 		if (loadGame)
 		{

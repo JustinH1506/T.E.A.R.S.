@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
@@ -113,6 +114,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
         
         UIManager.Instance.journalButtons[journalIndex].interactable = true;
         UIManager.Instance.OpenMenu(UIManager.Instance.journalScreen, CursorLockMode.None, 0f, true);
+        UIManager.Instance.journalButtons[journalIndex].GetComponentInChildren<TextMeshProUGUI>().enabled = true;
         UIManager.Instance.journalButtons[journalIndex].onClick.Invoke();
     }
 

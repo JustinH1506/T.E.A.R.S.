@@ -47,6 +47,9 @@ public class AudioManager : MonoBehaviour
 
     [Header("Audio Listener")] 
     public AudioListener mainMenuListener;
+
+    [Header("Ui Sounds")] 
+    public AudioClip uiPressSound;
     
     private void Awake()
     {

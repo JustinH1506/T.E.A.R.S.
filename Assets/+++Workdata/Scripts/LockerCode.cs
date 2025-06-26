@@ -23,7 +23,7 @@ public class LockerCode : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.CompareTag("Player") && GameManager.Instance.defeated2ndWave)
+		if (other.CompareTag("Player"))
 		{
 			indicator.SetActive(true);
 			playerInReach = true;
@@ -32,7 +32,7 @@ public class LockerCode : MonoBehaviour
 
 	private void OnTriggerExit(Collider other)
 	{
-		if (other.CompareTag("Player") && GameManager.Instance.defeated2ndWave)
+		if (other.CompareTag("Player"))
 		{
 			indicator.SetActive(false);
 			playerInReach = false;
