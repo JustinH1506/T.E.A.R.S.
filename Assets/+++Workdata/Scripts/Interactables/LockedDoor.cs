@@ -40,7 +40,7 @@ public class LockedDoor : MonoBehaviour
     /// <param name="other"></param>
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player") && opened)
+        if (other.CompareTag("Player"))
         {
             indicator.SetActive(false);
             playerInReach = false;
