@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,6 +10,13 @@ public class ControlPanelKey : MonoBehaviour
 	
 	[SerializeField] private ControlPanel controlPanel;
 	
+	private SphereCollider sphereCollider;
+
+	private void Awake()
+	{
+		sphereCollider = GetComponent<SphereCollider>();
+	}
+
 	/// <summary>
 	/// Activates indicator and makes the Player seem in reach. 
 	/// </summary>
@@ -42,6 +50,9 @@ public class ControlPanelKey : MonoBehaviour
 	{
 		if (playerInReach && Keyboard.current.eKey.wasPressedThisFrame)
 		{
+			sphereCollider.enabled = false;
+			indicator.SetActive(false);
+			playerInReach = false;
 			StartCoroutine(UIManager.Instance.StartText("You got a Control Panel Key!"));
 			GameManager.Instance.ActivateItem(3);
 			GameManager.Instance.hasControlPanelKey = true;

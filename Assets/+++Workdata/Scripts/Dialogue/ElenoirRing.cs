@@ -2,7 +2,6 @@ using Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Playables;
-using UnityEngine.Serialization;
 
 public class ElenoirRing : MonoBehaviour
 {
@@ -18,8 +17,18 @@ public class ElenoirRing : MonoBehaviour
 	[SerializeField] private CinemachineVirtualCamera cam;
 	
 	[SerializeField] private GameObject indicator;
-	
-	/// <summary>
+    
+    private SphereCollider sphereCollider;
+
+    /// <summary>
+    /// Gets the collider.
+    /// </summary>
+    private void Awake()
+    {
+	    sphereCollider = GetComponent<SphereCollider>();
+    }
+
+    /// <summary>
 	/// Activates indicator and makes the Player seem in reach. 
 	/// </summary>
 	/// <param name="other"></param>
@@ -54,6 +63,9 @@ public class ElenoirRing : MonoBehaviour
 
 		if (playerInReach && Keyboard.current.eKey.wasPressedThisFrame)
 		{
+			sphereCollider.enabled = false;
+			indicator.SetActive(false);
+			playerInReach = false;
 			AudioManager.Instance.StartCoroutine(AudioManager.Instance.StartDialogue(AudioManager.Instance.ringSubtitleData, cam));
 			GameManager.Instance.ActivateItem(1);
 			doorAnim.Play("CloseDoors");

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,6 +12,13 @@ public class Audiolog : MonoBehaviour
 
 	public int journalId;
 	
+	private SphereCollider sphereCollider;
+
+	private void Awake()
+	{
+		sphereCollider = GetComponent<SphereCollider>();
+	}
+
 	/// <summary>
 	/// Activates indicator and makes the Player seem in reach. 
 	/// </summary>
@@ -46,6 +54,8 @@ public class Audiolog : MonoBehaviour
 
 		if (playerInReach && Keyboard.current.eKey.wasPressedThisFrame)
 		{
+			sphereCollider.enabled = false;
+			playerInReach = false;
 			UIManager.Instance.OpenMenu(UIManager.Instance.journalScreen, CursorLockMode.None, 0f, true);
 			GameManager.Instance.ActivateJournal(journalId);
 		}

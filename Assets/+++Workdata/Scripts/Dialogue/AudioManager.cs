@@ -105,6 +105,10 @@ public class AudioManager : MonoBehaviour
         UIManager.Instance.CloseMenu(UIManager.Instance.dialogueUi, CursorLockMode.Locked, 1f);
     }
 
+    
+    /// <summary>
+    /// Stops the dialogue menu and Voice lines. 
+    /// </summary>
     public void StopDialogue()
     {
         StopAllCoroutines();

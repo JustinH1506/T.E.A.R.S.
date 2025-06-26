@@ -1,4 +1,3 @@
-using System;
 using Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -16,6 +15,8 @@ public class ControlPanel : MonoBehaviour
 	[SerializeField] private CinemachineVirtualCamera vCam;
 	
 	private Animator anim;
+	
+	private SphereCollider sphereCollider;
 
 	/// <summary>
 	/// Get the animator. 
@@ -23,6 +24,7 @@ public class ControlPanel : MonoBehaviour
 	private void Awake()
 	{
 		anim = GetComponent<Animator>();
+		sphereCollider = GetComponent<SphereCollider>();
 	}
 
 	/// <summary>
@@ -60,6 +62,8 @@ public class ControlPanel : MonoBehaviour
 
 		if (playerInReach && Keyboard.current.eKey.wasPressedThisFrame)
 		{
+			sphereCollider.enabled = false;
+			playerInReach = false;
 			StartCoroutine(AudioManager.Instance.StartDialogue(AudioManager.Instance.activatingControlPanel, vCam));
 			anim.Play("ControlPanelLever");
 			doorAnim.Play("DoorOpens");

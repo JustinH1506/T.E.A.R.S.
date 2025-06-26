@@ -55,6 +55,9 @@ public class EntranceDoor : MonoBehaviour
  
  		if (playerInReach && Keyboard.current.eKey.wasPressedThisFrame)
  		{
+		    sphereCollider.enabled = false;
+		    indicator.SetActive(false);
+		    playerInReach = false;
  			anim.Play("DoorOpens");
 		    indicator.SetActive(false);
 		    sphereCollider.enabled = false;

@@ -13,11 +13,16 @@ public class TargetLock : MonoBehaviour
     [SerializeField] private CinemachineFreeLook cinemachineFreeLook;
     [SerializeField] private CineMachineManualFreeLook cineMachineManualFreeLook;
     [Space]
+    
     [Header("UI")]
+    [Space]
+    
     [SerializeField] private Image aimIcon; 
     [Space]
+    
     [Header("Settings")]
     [Space]
+    
     [SerializeField] private string enemyTag;
     [SerializeField] private Vector2 targetLockOffset;
     [SerializeField] private float minDistance; 

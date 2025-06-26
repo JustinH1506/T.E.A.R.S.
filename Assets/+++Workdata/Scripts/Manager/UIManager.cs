@@ -124,6 +124,7 @@ public class UIManager : MonoBehaviour
 		else if(Keyboard.current.escapeKey.wasPressedThisFrame && pauseScreen.alpha >= 1)
 		{
 			CloseMenu(pauseScreen, CursorLockMode.Locked, 1f);
+			CloseMenu(optionsScreen, CursorLockMode.Locked, 1f);
 			AudioManager.Instance.ChangeAllSfxSources(false);
 		}
 

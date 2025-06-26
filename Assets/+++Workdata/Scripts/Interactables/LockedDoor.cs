@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,6 +9,8 @@ public class LockedDoor : MonoBehaviour
     private bool opened = false;
 
     private Animator anim;
+    
+    private SphereCollider sphereCollider;
 
     /// <summary>
     /// Get the animator. 
@@ -17,6 +18,7 @@ public class LockedDoor : MonoBehaviour
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        sphereCollider = GetComponent<SphereCollider>();
     }
 
     /// <summary>
@@ -52,6 +54,9 @@ public class LockedDoor : MonoBehaviour
     {
         if (playerInReach && Keyboard.current.eKey.wasPressedThisFrame && GameManager.Instance.hasControlRoomKey)
         {
+            sphereCollider.enabled = false;
+            playerInReach = false;
+            indicator.SetActive(false);
             anim.Play("DoorOpens");
             opened = true;
         }
