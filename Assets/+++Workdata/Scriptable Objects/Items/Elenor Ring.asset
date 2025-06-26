@@ -10,14 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: afac5c5143c9b624ba118d00d31f80f3, type: 3}
-  m_Name: Code
+  m_Name: Elenor Ring
   m_EditorClassIdentifier: 
-  itemDescription: 'sssd
-
-    esf
-
-    afs
-
-    f'
-  itemImage: {fileID: 21300000, guid: 4a614245258b2a14cb5534b18fc665a3, type: 3}
+  itemDescription: The ring of my wife Elenor.
+  itemImage: {fileID: 21300000, guid: 16e153c0b55b2f44bb080c1e18aa180b, type: 3}
   textAudio: {fileID: 0}

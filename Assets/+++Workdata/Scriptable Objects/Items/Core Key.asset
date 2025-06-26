@@ -12,15 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afac5c5143c9b624ba118d00d31f80f3, type: 3}
   m_Name: Core Key
   m_EditorClassIdentifier: 
-  itemDescription: 'sgsbdsbb
-
-    g
-
-
-    dfxb
-
-    db
-
-    d'
+  itemDescription: The key to access the CORE's control panel.
   itemImage: {fileID: 21300000, guid: 02118088da3d81c4a9a81580b123ca1a, type: 3}
   textAudio: {fileID: 0}

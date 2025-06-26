@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   journalText: "It's the day before \u201CFrancis-Memorial-Day\u201D, but something
     feels off\u2026\n\r\nI feel like there is some sort of tension rising between
-    some of the engineers \nand supervisors and I dont think it's because of the
-    celebrations tomorrow\u2026\n\n\rAlfred also seems more isolated than ever. I
-    saw him fiddling around with the \nTrip-Oil tank system on the back of the T.E.A.R.S.
-    yesterday for quite some time \nbut he's probably just inspecting them as usual.
-    \r\n\r\n\rUgh, why did I accept this job down here? \r\n"
+    some of the engineers and supervisors and I don't think it's because of the celebrations
+    tomorrow\u2026\n\n\rAlfred also seems more isolated than ever. I saw him fiddling
+    around with the Trip-Oil tank system on the back of the T.E.A.R.S. yesterday
+    for quite some time but he's probably just inspecting them as usual. \r\n\r\n\rUgh,
+    why did I accept this job down here? \r\n"
   textAudio: {fileID: 0}
