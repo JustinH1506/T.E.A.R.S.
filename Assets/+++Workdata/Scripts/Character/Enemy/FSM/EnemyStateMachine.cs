@@ -96,8 +96,6 @@ public class EnemyStateMachine : CharacterBase, IDataPersistence
 	
 	public SphereCollider HitBox => hitBox;
 	
-	
-	
 	#endregion
 
 	#region Data Class
@@ -105,7 +103,7 @@ public class EnemyStateMachine : CharacterBase, IDataPersistence
 	[System.Serializable]
 	public class Data
 	{
-		public Vector3 position;
+		public Vector3 position =  new Vector3();
 		public int currentPatrolPoint;
 		public bool isDead;
 	}
@@ -120,7 +118,6 @@ public class EnemyStateMachine : CharacterBase, IDataPersistence
 	protected override void Awake()
 	{
 		base.Awake();
-		data = new Data();
 		
 		navMeshAgent = GetComponent<NavMeshAgent>();
 		playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
@@ -131,6 +128,11 @@ public class EnemyStateMachine : CharacterBase, IDataPersistence
 		currentState.EnterState();
 		
 		rbs = GetComponentsInChildren<Rigidbody>();
+	}
+
+	private void Start()
+	{
+		data = new Data();
 	}
 
 	//Calls UpdateState.

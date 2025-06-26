@@ -55,6 +55,7 @@ public class ElenoirRing : MonoBehaviour
 		if (playerInReach && Keyboard.current.eKey.wasPressedThisFrame)
 		{
 			AudioManager.Instance.StartCoroutine(AudioManager.Instance.StartDialogue(AudioManager.Instance.ringSubtitleData, cam));
+			GameManager.Instance.ActivateItem(1);
 			doorAnim.Play("CloseDoors");
 			inactiveEnemy.SetActive(false);
 			activeEnemy.SetActive(true);

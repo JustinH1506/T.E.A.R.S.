@@ -40,6 +40,7 @@ public class UIManager : MonoBehaviour
     #region Texts
 	[Header("Texts")] 
 	[SerializeField] private TextMeshProUGUI JournalText;
+	[SerializeField] private TextMeshProUGUI itemText;
 	[SerializeField] private TextMeshProUGUI infoText;
 	#endregion
 
@@ -60,6 +61,7 @@ public class UIManager : MonoBehaviour
 	public Image loadingIcon;
 	public Image playerHealthUi;
 	public Image playerStaminaUi;
+	public Image item;
 	[Space] 
 	
 	#endregion
@@ -284,6 +286,12 @@ public class UIManager : MonoBehaviour
 	public void ChangeJournal(Journals journals)
 	{
 		JournalText.text = journals.journalText;
+	}
+
+	public void ChangeItem(Items items)
+	{
+		item.sprite = items.itemImage;
+		itemText.text = items.itemDescription;
 	}
 
 	/// <summary>

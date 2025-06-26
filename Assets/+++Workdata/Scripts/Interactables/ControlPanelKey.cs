@@ -43,6 +43,7 @@ public class ControlPanelKey : MonoBehaviour
 		if (playerInReach && Keyboard.current.eKey.wasPressedThisFrame)
 		{
 			StartCoroutine(UIManager.Instance.StartText("You got a Control Panel Key!"));
+			GameManager.Instance.ActivateItem(3);
 			GameManager.Instance.hasControlPanelKey = true;
 			controlPanel.enabled = true;
 			gameObject.GetComponent<MeshRenderer>().enabled = false;

@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83cd6b8211edbb34e830a40f09d7582f, type: 3}
-  m_Name: Journal05
+  m_Script: {fileID: 11500000, guid: afac5c5143c9b624ba118d00d31f80f3, type: 3}
+  m_Name: Code
   m_EditorClassIdentifier: 
-  journalText: "The key got stored in the locker under the Control Room. \n\nThe
-    Code is 4 5 6 7."
+  itemDescription: 
+  itemImage: {fileID: 21300000, guid: 4a614245258b2a14cb5534b18fc665a3, type: 3}
   textAudio: {fileID: 0}

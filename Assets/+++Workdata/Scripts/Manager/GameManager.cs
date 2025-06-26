@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public GameStates gameStates;
 
     public bool[] journalStates;
+    public bool[] itemStates;
 
     [FormerlySerializedAs("hasKey")] public bool hasControlRoomKey = false;
     public bool defeated2ndWave = false;
@@ -95,11 +96,13 @@ public class GameManager : MonoBehaviour, IDataPersistence
         if (killedEnemies == 2)
         {
             StartCoroutine(UIManager.Instance.StartText("You got an office key!"));
+            ActivateItem(0);
             hasControlRoomKey = true;
         }
         else if (killedEnemies == 4)
         {
             defeated2ndWave = true;
+            ActivateItem(2);
             StartCoroutine(AudioManager.Instance.StartDialogue(AudioManager.Instance.afterDefeatingSecondWave, null));
         }
     }
@@ -116,6 +119,15 @@ public class GameManager : MonoBehaviour, IDataPersistence
         UIManager.Instance.OpenMenu(UIManager.Instance.journalScreen, CursorLockMode.None, 0f, true);
         UIManager.Instance.journalButtons[journalIndex].GetComponentInChildren<TextMeshProUGUI>().enabled = true;
         UIManager.Instance.journalButtons[journalIndex].onClick.Invoke();
+    }
+    
+    public void ActivateItem(int itemIndex)
+    {
+        itemStates[itemIndex] = true;
+        
+        UIManager.Instance.itemButtons[itemIndex].interactable = true;
+        UIManager.Instance.itemButtons[itemIndex].GetComponentInChildren<TextMeshProUGUI>().enabled = true;
+        UIManager.Instance.itemButtons[itemIndex].onClick.Invoke();
     }
 
     /// <summary>
