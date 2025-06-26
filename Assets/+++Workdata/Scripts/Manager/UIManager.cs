@@ -114,7 +114,7 @@ public class UIManager : MonoBehaviour
 		if (GameManager.Instance.gameStates == GameManager.GameStates.MainMenu)
 			return;
 
-		if (Keyboard.current.escapeKey.wasPressedThisFrame && pauseScreen.alpha < 1)
+		if (Keyboard.current.escapeKey.wasPressedThisFrame && pauseScreen.alpha < 1 && journalScreen.alpha < 1)
 		{
 			OpenMenu(pauseScreen, CursorLockMode.None, 0f, true);
 			AudioManager.Instance.ChangeAllSfxSources(true);
@@ -125,7 +125,7 @@ public class UIManager : MonoBehaviour
 			AudioManager.Instance.ChangeAllSfxSources(false);
 		}
 
-		if (Keyboard.current.tabKey.wasPressedThisFrame && journalScreen.alpha < 1 && itemScreen.alpha < 1)
+		if (Keyboard.current.tabKey.wasPressedThisFrame && journalScreen.alpha < 1 && itemScreen.alpha < 1 && pauseScreen.alpha < 1)
 		{
 			OpenMenu(journalScreen, CursorLockMode.None, 0f, true);
 		}

@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -42,6 +43,8 @@ public class EnemyStateMachine : CharacterBase, IDataPersistence
 	[SerializeField] private SphereCollider hitBox;
 	
 	[SerializeField] private LayerMask layerCovers = 0;
+
+	public Rigidbody[] rbs;
 	
 	private int currentPoint = 0;
 	
@@ -127,6 +130,7 @@ public class EnemyStateMachine : CharacterBase, IDataPersistence
 		currentState = states.Patrol();
 		currentState.EnterState();
 		
+		rbs = GetComponentsInChildren<Rigidbody>();
 	}
 
 	//Calls UpdateState.

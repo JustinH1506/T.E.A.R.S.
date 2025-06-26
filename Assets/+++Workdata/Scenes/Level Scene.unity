@@ -28287,6 +28287,7 @@ MonoBehaviour:
   layerCovers:
     serializedVersion: 2
     m_Bits: 1
+  rbs: []
 --- !u!4 &663760757 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4731766021639440979, guid: 78c754edaa450874499b2c36797f84b2, type: 3}
@@ -29896,6 +29897,7 @@ MonoBehaviour:
   m_Script: {fileID: 1673183342}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Entries: []
 --- !u!4 &703466645
 Transform:
   m_ObjectHideFlags: 19
@@ -32789,6 +32791,7 @@ MonoBehaviour:
   layerCovers:
     serializedVersion: 2
     m_Bits: 1
+  rbs: []
 --- !u!195 &778977944
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -34607,19 +34610,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4840234444275711706, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99129546
+      value: 0.9912954
       objectReference: {fileID: 0}
     - target: {fileID: 4840234444275711706, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.13165647
+      value: 0.13165645
       objectReference: {fileID: 0}
     - target: {fileID: 4840234444275711706, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000004134501
+      value: -0.00000008340543
       objectReference: {fileID: 0}
     - target: {fileID: 4840234444275711706, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000064971015
+      value: 5.782335e-10
       objectReference: {fileID: 0}
     - target: {fileID: 5096431366298910489, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
       propertyPath: m_Follow
@@ -34683,15 +34686,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5763231286518590426, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.11509342
+      value: 0.1150934
       objectReference: {fileID: 0}
     - target: {fileID: 5763231286518590426, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000004160025
+      value: -0.00000008366068
       objectReference: {fileID: 0}
     - target: {fileID: 5763231286518590426, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000010368527
+      value: 0.000000004449659
       objectReference: {fileID: 0}
     - target: {fileID: 6806945544984908639, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
       propertyPath: m_XDamping
@@ -34807,15 +34810,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8717957830785151385, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.121537454
+      value: 0.12153746
       objectReference: {fileID: 0}
     - target: {fileID: 8717957830785151385, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000041454033
+      value: -0.000000041291248
       objectReference: {fileID: 0}
     - target: {fileID: 8717957830785151385, guid: bb0be8eee6799374580798dc38fcf7c3, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000005644047
+      value: -0.000000004891406
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -84732,6 +84735,7 @@ MonoBehaviour:
   layerCovers:
     serializedVersion: 2
     m_Bits: 1
+  rbs: []
 --- !u!195 &2076584507
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -88126,6 +88130,7 @@ MonoBehaviour:
   layerCovers:
     serializedVersion: 2
     m_Bits: 1
+  rbs: []
 --- !u!136 &3751580465585025504
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -89485,6 +89490,7 @@ MonoBehaviour:
   layerCovers:
     serializedVersion: 2
     m_Bits: 1
+  rbs: []
 --- !u!4 &7026655388161739819
 Transform:
   m_ObjectHideFlags: 0

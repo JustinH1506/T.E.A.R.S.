@@ -41,7 +41,7 @@ public class EnemyStunState : EnemyBaseState
 	{
 		if (ctx.GotHit)
 		{
-			ctx.Anim.Play(EnemyAnimationFactory.Hit);
+			ctx.Anim.CrossFade(EnemyAnimationFactory.Hit, 0.1f);
 			ctx.GotHit = false;
 		}
 		

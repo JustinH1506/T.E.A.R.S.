@@ -25,6 +25,11 @@ public class EnemyDeathState : EnemyBaseState
 	{
 		if (ctx.Anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
 		{
+			foreach (Rigidbody rb in ctx.rbs)
+			{
+				rb.isKinematic = false;
+			}
+			
 			ctx.NavMeshAgent.enabled = false; 
 			ctx.Anim.enabled = false;
 			ctx.enabled = false;
