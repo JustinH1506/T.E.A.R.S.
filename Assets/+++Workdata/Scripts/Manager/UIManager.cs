@@ -144,7 +144,7 @@ public class UIManager : MonoBehaviour
 	public void StartNewGame()
 	{
 		SceneLoader.Instance.sceneStates = SceneLoader.SceneStates.Level01;
-		StartCoroutine(SceneLoader.Instance.LoadScene((int)SceneLoader.Instance.sceneStates, 1, false, GameManager.GameStates.InGame));
+		StartCoroutine(SceneLoader.Instance.LoadScene((int)SceneLoader.Instance.sceneStates, 1, false, GameManager.GameStates.InGame, true));
 		CloseMenu(mainMenuScreen, CursorLockMode.Locked, 1);
 		OpenMenu(inGameUi, CursorLockMode.Locked, 1f, false);
 		DataPersistenceManager.Instance.NewGame();
@@ -157,7 +157,7 @@ public class UIManager : MonoBehaviour
 	public void LoadGame()
 	{
 		SceneLoader.Instance.sceneStates = SceneLoader.SceneStates.Level01;
-		StartCoroutine(SceneLoader.Instance.LoadScene((int)SceneLoader.Instance.sceneStates, 1, true, GameManager.GameStates.InGame));
+		StartCoroutine(SceneLoader.Instance.LoadScene((int)SceneLoader.Instance.sceneStates, 1, true, GameManager.GameStates.InGame, false));
 		CloseMenu(mainMenuScreen, CursorLockMode.Locked, 1);
 		OpenMenu(inGameUi, CursorLockMode.Locked, 1f, false);
 	}
@@ -177,6 +177,7 @@ public class UIManager : MonoBehaviour
 	/// </summary>
 	public void BackToMainMenu()
 	{
+		AudioManager.Instance.StopDialogue();
 		SceneLoader.Instance.sceneStates = SceneLoader.SceneStates.Manager;
 		StartCoroutine(SceneLoader.Instance.UnloadScene(SceneLoader.Instance.currentScene, (int)SceneLoader.Instance.sceneStates, 1));
 		CloseMenu(pauseScreen, CursorLockMode.None, 1f);

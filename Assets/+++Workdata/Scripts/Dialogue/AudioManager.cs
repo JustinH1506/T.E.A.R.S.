@@ -17,6 +17,8 @@ public class AudioManager : MonoBehaviour
         public AudioClip audioClip;
     }
 
+    public Coroutine dialogueCoroutine;
+
     [Header("Dialogue Variables")]
     public AudioSource dialogueSource;
     public DialogueData[] mainCharacterStartDialogue;
@@ -100,7 +102,13 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     private void AfterText()
     {
-        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStateMachine>().EnablePlayerActions();
+        UIManager.Instance.CloseMenu(UIManager.Instance.dialogueUi, CursorLockMode.Locked, 1f);
+    }
+
+    public void StopDialogue()
+    {
+        StopAllCoroutines();
+        soundSource.Stop();
         UIManager.Instance.CloseMenu(UIManager.Instance.dialogueUi, CursorLockMode.Locked, 1f);
     }
 

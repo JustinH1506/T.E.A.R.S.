@@ -8,6 +8,7 @@ public class GameData
     public Vector3 cameraPosition;
     public Quaternion cameraRotation;
     public bool[] activeJournals;
+    public bool[] activeItems;
 
     public int playerHp;
     
@@ -19,6 +20,7 @@ public class GameData
         playerHp = 250;
         enemyPositionByGuid = new SerializableDictionary<string, EnemyStateMachine.Data>();
         activeJournals = new bool[4];
+        activeItems = new bool[4];
     }
     
     public EnemyStateMachine.Data GetEnemyPosition(string guid)

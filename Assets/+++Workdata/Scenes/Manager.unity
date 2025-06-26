@@ -509,7 +509,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 1508063370, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
     m_PressedSprite: {fileID: 593057963, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 593057963, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -1252,7 +1252,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 1508063370, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
     m_PressedSprite: {fileID: 593057963, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 593057963, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -2708,7 +2708,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2718,10 +2718,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 1508063370, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
+    m_PressedSprite: {fileID: 593057963, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 593057963, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -2777,8 +2777,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 915603902, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2910,8 +2910,6 @@ RectTransform:
   - {fileID: 1514013178}
   - {fileID: 1285923673}
   - {fileID: 1340448439}
-  - {fileID: 1726849346}
-  - {fileID: 2098004583}
   - {fileID: 129572358}
   - {fileID: 1875357918}
   m_Father: {fileID: 2023569717}
@@ -3026,7 +3024,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 1508063370, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
     m_PressedSprite: {fileID: 593057963, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 593057963, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -4204,7 +4202,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 1508063370, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
     m_PressedSprite: {fileID: 593057963, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 593057963, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -4867,7 +4865,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 1508063370, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
     m_PressedSprite: {fileID: 593057963, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 593057963, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -6439,7 +6437,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 1508063370, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
     m_PressedSprite: {fileID: 593057963, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 593057963, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -6757,7 +6755,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 1508063370, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
     m_PressedSprite: {fileID: 593057963, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 593057963, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -6937,7 +6935,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 1508063370, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
     m_PressedSprite: {fileID: 593057963, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 593057963, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -7090,8 +7088,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -7253,7 +7251,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 1508063370, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
     m_PressedSprite: {fileID: 593057963, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 593057963, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -7433,7 +7431,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 1508063370, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
     m_PressedSprite: {fileID: 593057963, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 593057963, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -8853,16 +8851,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueSource: {fileID: 1222508362}
   mainCharacterStartDialogue:
-  - line: Finally. I managed to get here.
-    audioClip: {fileID: 8300000, guid: a013d75f8bcc70b4d9bd37ca26858dd0, type: 3}
-  - line: This is where elenoire was last according to our plans. Maybe i will find
-      something here.
-    audioClip: {fileID: 8300000, guid: 8f2e74999a596e842bea4e40a5eb2561, type: 3}
+  - line: The Core... back where it all began!
+    audioClip: {fileID: 8300000, guid: d1b635f9eb2e36f43adb73dea11d2f77, type: 3}
+  - line: 'If there is any hope of finding Elenoir starting here makes the most sense. '
+    audioClip: {fileID: 8300000, guid: 27ca1dc05b8d5564ba33bee64039d8e3, type: 3}
   ringSubtitleData:
-  - line: fewgewgg
-    audioClip: {fileID: 8300000, guid: a013d75f8bcc70b4d9bd37ca26858dd0, type: 3}
-  - line: regergeger
-    audioClip: {fileID: 8300000, guid: 8f2e74999a596e842bea4e40a5eb2561, type: 3}
+  - line: 'Look who''s here. I''m glad that you received my message, Jonathan. '
+    audioClip: {fileID: 8300000, guid: 5f196bfa32b951d48bff3dc724cd47f6, type: 3}
+  - line: 'Do you remember me? The foreman that nobody took seriously? '
+    audioClip: {fileID: 8300000, guid: 03e59f4304625f44ca64c052b0b25ab5, type: 3}
+  - line: "I\u2019m calling the shots in Hephastoria now! The TEARS are under my
+      control."
+    audioClip: {fileID: 8300000, guid: d226adade50be8b4aa702cdf107a88b0, type: 3}
+  - line: Alfred, you treacherous rat! Do you know what you have done to our city?!
+    audioClip: {fileID: 8300000, guid: d7bcbf31c3f49124090c5e4c05626965, type: 3}
+  - line: Our people?! Where is Elenor? Tell me!
+    audioClip: {fileID: 8300000, guid: b65ddbf310d908741b503e4a247ba2c8, type: 3}
+  - line: "Don\u2019t worry about that, I promise she\u2019ll join you soon enough. "
+    audioClip: {fileID: 8300000, guid: 0476d4bfd10e48b478bad5d026a671c6, type: 3}
+  - line: 'But I think you have some more pressing concerns at the moment. '
+    audioClip: {fileID: 8300000, guid: dd75b1e597ae9f649ba6a53e756ec12b, type: 3}
+  - line: Now, surrender to my little friends.
+    audioClip: {fileID: 8300000, guid: 5a0d779fc09503b4ba6bafd131a901aa, type: 3}
+  - line: "Alfred\u2026 you\u2019ll regret this\u2026"
+    audioClip: {fileID: 8300000, guid: 97bf873e381f8124a8a8e4d33f0a5aba, type: 3}
   afterDefeatingSecondWave:
   - line: Hmmm... None if them had the key for the control panel.
     audioClip: {fileID: 8300000, guid: a013d75f8bcc70b4d9bd37ca26858dd0, type: 3}
@@ -9117,7 +9129,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.75
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -9375,7 +9387,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 1508063370, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
     m_PressedSprite: {fileID: 593057963, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 593057963, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -11208,7 +11220,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 1508063370, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
     m_PressedSprite: {fileID: 593057963, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 593057963, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -11565,7 +11577,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 1508063370, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
     m_PressedSprite: {fileID: 593057963, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 593057963, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -11947,78 +11959,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1710818680}
-  m_CullTransparentMesh: 1
---- !u!1 &1726849345
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1726849346}
-  - component: {fileID: 1726849348}
-  - component: {fileID: 1726849347}
-  m_Layer: 5
-  m_Name: Item View Image
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1726849346
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1726849345}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 364406158}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 480, y: 163.50008}
-  m_SizeDelta: {x: 960, y: 481.06}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1726849347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1726849345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Texture: {fileID: 8400000, guid: c5c200b405e8e1b4393c5ea5711753b9, type: 2}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
---- !u!222 &1726849348
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1726849345}
   m_CullTransparentMesh: 1
 --- !u!1 &1731176978
 GameObject:
@@ -12606,7 +12546,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 1508063370, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
     m_PressedSprite: {fileID: 593057963, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 593057963, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -12774,7 +12714,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 48ca942ee83bc234f95d6b7f338ef3d5, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -13017,7 +12957,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 1508063370, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
     m_PressedSprite: {fileID: 593057963, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 593057963, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -13298,7 +13238,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -13308,10 +13248,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 1508063370, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
+    m_PressedSprite: {fileID: 593057963, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 593057963, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -13367,8 +13307,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 915603902, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -13912,8 +13852,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -14423,7 +14363,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 1508063370, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
     m_PressedSprite: {fileID: 593057963, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 593057963, guid: f1c34d7c9514c6341912b065824c06cf, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -14878,233 +14818,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2091523694}
   m_CullTransparentMesh: 1
---- !u!1 &2098004582
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2098004583}
-  - component: {fileID: 2098004585}
-  - component: {fileID: 2098004584}
-  m_Layer: 5
-  m_Name: Item View Camera
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &2098004583
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2098004582}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1000}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 364406158}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1000, y: 1000}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2098004584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2098004582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23c1ce4fb46143f46bc5cb5224c934f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clearColorMode: 0
-  backgroundColorHDR: {r: 0.025, g: 0.07, b: 0.19, a: 0}
-  clearDepth: 1
-  volumeLayerMask:
-    serializedVersion: 2
-    m_Bits: 1
-  volumeAnchorOverride: {fileID: 0}
-  antialiasing: 0
-  SMAAQuality: 2
-  dithering: 0
-  stopNaNs: 0
-  taaSharpenStrength: 0.5
-  TAAQuality: 1
-  taaSharpenMode: 0
-  taaRingingReduction: 0
-  taaHistorySharpening: 0.35
-  taaAntiFlicker: 0.5
-  taaMotionVectorRejection: 0
-  taaAntiHistoryRinging: 0
-  taaBaseBlendFactor: 0.875
-  taaJitterScale: 1
-  physicalParameters:
-    m_Iso: 200
-    m_ShutterSpeed: 0.005
-    m_Aperture: 16
-    m_FocusDistance: 10
-    m_BladeCount: 5
-    m_Curvature: {x: 2, y: 11}
-    m_BarrelClipping: 0.25
-    m_Anamorphism: 0
-  flipYMode: 0
-  xrRendering: 1
-  fullscreenPassthrough: 0
-  allowDynamicResolution: 0
-  customRenderingSettings: 0
-  invertFaceCulling: 0
-  probeLayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  hasPersistentHistory: 0
-  screenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
-  screenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
-  allowDeepLearningSuperSampling: 1
-  deepLearningSuperSamplingUseCustomQualitySettings: 0
-  deepLearningSuperSamplingQuality: 0
-  deepLearningSuperSamplingUseCustomAttributes: 0
-  deepLearningSuperSamplingUseOptimalSettings: 1
-  deepLearningSuperSamplingSharpening: 0
-  allowFidelityFX2SuperResolution: 1
-  fidelityFX2SuperResolutionUseCustomQualitySettings: 0
-  fidelityFX2SuperResolutionQuality: 0
-  fidelityFX2SuperResolutionUseCustomAttributes: 0
-  fidelityFX2SuperResolutionUseOptimalSettings: 1
-  fidelityFX2SuperResolutionEnableSharpening: 0
-  fidelityFX2SuperResolutionSharpening: 0
-  fsrOverrideSharpness: 0
-  fsrSharpness: 0.92
-  exposureTarget: {fileID: 0}
-  materialMipBias: 0
-  m_RenderingPathCustomFrameSettings:
-    bitDatas:
-      data1: 5770166122053453
-      data2: 12934340311651418136
-    lodBias: 1
-    lodBiasMode: 0
-    lodBiasQualityLevel: 0
-    maximumLODLevel: 0
-    maximumLODLevelMode: 0
-    maximumLODLevelQualityLevel: 0
-    sssQualityMode: 0
-    sssQualityLevel: 0
-    sssCustomSampleBudget: 20
-    sssCustomDownsampleSteps: 0
-    msaaMode: 1
-    materialQuality: 0
-  renderingPathCustomFrameSettingsOverrideMask:
-    mask:
-      data1: 0
-      data2: 0
-  defaultFrameSettings: 0
-  m_Version: 9
-  m_ObsoleteRenderingPath: 0
-  m_ObsoleteFrameSettings:
-    overrides: 0
-    enableShadow: 0
-    enableContactShadows: 0
-    enableShadowMask: 0
-    enableSSR: 0
-    enableSSAO: 0
-    enableSubsurfaceScattering: 0
-    enableTransmission: 0
-    enableAtmosphericScattering: 0
-    enableVolumetrics: 0
-    enableReprojectionForVolumetrics: 0
-    enableLightLayers: 0
-    enableExposureControl: 1
-    diffuseGlobalDimmer: 0
-    specularGlobalDimmer: 0
-    shaderLitMode: 0
-    enableDepthPrepassWithDeferredRendering: 0
-    enableTransparentPrepass: 0
-    enableMotionVectors: 0
-    enableObjectMotionVectors: 0
-    enableDecals: 0
-    enableRoughRefraction: 0
-    enableTransparentPostpass: 0
-    enableDistortion: 0
-    enablePostprocess: 0
-    enableOpaqueObjects: 0
-    enableTransparentObjects: 0
-    enableRealtimePlanarReflection: 0
-    enableMSAA: 0
-    enableAsyncCompute: 0
-    runLightListAsync: 0
-    runSSRAsync: 0
-    runSSAOAsync: 0
-    runContactShadowsAsync: 0
-    runVolumeVoxelizationAsync: 0
-    lightLoopSettings:
-      overrides: 0
-      enableDeferredTileAndCluster: 0
-      enableComputeLightEvaluation: 0
-      enableComputeLightVariants: 0
-      enableComputeMaterialVariants: 0
-      enableFptlForForwardOpaque: 0
-      enableBigTilePrepass: 0
-      isFptlEnabled: 0
---- !u!20 &2098004585
-Camera:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2098004582}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_projectionMatrixMode: 1
-  m_GateFitMode: 1
-  m_FOVAxisMode: 0
-  m_Iso: 200
-  m_ShutterSpeed: 0.005
-  m_Aperture: 16
-  m_FocusDistance: 10
-  m_FocalLength: 50
-  m_BladeCount: 5
-  m_Curvature: {x: 2, y: 11}
-  m_BarrelClipping: 0.25
-  m_Anamorphism: 0
-  m_SensorSize: {x: 36, y: 24}
-  m_LensShift: {x: 0, y: 0}
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: c5c200b405e8e1b4393c5ea5711753b9, type: 2}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 0
-  m_AllowMSAA: 0
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
 --- !u!1 &2098760890
 GameObject:
   m_ObjectHideFlags: 0
@@ -15563,7 +15276,7 @@ GameObject:
   - component: {fileID: 2119369520}
   - component: {fileID: 2119369518}
   m_Layer: 5
-  m_Name: Journal Texts
+  m_Name: Item Texts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

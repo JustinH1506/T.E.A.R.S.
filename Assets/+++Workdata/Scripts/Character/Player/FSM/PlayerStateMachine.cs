@@ -590,6 +590,7 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
     public void SaveData(GameData gameData)
     {
 	    gameData.playerPosition = transform.position;
+	    Debug.Log(gameData.playerPosition);
 	    gameData.playerHp = CurrentHealth;
 	    
 	    gameData.cameraPosition = cinemachineFreeLook.transform.position;

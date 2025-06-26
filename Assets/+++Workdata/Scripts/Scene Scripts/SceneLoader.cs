@@ -55,7 +55,7 @@ public class SceneLoader : MonoBehaviour
 	/// <param name="loadGame"></param>
 	/// <param name="newGameState"></param>
 	/// <returns></returns>
-	public IEnumerator LoadScene(int newScene, int timeScale, bool loadGame, GameManager.GameStates newGameState)
+	public IEnumerator LoadScene(int newScene, int timeScale, bool loadGame, GameManager.GameStates newGameState, bool isNewGame)
 	{
 		UIManager.Instance.OpenMenu(UIManager.Instance.loadingScreen, CursorLockMode.Locked, 1f, true);
 		
@@ -80,8 +80,11 @@ public class SceneLoader : MonoBehaviour
 		currentScene = newScene;
 
 		Time.timeScale = timeScale;
-		
-		StartCoroutine(AudioManager.Instance.StartDialogue(AudioManager.Instance.mainCharacterStartDialogue, null));
+
+		if (isNewGame)
+		{
+			StartCoroutine(AudioManager.Instance.StartDialogue(AudioManager.Instance.mainCharacterStartDialogue, null));
+		}
 		
 		AudioManager.Instance.PlayMusic(AudioManager.Instance.inGameMusic);
 

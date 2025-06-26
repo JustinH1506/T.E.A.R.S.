@@ -48,6 +48,7 @@ public class FileDataHandler
 			}
 		}
 		
+		Debug.Log("Reached here.");
 		return loadedData;
 	}
 
