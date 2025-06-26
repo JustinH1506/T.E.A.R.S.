@@ -32,6 +32,13 @@ public class PlayerAttackThirdState : PlayerBaseState
 
 	public override void CheckSwitchStates()
 	{
+		if (ctx.IsDodging && ctx.isCancelingDodge)
+		{
+			SwitchStates(factory.Dodge());
+			ctx.IsAttacking = false;
+			ctx.isCancelingDodge = false;
+		}
+		
 		if (ctx.Anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 0.9f)
 		{
 			return;

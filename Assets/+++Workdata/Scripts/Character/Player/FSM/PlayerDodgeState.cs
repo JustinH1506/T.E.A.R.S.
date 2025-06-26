@@ -39,6 +39,7 @@ public class PlayerDodgeState : PlayerBaseState
 	public override void ExitState()
 	{
 		ctx.IsDodging = false;
+		ctx.dodgeCounter = 0;
 	}
 
 	/// <summary>

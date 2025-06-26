@@ -12,7 +12,7 @@ public class EntranceDoor : MonoBehaviour
     private SphereCollider sphereCollider;
  
  	/// <summary>
- 	/// Get the animator. 
+ 	/// Get the animator and sphere collider. 
  	/// </summary>
  	private void Awake()
  	{
@@ -51,16 +51,18 @@ public class EntranceDoor : MonoBehaviour
  	/// </summary>
  	private void Update()
  	{
- 		//transform.LookAt(Camera.main.transform.position);
- 
  		if (playerInReach && Keyboard.current.eKey.wasPressedThisFrame)
- 		{
-		    sphereCollider.enabled = false;
-		    UIManager.Instance.CloseMenu(UIManager.Instance.indicatorScreen, CursorLockMode.Locked, 1f);
-		    itemBlinkLight.SetActive(false);
+	    {
 		    playerInReach = false;
- 			anim.Play("DoorOpens");
 		    sphereCollider.enabled = false;
+		    sphereCollider.enabled = false;
+		    
+		    itemBlinkLight.SetActive(false);
+ 			anim.Play("DoorOpens");
+		    
+		    StartCoroutine(AudioManager.Instance.StartDialogue(AudioManager.Instance.mainCharacterStartDialogue));
+		    
+		    UIManager.Instance.CloseMenu(UIManager.Instance.indicatorScreen, CursorLockMode.Locked, 1f);
  		}
  	}
 }

@@ -149,6 +149,9 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
     private float inputX;
     private float inputZ;
     private bool isMoving;
+
+    public int dodgeCounter;
+    public bool isCancelingDodge;
     
     public TargetLock targetLock { get; private set; }
     
@@ -317,7 +320,9 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
 		    dodgeDirection.x = -10;
 		    dodgeDirection.z = -10;
 	    }
-	    
+
+	    dodgeCounter--;
+		
 	    rb.AddForce(dodgeDirection, ForceMode.VelocityChange);
     }
 
@@ -418,6 +423,7 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
 	    if (context.performed)
 	    {
 			isDodging = true;
+			dodgeCounter++;
 	    }
     }
 
@@ -532,6 +538,16 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
     public void CheckRecoveryPoint()
     {
 	    currentState.ChangeAttackAnimation();
+    }
+
+    public void CheckDodge()
+    {
+	    if (dodgeCounter > 0)
+	    {
+		    isDodging = true;
+		    dodgeCounter = 0;
+		    isCancelingDodge = true;
+	    }
     }
     
     /// <summary>
