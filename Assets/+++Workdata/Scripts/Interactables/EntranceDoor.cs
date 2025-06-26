@@ -5,7 +5,7 @@ public class EntranceDoor : MonoBehaviour
 {
     public bool playerInReach = false;
  	
- 	[SerializeField] private GameObject indicator;
+    [SerializeField] private GameObject itemBlinkLight;
  	
  	private Animator anim;
     
@@ -28,7 +28,7 @@ public class EntranceDoor : MonoBehaviour
  	{
  		if (other.CompareTag("Player"))
  		{
- 			indicator.SetActive(true);
+		    UIManager.Instance.OpenMenu(UIManager.Instance.indicatorScreen, CursorLockMode.Locked, 1f, false);
  			playerInReach = true;
  		}
  	}
@@ -41,7 +41,7 @@ public class EntranceDoor : MonoBehaviour
  	{
  		if (other.CompareTag("Player"))
  		{
- 			indicator.SetActive(false);
+		    UIManager.Instance.CloseMenu(UIManager.Instance.indicatorScreen, CursorLockMode.Locked, 1f);
  			playerInReach = false;
  		}
  	}
@@ -56,10 +56,10 @@ public class EntranceDoor : MonoBehaviour
  		if (playerInReach && Keyboard.current.eKey.wasPressedThisFrame)
  		{
 		    sphereCollider.enabled = false;
-		    indicator.SetActive(false);
+		    UIManager.Instance.CloseMenu(UIManager.Instance.indicatorScreen, CursorLockMode.Locked, 1f);
+		    itemBlinkLight.SetActive(false);
 		    playerInReach = false;
  			anim.Play("DoorOpens");
-		    indicator.SetActive(false);
 		    sphereCollider.enabled = false;
  		}
  	}

@@ -4,11 +4,13 @@ using UnityEngine.InputSystem;
 
 public class ControlPanelKey : MonoBehaviour
 {
-	[SerializeField] private GameObject indicator;
-	
-	public bool playerInReach = false;
+	[SerializeField] private GameObject itemBlinkLight;
 	
 	[SerializeField] private ControlPanel controlPanel;
+	
+	
+	
+	public bool playerInReach = false;
 	
 	private SphereCollider sphereCollider;
 
@@ -25,7 +27,7 @@ public class ControlPanelKey : MonoBehaviour
 	{
 		if (other.CompareTag("Player"))
 		{
-			indicator.SetActive(true);
+			UIManager.Instance.OpenMenu(UIManager.Instance.indicatorScreen, CursorLockMode.Locked, 1f, false);
 			playerInReach = true;
 		}
 	}
@@ -38,7 +40,7 @@ public class ControlPanelKey : MonoBehaviour
 	{
 		if (other.CompareTag("Player"))
 		{
-			indicator.SetActive(false);
+			UIManager.Instance.CloseMenu(UIManager.Instance.indicatorScreen, CursorLockMode.Locked, 1f);
 			playerInReach = false;
 		}
 	}
@@ -51,7 +53,8 @@ public class ControlPanelKey : MonoBehaviour
 		if (playerInReach && Keyboard.current.eKey.wasPressedThisFrame)
 		{
 			sphereCollider.enabled = false;
-			indicator.SetActive(false);
+			itemBlinkLight.SetActive(false);
+			UIManager.Instance.CloseMenu(UIManager.Instance.indicatorScreen, CursorLockMode.Locked, 1f);
 			playerInReach = false;
 			StartCoroutine(UIManager.Instance.StartText("You got a Control Panel Key!"));
 			GameManager.Instance.ActivateItem(3);

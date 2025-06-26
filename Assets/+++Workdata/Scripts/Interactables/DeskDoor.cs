@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class LockedDoor : MonoBehaviour
+public class DeskDoor : MonoBehaviour
 {
-    [SerializeField] private GameObject indicator;
+    [SerializeField] private GameObject itemBlinkLight;
     
     public bool playerInReach = false;
     private bool opened = false;
@@ -29,7 +29,7 @@ public class LockedDoor : MonoBehaviour
     {
         if (other.CompareTag("Player") && !opened)
         {
-            indicator.SetActive(true);
+            UIManager.Instance.OpenMenu(UIManager.Instance.indicatorScreen, CursorLockMode.Locked, 1f, false);
             playerInReach = true;
         }
     }
@@ -42,7 +42,7 @@ public class LockedDoor : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            indicator.SetActive(false);
+            UIManager.Instance.CloseMenu(UIManager.Instance.indicatorScreen, CursorLockMode.Locked, 1f);
             playerInReach = false;
         }
     }
@@ -56,7 +56,8 @@ public class LockedDoor : MonoBehaviour
         {
             sphereCollider.enabled = false;
             playerInReach = false;
-            indicator.SetActive(false);
+            itemBlinkLight.SetActive(false);
+            UIManager.Instance.CloseMenu(UIManager.Instance.indicatorScreen, CursorLockMode.Locked, 1f);
             anim.Play("DoorOpens");
             opened = true;
         }

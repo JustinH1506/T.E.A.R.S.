@@ -30,7 +30,7 @@ public class CineMachineManualFreeLook : MonoBehaviour
     /// </summary>
     private void Update()
     {
-        if (isTargeting)
+        if (isTargeting || UIManager.Instance.stopCam)
             return;
         
         float mouseX = Input.GetAxis("Mouse X") * horizontalAimingSpeed;

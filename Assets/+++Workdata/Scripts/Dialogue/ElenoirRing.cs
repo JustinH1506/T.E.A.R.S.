@@ -15,8 +15,10 @@ public class ElenoirRing : MonoBehaviour
 	[SerializeField] private PlayableDirector ringCutscene;
 	
 	[SerializeField] private CinemachineVirtualCamera cam;
-	
-	[SerializeField] private GameObject indicator;
+    
+    [SerializeField] private GameObject itemBlinkLight;
+    
+    [SerializeField] private ControlPanel controlPanel;
     
     private SphereCollider sphereCollider;
 
@@ -36,7 +38,7 @@ public class ElenoirRing : MonoBehaviour
 	{
 		if (other.CompareTag("Player"))
 		{
-			indicator.SetActive(true);
+			UIManager.Instance.OpenMenu(UIManager.Instance.indicatorScreen, CursorLockMode.Locked, 1f, false);
 			playerInReach = true;
 		}
 	}
@@ -49,7 +51,7 @@ public class ElenoirRing : MonoBehaviour
 	{
 		if (other.CompareTag("Player"))
 		{
-			indicator.SetActive(false);
+			UIManager.Instance.CloseMenu(UIManager.Instance.indicatorScreen, CursorLockMode.Locked, 1f);
 			playerInReach = false;
 		}
 	}
@@ -64,8 +66,10 @@ public class ElenoirRing : MonoBehaviour
 		if (playerInReach && Keyboard.current.eKey.wasPressedThisFrame)
 		{
 			sphereCollider.enabled = false;
-			indicator.SetActive(false);
+			itemBlinkLight.SetActive(false);
 			playerInReach = false;
+			controlPanel.enabled = true;
+			UIManager.Instance.CloseMenu(UIManager.Instance.indicatorScreen, CursorLockMode.Locked, 1f);
 			AudioManager.Instance.StartCoroutine(AudioManager.Instance.StartDialogue(AudioManager.Instance.ringSubtitleData, cam));
 			GameManager.Instance.ActivateItem(1);
 			doorAnim.Play("CloseDoors");

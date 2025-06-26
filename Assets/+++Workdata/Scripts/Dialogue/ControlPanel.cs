@@ -10,9 +10,9 @@ public class ControlPanel : MonoBehaviour
 	
 	[SerializeField] private GameObject winZone;
 	
-	[SerializeField] private GameObject indicator;
-	
 	[SerializeField] private CinemachineVirtualCamera vCam;
+	
+	[SerializeField] private GameObject itemBlinkLight;
 	
 	private Animator anim;
 	
@@ -35,7 +35,7 @@ public class ControlPanel : MonoBehaviour
 	{
 		if (other.CompareTag("Player"))
 		{
-			indicator.SetActive(true);
+			UIManager.Instance.OpenMenu(UIManager.Instance.indicatorScreen, CursorLockMode.Locked, 1f, false);
 			playerInReach = true;
 		}
 	}
@@ -48,7 +48,7 @@ public class ControlPanel : MonoBehaviour
 	{
 		if (other.CompareTag("Player"))
 		{
-			indicator.SetActive(false);
+			UIManager.Instance.CloseMenu(UIManager.Instance.indicatorScreen, CursorLockMode.Locked, 1f);
 			playerInReach = false;
 		}
 	}
@@ -64,6 +64,8 @@ public class ControlPanel : MonoBehaviour
 		{
 			sphereCollider.enabled = false;
 			playerInReach = false;
+			itemBlinkLight.SetActive(false);
+			UIManager.Instance.CloseMenu(UIManager.Instance.indicatorScreen, CursorLockMode.Locked, 1f);
 			StartCoroutine(AudioManager.Instance.StartDialogue(AudioManager.Instance.activatingControlPanel, vCam));
 			anim.Play("ControlPanelLever");
 			doorAnim.Play("DoorOpens");

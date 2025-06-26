@@ -4,8 +4,8 @@ using UnityEngine.InputSystem;
 
 public class Audiolog : MonoBehaviour
 {
-	[SerializeField] private GameObject indicator;
-
+	[SerializeField] private GameObject itemBlinkLight;
+	
 	private Vector3 rotatePosition;
 	
 	public bool playerInReach = false;
@@ -27,7 +27,7 @@ public class Audiolog : MonoBehaviour
 	{
 		if (other.CompareTag("Player"))
 		{
-			indicator.SetActive(true);
+			UIManager.Instance.OpenMenu(UIManager.Instance.indicatorScreen, CursorLockMode.Locked, 1f, false);
 			playerInReach = true;
 		}
 	}
@@ -40,7 +40,7 @@ public class Audiolog : MonoBehaviour
 	{
 		if (other.CompareTag("Player"))
 		{
-			indicator.SetActive(false);
+			UIManager.Instance.CloseMenu(UIManager.Instance.indicatorScreen, CursorLockMode.Locked, 1f);
 			playerInReach = false;
 		}
 	}
@@ -54,7 +54,9 @@ public class Audiolog : MonoBehaviour
 
 		if (playerInReach && Keyboard.current.eKey.wasPressedThisFrame)
 		{
+			itemBlinkLight.SetActive(false);
 			sphereCollider.enabled = false;
+			UIManager.Instance.CloseMenu(UIManager.Instance.indicatorScreen, CursorLockMode.Locked, 1f);
 			playerInReach = false;
 			UIManager.Instance.OpenMenu(UIManager.Instance.journalScreen, CursorLockMode.None, 0f, true);
 			GameManager.Instance.ActivateJournal(journalId);

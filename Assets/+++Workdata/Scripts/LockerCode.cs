@@ -3,28 +3,28 @@ using UnityEngine.InputSystem;
 
 public class LockerCode : MonoBehaviour
 {
-	[SerializeField] private GameObject indicator;
-
-	private Vector3 rotatePosition;
-	
-	private bool playerInReach = false;
+	[SerializeField] private GameObject itemBlinkLight;
 
 	[SerializeField] private GameObject controlRoomKey;
 	
+	private Vector3 rotatePosition;
+	
+	private bool playerInReach = false;
+	
 	private Animator anim;
-	private SphereCollider triggerZone;
+	private SphereCollider sphereCollider;
 
 	private void Awake()
 	{
 		anim = GetComponent<Animator>();
-		triggerZone = GetComponent<SphereCollider>();
+		sphereCollider = GetComponent<SphereCollider>();
 	}
 
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.CompareTag("Player"))
 		{
-			indicator.SetActive(true);
+			UIManager.Instance.OpenMenu(UIManager.Instance.indicatorScreen, CursorLockMode.Locked, 1f, false);
 			playerInReach = true;
 		}
 	}
@@ -33,7 +33,7 @@ public class LockerCode : MonoBehaviour
 	{
 		if (other.CompareTag("Player"))
 		{
-			indicator.SetActive(false);
+			UIManager.Instance.CloseMenu(UIManager.Instance.indicatorScreen, CursorLockMode.Locked, 1f);
 			playerInReach = false;
 		}
 	}
@@ -45,8 +45,12 @@ public class LockerCode : MonoBehaviour
 		if (playerInReach && Keyboard.current.eKey.wasPressedThisFrame)
 		{
 			anim.Play("LockerOpen");
+			sphereCollider.enabled = false;
+			playerInReach = false;
+			itemBlinkLight.SetActive(false);
+			UIManager.Instance.CloseMenu(UIManager.Instance.indicatorScreen, CursorLockMode.Locked, 1f);
 			controlRoomKey.SetActive(true);
-			triggerZone.enabled = false;
+			sphereCollider.enabled = false;
 		}
 	}
 }

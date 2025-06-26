@@ -26,7 +26,6 @@ public class UIManager : MonoBehaviour
 	[Header("Canvas Groups")]
 	public CanvasGroup loadingScreen;
 	public CanvasGroup mainMenuScreen;
-	public CanvasGroup gameOverScreen;
 	public CanvasGroup optionsScreen;
 	public CanvasGroup inGameUi;
 	public CanvasGroup dialogueUi;
@@ -34,7 +33,9 @@ public class UIManager : MonoBehaviour
 	public CanvasGroup pauseScreen;
 	public CanvasGroup journalScreen;
 	public CanvasGroup itemScreen;
+	public CanvasGroup indicatorScreen;
 	public CanvasGroup demoEndScreen;
+	public CanvasGroup gameOverScreen;
     #endregion
 	
     #region Texts
@@ -74,6 +75,12 @@ public class UIManager : MonoBehaviour
 	[SerializeField] private Slider masterSlider;
 	[SerializeField] private Slider musicSlider;
 	[SerializeField] private Slider sfxSlider;
+	
+	#endregion
+	
+	#region Camera
+
+	public bool stopCam;
 	
 	#endregion
 	
@@ -120,22 +127,26 @@ public class UIManager : MonoBehaviour
 		{
 			OpenMenu(pauseScreen, CursorLockMode.None, 0f, true);
 			AudioManager.Instance.ChangeAllSfxSources(true);
+			stopCam = true;
 		}
 		else if(Keyboard.current.escapeKey.wasPressedThisFrame && pauseScreen.alpha >= 1)
 		{
 			CloseMenu(pauseScreen, CursorLockMode.Locked, 1f);
 			CloseMenu(optionsScreen, CursorLockMode.Locked, 1f);
 			AudioManager.Instance.ChangeAllSfxSources(false);
+			stopCam = false;
 		}
 
 		if (Keyboard.current.tabKey.wasPressedThisFrame && journalScreen.alpha < 1 && itemScreen.alpha < 1 && pauseScreen.alpha < 1)
 		{
 			OpenMenu(journalScreen, CursorLockMode.None, 0f, true);
+			stopCam = true;
 		}
 		else if (Keyboard.current.tabKey.wasPressedThisFrame)
 		{
 			CloseMenu(journalScreen, CursorLockMode.Locked, 1f);
 			CloseMenu(itemScreen, CursorLockMode.Locked, 1f);
+			stopCam = false;
 		}
 	}
 
