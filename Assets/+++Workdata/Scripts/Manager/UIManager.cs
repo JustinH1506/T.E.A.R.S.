@@ -1,7 +1,5 @@
-using System;
 using System.Collections;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.InputSystem;
@@ -79,6 +77,7 @@ public class UIManager : MonoBehaviour
 	[SerializeField] private Slider masterSlider;
 	[SerializeField] private Slider musicSlider;
 	[SerializeField] private Slider sfxSlider;
+	public Slider sensitivitySlider;
 	
 	#endregion
 

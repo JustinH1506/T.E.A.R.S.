@@ -9,6 +9,14 @@ public class GameData
     public Quaternion cameraRotation;
     public bool[] activeJournals;
     public bool[] activeItems;
+    public bool defeated2ndWave;
+    public bool hasControlRoomKey;
+    public bool hasControlPanelKey;
+    public bool openedEntranceDoor;
+    public bool inactiveCharactersActive;
+    public bool activeControlPanel;
+    
+    public int enemiesDefeated;
 
     public int playerHp;
     
@@ -21,6 +29,10 @@ public class GameData
         enemyPositionByGuid = new SerializableDictionary<string, EnemyStateMachine.Data>();
         activeJournals = new bool[4];
         activeItems = new bool[4];
+        hasControlRoomKey = false;
+        hasControlPanelKey = false;
+        openedEntranceDoor = false;
+        defeated2ndWave = false;
     }
     
     public EnemyStateMachine.Data GetEnemyPosition(string guid)

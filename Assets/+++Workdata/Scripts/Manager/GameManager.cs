@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public bool hasControlRoomKey = false;
     public bool defeated2ndWave = false;
     public bool hasControlPanelKey = false;
+    public bool inactiveCharactersActive = false;
+    public bool isClosed = false;
     
     /// <summary>
     /// This is for editor only and makes building impossible without the preprocessor.
@@ -137,6 +139,33 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public void LoadData(GameData gameData)
     {
         journalStates = gameData.activeJournals;
+
+        for (int i = 0; i < journalStates.Length; i++)
+        {
+            if (journalStates[i])
+            {
+                ActivateJournal(i);
+            }
+        }
+        
+        itemStates = gameData.activeItems;
+
+        for (int i = 0; i < itemStates.Length; i++)
+        {
+            if (itemStates[i])
+            {
+                ActivateItem(i);
+            }
+        }
+        
+        UIManager.Instance.CloseMenu(UIManager.Instance.journalScreen, CursorLockMode.Locked, 1f);
+        
+        hasControlRoomKey = gameData.hasControlRoomKey;
+        defeated2ndWave = gameData.defeated2ndWave;
+        hasControlPanelKey = gameData.hasControlPanelKey;
+        killedEnemies = gameData.enemiesDefeated;
+        inactiveCharactersActive = gameData.inactiveCharactersActive;
+        isClosed = gameData.openedEntranceDoor;
     }
 
     /// <summary>
@@ -146,5 +175,12 @@ public class GameManager : MonoBehaviour, IDataPersistence
     public void SaveData(GameData gameData)
     {
         gameData.activeJournals = journalStates;
+        gameData.activeItems = itemStates;
+        gameData.hasControlPanelKey = hasControlPanelKey;
+        gameData.defeated2ndWave = defeated2ndWave;
+        gameData.hasControlRoomKey = hasControlRoomKey;
+        gameData.enemiesDefeated = killedEnemies; 
+        gameData.inactiveCharactersActive = inactiveCharactersActive;
+        gameData.openedEntranceDoor = isClosed;
     }
 }

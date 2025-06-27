@@ -47,8 +47,6 @@ public class FileDataHandler
 				Debug.LogError("Error occured when trying to load data to file: " + fullPath + "\n" + e);
 			}
 		}
-		
-		Debug.Log("Reached here.");
 		return loadedData;
 	}
 

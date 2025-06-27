@@ -95,6 +95,7 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
     public float Stamina {get => currentStamina;
 	    set => SetCurrentStamina(value);
     }
+
     public float RunCost => runCost;
     public bool IsSprinting => isSprinting;
     public bool IsMoving => isMoving;
@@ -233,6 +234,7 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
     {
 	    inputX = context.ReadValue<Vector3>().x;
 	    inputZ = context.ReadValue<Vector3>().z;
+	    
 	    if (inputX != 0 || inputZ != 0)
 	    {
 		    isMoving = true;
@@ -441,7 +443,7 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
 	    
 	    if (currentStamina < 50f)
 	    {
-			Stamina += Time.deltaTime * staminaRecovery * 1.5f;
+		    Stamina += Time.deltaTime * staminaRecovery * 1.5f;
 	    }
     }
 
@@ -596,8 +598,8 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
     /// <param name="gameData"></param>
     public void LoadData(GameData gameData)
     {
-	    transform.position = gameData.playerPosition;
 	    CurrentHealth = gameData.playerHp;
+	    transform.position = gameData.playerPosition;
 	    
 	    cinemachineFreeLook.ForceCameraPosition(gameData.cameraPosition, gameData.cameraRotation);
     }
@@ -609,7 +611,6 @@ public class PlayerStateMachine : CharacterBase, IDataPersistence
     public void SaveData(GameData gameData)
     {
 	    gameData.playerPosition = transform.position;
-	    Debug.Log(gameData.playerPosition);
 	    gameData.playerHp = CurrentHealth;
 	    
 	    gameData.cameraPosition = cinemachineFreeLook.transform.position;

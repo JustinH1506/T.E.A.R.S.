@@ -16,6 +16,8 @@ public class ControlPanel : MonoBehaviour
 	private Animator anim;
 	
 	private SphereCollider sphereCollider;
+	
+	[SerializeField] private AudioSource audioSource;
 
 	/// <summary>
 	/// Get the animator. 
@@ -70,6 +72,8 @@ public class ControlPanel : MonoBehaviour
 			
 			anim.Play("ControlPanelLever");
 			doorAnim.Play("DoorOpens");
+			
+			audioSource.Stop();
 			
 			UIManager.Instance.CloseMenu(UIManager.Instance.indicatorScreen, CursorLockMode.Locked, 1f);
 			

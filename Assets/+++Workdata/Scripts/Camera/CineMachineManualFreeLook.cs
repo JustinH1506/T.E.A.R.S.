@@ -1,3 +1,4 @@
+using System;
 using Cinemachine;
 using UnityEngine;
 
@@ -8,28 +9,31 @@ public class CineMachineManualFreeLook : MonoBehaviour
     public float horizontalAimingSpeed = 20f;
     public float verticalAimingSpeed = 20f;
 
-    public bool isTargeting = true;
-
-    [Tooltip("This depends on your Free Look rigs setup, use to correct Y sensitivity,"
-             + " about 1.5 - 2 results in good Y-X square responsiveness")]
+    public bool isTargeting = false;
+    
     public float yCorrection = 2f;
 
     private float xAxisValue;
     private float yAxisValue;
 
     /// <summary>
-    /// Gets the free look camera.
+    /// Gets the free look camera and sets the speed of the camera.
     /// </summary>
     private void Awake()
     {
         freeLook = GetComponent<CinemachineFreeLook>();
+        horizontalAimingSpeed = UIManager.Instance.sensitivitySlider.value;
+        verticalAimingSpeed = UIManager.Instance.sensitivitySlider.value;
     }
 
     /// <summary>
-    /// Overwrites how camera works to prevent when moving the mouse fast.  
+    /// Overwrites how camera works to prevent issue when moving the mouse too fast.  
     /// </summary>
     private void Update()
     {
+        horizontalAimingSpeed = UIManager.Instance.sensitivitySlider.value;
+        verticalAimingSpeed = UIManager.Instance.sensitivitySlider.value;
+        
         if (isTargeting || UIManager.Instance.stopCam)
             return;
         

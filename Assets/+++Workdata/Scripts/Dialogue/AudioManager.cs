@@ -3,7 +3,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Audio;
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : MonoBehaviour, IDataPersistence
 {
     public static AudioManager Instance;
     
@@ -43,7 +43,12 @@ public class AudioManager : MonoBehaviour
     public AudioClip[] enemyStepSounds;
     public AudioClip[] swordAttackSounds;
     public AudioClip enemyHitSound;
+    public AudioClip enemyFallSound;
     public AudioClip playerHitSound;
+
+    public AudioClip entranceDoor;
+    public AudioClip coreSound;
+    public AudioClip officeDoor;
     
     [Header("Audio Mixer Groups")]
     public AudioMixerGroup musicMixerGroup;
@@ -232,5 +237,15 @@ public class AudioManager : MonoBehaviour
                 allAudioSources[i].UnPause();
             }
         }
+    }
+
+    public void SaveData(GameData gameData)
+    {
+        gameData.activeControlPanel = makeControlPanelActive;
+    }
+
+    public void LoadData(GameData gameData)
+    {
+        makeControlPanelActive = gameData.activeControlPanel;
     }
 }

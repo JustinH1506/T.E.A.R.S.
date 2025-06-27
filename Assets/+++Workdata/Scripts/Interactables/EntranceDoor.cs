@@ -1,7 +1,8 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class EntranceDoor : MonoBehaviour
+public class EntranceDoor : MonoBehaviour, IDataPersistence
 {
     public bool playerInReach = false;
  	
@@ -10,7 +11,11 @@ public class EntranceDoor : MonoBehaviour
  	private Animator anim;
     
     private SphereCollider sphereCollider;
- 
+    
+    private AudioSource audioSource;
+
+    [SerializeField] private GameObject inactiveGameobjects;
+    
  	/// <summary>
  	/// Get the animator and sphere collider. 
  	/// </summary>
@@ -18,9 +23,10 @@ public class EntranceDoor : MonoBehaviour
  	{
  		anim = GetComponent<Animator>();
 	    sphereCollider = GetComponent<SphereCollider>();
+	    audioSource = GetComponent<AudioSource>();
  	}
- 
- 	/// <summary>
+
+    /// <summary>
  	/// Activates indicator and makes the Player seem in reach. 
  	/// </summary>
  	/// <param name="other"></param>
@@ -60,9 +66,28 @@ public class EntranceDoor : MonoBehaviour
 		    itemBlinkLight.SetActive(false);
  			anim.Play("DoorOpens");
 		    
+		    AudioManager.Instance.PlaySound(AudioManager.Instance.entranceDoor, audioSource);
+		    
 		    StartCoroutine(AudioManager.Instance.StartDialogue(AudioManager.Instance.mainCharacterStartDialogue));
 		    
 		    UIManager.Instance.CloseMenu(UIManager.Instance.indicatorScreen, CursorLockMode.Locked, 1f);
  		}
  	}
+
+    public void SaveData(GameData gameData)
+    {
+	    
+    }
+
+    public void LoadData(GameData gameData)
+    {
+	    if (gameData.openedEntranceDoor)
+	    {
+		    playerInReach = false;
+		    sphereCollider.enabled = false;
+		    sphereCollider.enabled = false;
+		    itemBlinkLight.SetActive(false);
+		    inactiveGameobjects.SetActive(true);
+	    }
+    }
 }

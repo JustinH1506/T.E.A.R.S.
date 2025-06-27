@@ -44,7 +44,7 @@ public class EnemyStateMachine : CharacterBase, IDataPersistence
 	
 	[SerializeField] private LayerMask layerCovers = 0;
 	
-	private AudioSource soundSource;
+	public AudioSource soundSource;
 
 	public Rigidbody[] rbs;
 	

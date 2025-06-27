@@ -15,6 +15,7 @@ public class EnemyDeathState : EnemyBaseState
 	public override void EnterState()
 	{
 		ctx.NavMeshAgent.isStopped = true;
+		AudioManager.Instance.PlaySound(AudioManager.Instance.enemyFallSound, ctx.soundSource);
 		ctx.Anim.CrossFade(EnemyAnimationFactory.Death, 0.01f);
 	}
 
