@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.InputSystem;
@@ -25,7 +27,6 @@ public class UIManager : MonoBehaviour
 	
 	#region CanvasGroups
 	[Header("Canvas Groups")]
-	public CanvasGroup loadingScreen;
 	public CanvasGroup mainMenuScreen;
 	public CanvasGroup optionsScreen;
 	public CanvasGroup inGameUi;
@@ -37,6 +38,8 @@ public class UIManager : MonoBehaviour
 	public CanvasGroup indicatorScreen;
 	public CanvasGroup demoEndScreen;
 	public CanvasGroup gameOverScreen;
+	public CanvasGroup startCutsceneScreen;
+	public CanvasGroup loadingScreen;
     #endregion
 	
     #region Texts
@@ -82,6 +85,7 @@ public class UIManager : MonoBehaviour
 	#region Cutscene
 
 	public PlayableDirector startCutscene;
+	private float skipTimer;
 
 	#endregion
 	
@@ -127,9 +131,29 @@ public class UIManager : MonoBehaviour
 	/// </summary>
 	private void Update()
 	{
+		
+		if (Keyboard.current.eKey.isPressed)
+		{
+			skipTimer += Time.deltaTime/1.5f;
+			
+			if (skipTimer > 1)
+			{
+				startCutscene.Stop();
+			}
+		}
+		else
+		{
+			skipTimer = 0f;
+		}
+		
+		if (Keyboard.current.escapeKey.wasPressedThisFrame && startCutscene.state == PlayState.Playing)
+		{
+			
+		}
+		
 		if (GameManager.Instance.gameStates == GameManager.GameStates.MainMenu)
 			return;
-
+		
 		if (Keyboard.current.escapeKey.wasPressedThisFrame && pauseScreen.alpha < 1 && journalScreen.alpha < 1)
 		{
 			OpenMenu(pauseScreen, CursorLockMode.None, 0f, true);
@@ -157,18 +181,37 @@ public class UIManager : MonoBehaviour
 		}
 	}
 
+	private void OnEnable()
+	{
+		startCutscene.stopped += StartGame;
+	}
+
+	private void OnDisable()
+	{
+		startCutscene.stopped -= StartGame;
+	}
+	
+	private void StartGame(PlayableDirector director)
+	{
+		CloseMenu(startCutsceneScreen, CursorLockMode.Locked, 1f);
+		
+		StartNewGame();
+	}
+	
+	public void CutsceneStart()
+	{
+		OpenMenu(startCutsceneScreen, CursorLockMode.Locked, 1f, true);
+		
+		startCutscene.Play();
+		
+		AudioManager.Instance.musicSource.Stop();
+	}
+
 	/// <summary>
 	/// Starts a new game. 
 	/// </summary>
 	public void StartNewGame()
 	{
-		startCutscene.Play();
-
-		while (startCutscene.state == PlayState.Playing)
-		{
-			
-		}
-		
 		SceneLoader.Instance.sceneStates = SceneLoader.SceneStates.Level01;
 		StartCoroutine(SceneLoader.Instance.LoadScene((int)SceneLoader.Instance.sceneStates, 1, false, GameManager.GameStates.InGame, true));
 		CloseMenu(mainMenuScreen, CursorLockMode.Locked, 1);
