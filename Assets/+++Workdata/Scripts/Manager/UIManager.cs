@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.InputSystem;
+using UnityEngine.Playables;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -76,6 +77,12 @@ public class UIManager : MonoBehaviour
 	[SerializeField] private Slider musicSlider;
 	[SerializeField] private Slider sfxSlider;
 	
+	#endregion
+
+	#region Cutscene
+
+	public PlayableDirector startCutscene;
+
 	#endregion
 	
 	#region Camera
@@ -155,6 +162,13 @@ public class UIManager : MonoBehaviour
 	/// </summary>
 	public void StartNewGame()
 	{
+		startCutscene.Play();
+
+		while (startCutscene.state == PlayState.Playing)
+		{
+			
+		}
+		
 		SceneLoader.Instance.sceneStates = SceneLoader.SceneStates.Level01;
 		StartCoroutine(SceneLoader.Instance.LoadScene((int)SceneLoader.Instance.sceneStates, 1, false, GameManager.GameStates.InGame, true));
 		CloseMenu(mainMenuScreen, CursorLockMode.Locked, 1);
