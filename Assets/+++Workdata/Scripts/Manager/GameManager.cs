@@ -97,6 +97,7 @@ public class GameManager : MonoBehaviour, IDataPersistence
     {
         if (killedEnemies == 2)
         {
+            UIManager.Instance.StopAllCoroutines();
             StartCoroutine(UIManager.Instance.StartText("You got an office key!"));
             ActivateItem(0);
             hasControlRoomKey = true;
@@ -105,6 +106,8 @@ public class GameManager : MonoBehaviour, IDataPersistence
         {
             defeated2ndWave = true;
             ActivateItem(2);
+            AudioManager.Instance.controlPanelActive = true;
+            AudioManager.Instance.StopAllCoroutines();
             StartCoroutine(AudioManager.Instance.StartDialogue(AudioManager.Instance.afterDefeatingSecondWave));
         }
     }

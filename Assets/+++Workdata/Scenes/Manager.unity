@@ -14330,7 +14330,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 53cab4de663cf9b4ba9f9523465431ee, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -15416,6 +15416,8 @@ MonoBehaviour:
   hasControlRoomKey: 0
   defeated2ndWave: 0
   hasControlPanelKey: 0
+  inactiveCharactersActive: 0
+  isClosed: 0
   debugAsset: {fileID: 11400000, guid: f5af5659d231e2e449f1fe1e009146e3, type: 2}
 --- !u!4 &1894520269
 Transform:

@@ -4,6 +4,9 @@ public class PlayerAttackThirdState : PlayerBaseState
 {
 	public PlayerAttackThirdState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) :base(currentContext, playerStateFactory){}
 	
+	/// <summary>
+	/// Enters the state and starts attack animation. 
+	/// </summary>
 	public override void EnterState()
 	{
 		ctx.CanTurn = false;
@@ -12,6 +15,9 @@ public class PlayerAttackThirdState : PlayerBaseState
 		AudioManager.Instance.PlaySound(AudioManager.Instance.swordAttackSounds[Random.Range(0,2)], ctx.soundSource);
 	}
 
+	/// <summary>
+	/// Handles the rotation and calls CheckswitchState
+	/// </summary>
 	public override void UpdateState()
 	{
 		ctx.HandleRotation(ctx.HandleCameraRelative(), 500f);
@@ -24,12 +30,18 @@ public class PlayerAttackThirdState : PlayerBaseState
 		
 	}
 
+	/// <summary>
+	/// Exits the state and resets values. 
+	/// </summary>
 	public override void ExitState()
 	{
 		ctx.CanTurn = true;
 		ctx.AttackAmount = 0;
 	}
 
+	/// <summary>
+	/// Switches to new state when conditions are met.
+	/// </summary>
 	public override void CheckSwitchStates()
 	{
 		if (ctx.IsDodging && ctx.isCancelingDodge)

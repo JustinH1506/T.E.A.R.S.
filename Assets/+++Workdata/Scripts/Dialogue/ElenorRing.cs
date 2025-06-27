@@ -94,6 +94,8 @@ public class ElenorRing : MonoBehaviour, IDataPersistence
 			
 			itemBlinkLight.SetActive(false);
 			controlPanel.itemBlinkLight.SetActive(true);
+			
+			AudioManager.Instance.controlPanelActive = false;
 		}
 	}
 

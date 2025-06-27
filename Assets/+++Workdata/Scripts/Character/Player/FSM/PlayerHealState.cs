@@ -10,6 +10,9 @@ public class PlayerHealState : PlayerBaseState
 		
 	}
 
+	/// <summary>
+	/// Checks to switch the state.
+	/// </summary>
 	public override void UpdateState()
 	{
 		CheckSwitchStates();

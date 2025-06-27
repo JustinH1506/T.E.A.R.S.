@@ -15,12 +15,19 @@ public class LockedLocker : MonoBehaviour
 	
 	private SphereCollider sphereCollider;
 
+	/// <summary>
+	/// Get the animator, sphereCollider. 
+	/// </summary>
 	private void Awake()
 	{
 		anim = GetComponent<Animator>();
 		sphereCollider = GetComponent<SphereCollider>();
 	}
 
+	/// <summary>
+	/// Activates indicator and makes the Player seem in reach. 
+	/// </summary>
+	/// <param name="other"></param>
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.CompareTag("Player"))
@@ -30,6 +37,10 @@ public class LockedLocker : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Activates indicator and makes the Player seem in reach. 
+	/// </summary>
+	/// <param name="other"></param>
 	private void OnTriggerExit(Collider other)
 	{
 		if (other.CompareTag("Player"))
@@ -39,9 +50,11 @@ public class LockedLocker : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Opens the lock when having defeated the 2nd wave or Starts the dialogue that a code is needed. 
+	/// </summary>
 	private void Update()
 	{
-		
 		if (playerInReach && Keyboard.current.eKey.wasPressedThisFrame && GameManager.Instance.defeated2ndWave)
 		{
 			playerInReach = false;

@@ -239,11 +239,19 @@ public class AudioManager : MonoBehaviour, IDataPersistence
         }
     }
 
+    /// <summary>
+    /// Saves the makeControlPanelActive bool. 
+    /// </summary>
+    /// <param name="gameData"></param>
     public void SaveData(GameData gameData)
     {
         gameData.activeControlPanel = makeControlPanelActive;
     }
 
+    /// <summary>
+    /// Loads the makeControlPanelActive bool. 
+    /// </summary>
+    /// <param name="gameData"></param>
     public void LoadData(GameData gameData)
     {
         makeControlPanelActive = gameData.activeControlPanel;

@@ -9,6 +9,10 @@ public class PlayerWalkState : PlayerBaseState
 	#endregion
 	
 	#region My Methods
+	
+	/// <summary>
+	/// Enters the state and changes animation depending on if the camera is locked. 
+	/// </summary>
 	public override void EnterState()
 	{
 		if (ctx.targetLock.isTargeting)
@@ -26,6 +30,9 @@ public class PlayerWalkState : PlayerBaseState
 		
 	}
 	
+	/// <summary>
+	/// Gets stamina, Handles movement and Checks switch states. 
+	/// </summary>
 	public override void FixedUpdateState()
 	{
 		ctx.GetCurrentStamina();
@@ -33,11 +40,17 @@ public class PlayerWalkState : PlayerBaseState
 		CheckSwitchStates();
 	}
 
+	/// <summary>
+	/// Stops the animation. 
+	/// </summary>
 	public override void ExitState()
 	{
 		ctx.Anim.StopPlayback();
 	}
 
+	/// <summary>
+	/// Looks for new state when conditions are met.
+	/// </summary>
 	public override void CheckSwitchStates()
 	{
 		if (ctx.IsAttacking)

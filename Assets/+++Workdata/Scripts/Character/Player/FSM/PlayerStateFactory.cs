@@ -10,6 +10,11 @@ public class PlayerStateFactory
     
     #region My Methods
     
+    /// <summary>
+    /// Returns every State depeneding on which is needed. 
+    /// </summary>
+    /// <param name="currentContext"></param>
+    
     public PlayerStateFactory(PlayerStateMachine currentContext)
     {
         context = currentContext;

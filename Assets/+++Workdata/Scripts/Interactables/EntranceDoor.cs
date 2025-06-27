@@ -79,6 +79,10 @@ public class EntranceDoor : MonoBehaviour, IDataPersistence
 	    
     }
 
+    /// <summary>
+    /// Loads the data to make the entrance door like it should be after having taken elenors ring. 
+    /// </summary>
+    /// <param name="gameData"></param>
     public void LoadData(GameData gameData)
     {
 	    if (gameData.openedEntranceDoor)

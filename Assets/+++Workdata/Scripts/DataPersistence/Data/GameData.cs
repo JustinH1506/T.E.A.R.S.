@@ -22,6 +22,9 @@ public class GameData
     
     public SerializableDictionary<string, EnemyStateMachine.Data> enemyPositionByGuid = new SerializableDictionary<string, EnemyStateMachine.Data>();
     
+    /// <summary>
+    /// Creates a default version of how the GameData should be. 
+    /// </summary>
     public GameData()
     {
         playerPosition = Vector3.zero;
@@ -35,6 +38,11 @@ public class GameData
         defeated2ndWave = false;
     }
     
+    /// <summary>
+    /// Saves the data of the enemies depending on each unique guid. 
+    /// </summary>
+    /// <param name="guid"></param>
+    /// <returns></returns>
     public EnemyStateMachine.Data GetEnemyPosition(string guid)
     {
         if (enemyPositionByGuid.TryGetValue(guid, out var data))

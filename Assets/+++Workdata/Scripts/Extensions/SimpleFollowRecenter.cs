@@ -6,6 +6,14 @@ public class SimpleFollowRecenter : CinemachineExtension
 {
     public bool Recenter;
     public float RecenterTime = 0.5f;
+    
+    /// <summary>
+    /// Recenters the camera meaning tries to bring the camera into the middle. 
+    /// </summary>
+    /// <param name="vcam"></param>
+    /// <param name="stage"></param>
+    /// <param name="state"></param>
+    /// <param name="deltaTime"></param>
     protected override void PostPipelineStageCallback(
         CinemachineVirtualCameraBase vcam,
         CinemachineCore.Stage stage, ref CameraState state, float deltaTime)

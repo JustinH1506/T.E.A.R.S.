@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -16,7 +15,7 @@ public class LockedDoor : MonoBehaviour
     private AudioSource audioSource;
 
     /// <summary>
-    /// Get the animator. 
+    /// Get the animator, sphereCollider and audioSource. 
     /// </summary>
     private void Awake()
     {

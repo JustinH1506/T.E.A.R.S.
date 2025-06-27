@@ -8,6 +8,10 @@ public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, IS
 	
 	[SerializeField] private List<TValue> values = new List<TValue>();
 	
+	/// <summary>
+	/// This script makes it so we have a serializable dictionary so we can save the data in it. 
+	/// </summary>
+	
 	public void OnBeforeSerialize()
 	{
 		keys.Clear();
